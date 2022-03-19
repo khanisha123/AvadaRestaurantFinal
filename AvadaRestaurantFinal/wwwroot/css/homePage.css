@@ -1,0 +1,1292 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+*,*:after,*:before{
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+/* Header Start */
+.header_left a img{
+    margin-top: 22px;
+    width: 230px;
+    height: 50px;
+}
+
+.header{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 110;
+    padding: 15px 30px;
+}
+.container{
+    max-width: 1100px;
+    width: 100%;
+    margin-left: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.main_nav ul ul{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    white-space: nowrap;
+    transition: all 0.3s ease-out;
+    opacity: 0;
+    pointer-events: none;
+}
+.main_nav ul ul li{
+    float: none;
+    margin: 0;
+    /* border-bottom:1px solid #4a4e57; */
+}
+
+.main_nav ul ul li a{
+    background:  #333333;
+     color: white;
+     padding: 13px 13px; 
+     font-size: 11px;
+      
+}
+.main_nav ul ul li a:hover{
+  
+    background-color: #bda16b;
+}
+.first-a{
+    border-radius: 5px 5px 0px 0px;
+}
+.last-a{
+    border-radius: 0px 0px 5px 5px;
+}
+.main_nav ul{
+
+    list-style: none;
+    
+    
+}
+.main_nav ul li{
+
+    float: left;
+    margin:  0 0 0 20px;
+    position: relative;
+    font-size: 13px;
+    letter-spacing: 1px;
+    font-weight: 300;
+    position: relative;
+    margin-top: 15px;
+
+}
+.main_nav ul li a{
+    text-decoration: none;
+    color: #A1A1A1;
+    padding:  5px 15px;
+    display: block;
+    line-height: 1.4;
+    transition: all 0.3s ease-out;
+    
+
+}
+.main_nav ul li:hover ul{
+    opacity: 1;
+    pointer-events: auto;
+}
+.main_nav ul li i{
+    position: absolute;
+    right: -7px;
+    top: 9px;
+    color: #A1A1A1;
+    transition: all 0.3s ease-out;
+
+}
+/* .Takeout-New{
+    padding: 5px;
+} */
+.Takeout-New span{
+    padding: 0.35em 0.55em;
+    line-height: 0.8;
+    margin-left: 0.75em;
+    font-size: .5em;
+    border: 0.1em solid #212934 ;
+    position: absolute;
+    right: -19px;
+    top: 9px;
+    
+}
+.Takeout-i{
+    position: absolute;
+    right: -37px !important;
+    top: 9px;
+    color: #212934;
+    transition: all 0.3s ease-out;
+}
+.main_nav ul li:hover>a,
+.main_nav ul li:hover>i{
+    color: white;
+}
+
+/* Responsive Css */
+ @media only screen and (min-width :838px) and (max-width:991px){
+    .main_nav ul li a{
+        padding: 5px 10px;
+    }
+    .main_nav ul li{
+        font-size: 16px;
+        margin: 0;
+    }
+
+}
+@media screen  and (min-width :838px){
+
+    .nav_icon,
+    #navTrigger{
+        display: none;
+    }
+    
+} 
+ @media screen  and (max-width :837px){
+    .main_nav{
+        position: fixed;
+        left: 0;
+        top: 87px;
+        padding: 0;
+        background: #4a4e57;
+        z-index: 100;
+        height: calc(100% - 250px);
+        overflow: auto;
+        width: calc(100% - 0px);
+        transition: all 0.3s ease-out;
+        transform: translateX(-150%);
+    }
+    .Takeout-New span{
+        display: none;
+    }
+    .main_nav ul li i{
+        display: none;
+    }
+    .main_nav ul li{
+        float: none;
+        margin: 0 !important;
+        border-bottom: 1px solid #fff;
+    }
+    .main_nav ul li a{
+     padding: 10px;
+     color: white;
+    }
+    .main_nav > ul >li:hover >a{
+        background: #0a91da;
+        color:#fff;
+    }
+    .main_nav ul ul{
+        position: static;
+        pointer-events: auto;
+        opacity: 1;
+        height: 0;
+        overflow: hidden;
+    }
+    .main_nav ul ul li a{
+        padding-left: 30px;
+    }
+    .main_nav ul li:hover > ul{
+        height: auto;
+    }
+    .nav_icon{
+        display: block;
+        position: relative;
+        font-size: 35px;
+        color: #fff;
+        cursor: pointer;
+    }
+    #navTrigger{
+        opacity: 0;
+        position: fixed;
+        width: 0;
+        height: 0;
+        margin-top: 0;
+    }
+    #navTrigger:checked +.main_nav{
+        transform: translateX(0%);
+    }
+} 
+/* Header End */ 
+/* Section 1 Start */
+.section1-homePage{
+display: flex;
+
+}
+.bg-image-homePage{
+    background-image:url(https://avada.theme-fusion.com/restaurant/wp-content/uploads/sites/112/2020/01/slider52x.jpg);
+    width: 797px;
+    height: 1000px;
+    margin-left: 575px;
+    background-size: cover;
+    background-position: center;
+
+}
+.section1-TextSide-homePage{
+    background-color: black;
+    position: absolute;
+    width: 579px;
+    height: 1000px;
+}
+.line-and-Text-homePage{
+    display: flex;
+    align-items: center;
+    margin-top:52%;
+
+}
+
+.line-and-Text_line-homePage{
+    border-top: 1px solid;
+    width: 37px;
+    color: white;
+}
+.line-and-Text_Text-homePage{
+    color: #D6D6D6;
+    font-size: 15px;
+    margin-left: 40px;
+    font-family: 'Lora', serif;
+
+}
+.section1-Find-Dining-Experience-homePage{
+    margin-top: 25px;
+}
+.section1-Find-Dining-Experience-homePage p{
+
+    color: #FFFF;
+    font-size: 81px;
+    margin-bottom: -5px;
+    font-family: 'Bebas Neue', cursive;
+}
+.section1-Text3-homePage p{
+    font-size: 19px;
+    color: #D6D6D6;
+    font-family: 'Lora', serif;
+    white-space:pre-line;
+
+}
+.section1-Text3-homePage{
+    margin-top: 10px;
+    margin-bottom: 35px;
+
+}
+.Buy-Avada-homePage{
+    margin-top: 70px;
+}
+.Buy-Avada-homePage span{
+    font-size: 15px;
+    color: white;
+    padding: 13px 29px;
+    transition: all 0.5s ease-out;
+    border: 1px solid white;
+    display: inline;
+   
+
+}
+.section1-ForMargin-homePage{
+ margin-left: 15%;
+}
+.Buy-Avada-homePage span:hover{
+
+    background-color: white;
+    color: black;
+}
+/* Section 1 End */
+
+
+/* Section 2 Start */
+.Section2-homePage{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.Section2-ImageSide-homePage{
+    margin-right: 115px;
+    margin-top: -80px;
+}
+.Section2-ImageSide-homePage{
+    transition:transform .4s;
+    position: relative;
+}
+.Section2-ImageSide-homePage b{
+    position: absolute;
+    top: 97%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color:white;
+    font-family: 'Lora', serif;
+
+}
+.Section2-ImageSide-homePage:hover {
+    transform: scale(1.03); 
+  }
+.Section2-TextSide-homePage{
+ margin-left: 10%;
+  }
+.Section2-TextSide-1-homePage{
+    margin-top: 100px;
+    margin-bottom: -50px;
+
+}
+.Section2-TextSide-1-homePage span{
+    white-space:pre-line;
+    color:  black;
+    font-size: 19px;
+    font-family: 'Lora', serif;
+    line-height: 1.75;
+
+}
+.Section2-TextSide-2-homePage span{
+    white-space:pre-line;
+    font-size: 70px;
+    color: black;
+    display: inline-block;
+    text-transform: uppercase;
+    font-family: 'Bebas Neue', cursive;
+    line-height: 1.2;
+
+}
+.Section2-TextSide-3-homePage{
+    margin-top: 20px;
+}
+.Section2-TextSide-3-homePage p{
+    white-space: pre-line;
+    font-size: 19px;
+    font-family: 'Lora', serif;
+    color: black;
+    line-height: 1.75;
+
+}
+
+/* Section 2 End */
+
+
+/* Section 3 Start */
+
+.Section3-ForFlex1-homePage{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-top: 10%;
+}
+
+.Section3-ProductCard-homePage{
+    text-align: center;
+    height: 400px;
+
+}
+.Section3-ProductCard-homePage h2{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 31px;
+    color: black;
+    margin-bottom: -5px;
+}
+.Section3-ProductCard-homePage img{
+    margin-bottom: 20px;
+}
+.Section3-ProductCard-homePage p{
+    font-size: 17px;
+    color: black;
+    font-family: 'Lora', serif;
+    white-space: pre-line;
+    margin-bottom: 50px;
+    margin-top: -20px;
+}
+.Section3-ProductCard-homePage span{
+    border: 1px solid #D6D6D6;
+    padding: 13px 29px;
+    transition: 0.5s ease-out;
+}
+
+.Section3-ProductCard-homePage span:hover{
+    border-color: black;
+}
+
+
+
+/* Section 3 End */
+
+
+/* Section 4 Start */
+.Section4-TextSide-homePage{
+    width: 539px;
+    height: 856px;
+    background-color: black;
+    position: absolute;
+    margin-left: 60%;
+}
+
+.Section4-ForFlex-homePage{
+    display: flex;
+    margin-top: 90px;
+}
+.Section4-LineAndText-homePage{
+ display: flex;
+ align-items: center;
+ margin-top: 37%;
+ margin-left: 97.125px;
+}
+.Section4-Vl-homePage{
+    border-top:1px solid white;
+    width: 48.41px;
+}
+.Section4-Text-homePage span{
+    font-size: 15px;
+    font-family: 'Lora', serif;
+    color: #D6D6D6;
+    margin-left: 20px;
+    
+}
+.Section4-TableTown-homePage span{
+white-space: pre-wrap;
+font-size: 70px;
+color: white;
+font-family: 'Bebas Neue', cursive;
+display: inline-block;
+/* margin-left: -35px; */
+margin-top: -90px;
+}
+.Section4-Text1-homePage span{
+    white-space: pre-wrap;
+    font-size: 19px;
+    font-family: 'Lora', serif;
+    color: #D6D6D6;
+
+}
+.Section4-Text1-homePage{
+    margin-left: 98px;
+    margin-top: -110px;
+}
+.Section4-Button-homePage{
+    padding: 13px 29px;
+    border: 1px solid white;
+    display: inline-block;
+    transition: 0.5s ease-out;
+    margin-top: 30px;
+    margin-left: 175px;
+
+}
+.Section4-Button-homePage:hover
+{
+    background-color: white;
+}
+.Section4-Button-homePage:hover span{
+    color: black;
+}
+.Section4-Button-homePage span{
+    font-size: 15px;
+    font-family: 'Lora', serif;
+    color: white;
+    transition: 0.5s ease-out;
+
+
+}
+/* Section 4 End */
+
+
+/* Section 5 Start */
+.Section5-Title-homePage i{
+    font-size: 46px;
+    font-family: 'Lora', serif;
+    color: black;
+
+}
+.Section5-TextUnderline-homePage{
+    width: 70px;
+    height: 1px;
+    
+}
+.Section5-Title-homePage{
+    text-align: center;
+}
+.Section5-ImageSide-homePage{
+ display: flex;
+}
+.Section5-TextSide-Name-homePage{
+margin-bottom: 24px;
+}
+.Section5-TextSide-Name-homePage span{
+color: white;
+font-family: 'Lora', serif;
+font-size: 18px;
+}
+.Section5-TextSide-CityName-homePage{
+    color: white;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 45px;
+    margin-bottom: 30px;
+}
+.Section5-TextSide-Stars-homePage{
+    margin-bottom: 50px;
+
+}
+.Section5-TextSide-Stars-homePage i{
+    color: white;
+    margin-right: 5px;
+
+}
+.Section5-TextSide-Line-homePage{
+    width: 75px;
+    border-top:1px solid white ;
+}
+.Section5-TextSide-Desciription-homePage{
+    margin-top: -30px;
+    margin-bottom: 44px;
+}
+.Section5-TextSide-Desciription-homePage span{
+white-space: pre-line;
+color: white;
+font-size: 22px;
+font-family: 'Lora', serif;
+
+}
+.Section5-TextSide-ButtonBorder-homePage{
+border: 1px solid white;
+display: inline;
+padding: 10px 29px;
+
+}
+.Section5-TextSide-ButtonBorder-homePage span{
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+
+}
+.Section5-TextSide-homePage{
+margin-left: 110px;
+margin-top: 110px;
+
+}
+/* Section 5 End */
+
+
+/* Section 6 Start */
+.Section6-FirstSide-homePage{
+    background-color: black;
+    width: 523.86px;
+    height: 635.19px;
+}
+.Section6-FirstSide-ForAbsolute-homePage{
+    position: absolute;
+    margin-left: 106px;
+    margin-top: 120px;
+
+}
+.Section6-FirstSide-homePage img{
+    width: 523.86px;
+    height: 635.19px;
+    position: absolute;
+    opacity: 0.3;
+}
+.Section6-FirstSide-Name-homePage span{
+    font-size: 16px;
+    color: #D6D6D6;
+    font-family: 'Lora', serif;
+}
+.Section6-FirstSide-Profeccion-homePage span{
+color: white;
+font-size: 56px;
+font-family: 'Bebas Neue', cursive;
+}
+.Section6-FirstSide-Stars-homePage i{
+    color: white;
+    margin-right: 5px;
+    font-size: 16px;
+    margin-bottom: 46px;
+  
+}
+.Section6-FirstSide-Line-homePage{
+    width: 70px;
+    border-top:1px solid white ;
+}
+.Section6-FirstSide-Desciription-homePage{
+    margin-bottom: 40px;
+}
+.Section6-FirstSide-Desciription-homePage span{
+    white-space: pre-line;
+    font-size: 19px;
+    color: white;
+    font-family: 'Lora', serif;
+}
+.Section6-FirstSide-ButtonBorder-homePage{
+    border: 1px solid white;
+    display: inline;
+    padding: 10px 29px;
+    transition: 0.5s ease-out;
+
+   
+}
+.Section6-FirstSide-ButtonBorder-homePage span{
+
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+}
+.Section6-FirstSide-ButtonBorder-homePage:hover{
+ background-color: black;
+}
+.Section6-ForFlex-homePage{
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 6%;
+    margin-right: 6%;
+    margin-top: 56px;
+}
+
+/* Section 6 End */
+
+
+
+/* Section 7 Start */
+.Section7-homePage span{
+    position: absolute;
+    margin-left: 43%;
+    margin-top: 32%;
+    color: white;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 26px;
+}
+.Section7-homePage  img{
+    position: absolute;
+    opacity: 0.5;
+}
+.Section7-homePage{
+    background-color: black;
+    width:1349px;
+    height: 482.02px;
+}
+
+
+/* Section 7 End */
+
+
+/* Section 8 Start */
+.Section8-Header-homePage{
+    text-align: center;
+    margin-top: 55px;
+}
+.Section8-Header-homePage i{
+color: black;
+font-size: 46px;
+font-family: 'Lora', serif;
+
+}
+.Section8-Line-homePage{
+    width: 70px;
+    height: 1px;
+    margin-left: 47%;
+}
+.Section8-PorductCard-homePage  img{
+    width: 337.06px;
+    height: 603.3px;
+    object-fit: cover;
+    position: absolute;
+    transition: 0.5s ease-out;
+
+}
+.Section8-ProductCard-BackSide-homePage{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+        padding-top: 75%;
+
+}
+.Section8-ProductCard-BackSide-homePage span{
+    font-size: 31px;
+    color: white;
+    font-family: 'Bebas Neue', cursive;
+
+
+}
+.Section8-ProductCard-BackSide-homePage i{
+
+    color: white;
+   
+
+}
+.Section8-ProductCard-BackSide-News-homePage{
+    font-family: 'Lora', serif;
+    color: white;
+
+}
+
+.Section8-PorductCard-homePage{
+    background-color: black;
+    width: 337.06px;
+    height: 603.3px;
+}
+.Section8-ForFlex-homePage{
+    display: flex;
+    align-items: center;
+    justify-content:space-evenly;
+    margin-left: 7%;
+    margin-right: 7%;
+    margin-top: 50px;
+}
+
+.Section8-PorductCard-UnderSide-homePage{
+    position:absolute;
+    text-align: center;
+    margin-top: 12%;
+    height: 110px;
+    width: 337.06px;
+    background-color: white;
+    padding-top: 25px;
+    transition: 0.5s ease-out;
+}
+.Section8-PorductCard-UnderSide-homePage p{
+    font-family: 'Lora', serif;
+     color: black;
+     font-size: 12px;
+}
+.Section8-PorductCard-homePage:hover .Section8-PorductCard-UnderSide-homePage{
+transform: translateY(30px) !important;
+opacity: 0;
+}
+.Section8-PorductCard-homePage  img:hover
+{
+    
+    opacity: 0.3;
+}
+.Section8-PorductCard-UnderSide-homePage span{
+color: black;
+font-size: 30px;
+text-transform:uppercase;
+font-family: 'Bebas Neue', cursive;
+}
+/* Section 8 End */
+
+
+/* Section 9 Start */
+.Section9-Backround-homePage{
+    background-color: black;
+    width: 1344.98px;
+    height: 805.44px;
+    margin-top: 90px;
+    display: flex;
+
+}
+.Section9-Backround-homePage img{
+    object-fit: cover;
+
+}
+.Section9-LineAndTextFlex-homePage{
+    display: flex;
+    align-items: center;
+}
+.Section9-Line-homePage{
+    width: 48.41px;
+    height: 1px;
+    color: white;
+    margin-right: 25px;
+}
+.Section9-LineAndTextFlex-Text-homePage{
+    font-size: 15px;
+    font-family: 'Lora', serif;
+    color: #D6D6D6;
+}
+.Section9-Title-homePage{
+    white-space: pre-line;
+    font-size: 70px;
+    font-family: 'Bebas Neue', cursive;
+    color: white;
+}
+.Section9-DescriptionAndTitle-homePage{
+    margin-top: -85px;
+    margin-left: 75px;
+}
+.Section9-Description-homePage{
+    font-size: 19px;
+    font-family: 'Lora', serif;
+    color: #D6D6D6;
+    white-space: pre-line;
+
+}
+.Section9-TextSide-homePage{
+    margin-left: 80px;
+    margin-top: 14%;
+}
+.Section9-CarAndButton-homePage{
+    border: 1px solid white;
+    display: inline;
+    padding: 13px 32px;
+    transition: 0.5s ease-out;
+}
+.Section9-CarAndButton-homePage span{
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    transition: 0.5s ease-out;
+}
+.Section9-CarAndButton-homePage i{
+    font-size: 10px;
+    color: white;
+    margin-right: 15px;
+    transition: 0.5s ease-out;
+
+}
+.Section9-CarAndButton-homePage:hover span,
+.Section9-CarAndButton-homePage:hover i{
+color: black;
+}
+.Section9-CarAndButton-homePage:hover{
+    background-color: white;
+}
+/* Section 9 End */
+
+
+/* Section 10 Start */
+.Section10-FirstSide-homePage{
+    width: 398.11px;
+    height: 909.72px;
+    background-color: #e8e8e8;
+    padding-left: 73px;
+    padding-top: 80px;
+    margin-top: 130px;
+}
+.Section10-FirstSide-homePage h3{
+    font-weight: bolder;
+    color: black;
+    font-size: 45px;
+    font-family: 'Bebas Neue', cursive;
+    margin-bottom: 14px;
+}
+.Section10-SecoundSide-homePage h3{
+    font-weight: bolder;
+    color: white;
+    font-size: 45px;
+    font-family: 'Bebas Neue', cursive;
+    margin-bottom: 14px;
+}
+.Section10-SecoundSide-homePage{
+    background-color: black;
+    width: 402.4px;
+    height: 905.55px;
+    margin-top: 80px;
+    
+}
+
+.Section10-CostAndTitle-homePage{
+    display: flex;
+    align-items: center;
+    margin-top: 36px;
+    
+}
+.Section10-CostAndTitle-3-homePage{
+    display: flex;
+    align-items: center;
+    margin-top: 36px;
+    
+}
+.Section10-CostAndTitle-homePage span{
+    font-weight: bolder;
+    color: black;
+    font-size: 33px;
+    font-family: 'Bebas Neue', cursive;
+    
+
+}
+.Section10-CostAndTitle-3-homePage span{
+    font-weight: bolder;
+    color: black;
+    font-size: 33px;
+    font-family: 'Bebas Neue', cursive;
+    
+
+}
+.Section10-CostAndTitle-homePage h6{
+    font-size: 20px;
+    color: black;
+    font-family: 'Bebas Neue', cursive;
+    margin-left: 50px;
+
+}
+.Section10-CostAndTitle-3-homePage h6{
+    font-size: 20px;
+    color: black;
+    font-family: 'Bebas Neue', cursive;
+    margin-left: 20px;
+}
+.Section10-TitleCostAndDecription-homePage .Section10-Description-homePage{
+    white-space: pre-line;
+    font-size: 19px;
+    color: black;
+    font-family: 'Lora', serif;
+    display: inline-block;
+    margin-top: -30px;
+}
+.Section10-SecoundSide-TitleCostAndDecription-homePage .Section10-SecoundSide-Description-homePage{
+
+    white-space: pre-line;
+    font-size: 19px;
+    color: white;
+    font-family: 'Lora', serif;
+    display: inline-block;
+    margin-top: -30px;
+}
+.Section10-SecoundSide-CostAndTitle-homePage  span{
+    font-weight: bolder;
+    color: white;
+    font-size: 33px;
+    font-family: 'Bebas Neue', cursive;
+
+    
+}
+.Section10-SecoundSide-CostAndTitle-homePage{
+    display: flex;
+    align-items: center;
+    margin-top: 36px;
+
+    
+}
+.Section10-SecoundSide-CostAndTitle-homePage h6{
+    font-size: 20px;
+    color: white;
+    font-family: 'Bebas Neue', cursive;
+    margin-left: 50px;
+}
+.Section10-SecoundSide-Add-homePage{
+    padding-left: 73px;
+    padding-top: 80px;
+}
+.Section10-ForFlex-homePage{
+    display: flex;
+    justify-content: safe;
+}
+.Section10-3Side-homePage{
+    width: 398.11px;
+    height: 876.47px;
+    background-color: #e8e8e8;
+    padding-left: 73px;
+    padding-top: 80px;
+    margin-top: 130px;
+}
+.Section10-3Side-homePage h3{
+    font-weight: bolder;
+    color: black;
+    font-size: 45px;
+    font-family: 'Bebas Neue', cursive;
+    margin-bottom: 14px;
+}
+/* Section 10 End */
+
+/* Section 11 Start */
+.Section11-Backround-homePage{
+ background-color: black;
+ width: 436.48px;
+ height: 617.45px;
+ position: absolute;
+ margin-left: 130px;
+ margin-top: 100px;
+padding-left: 80px;
+}
+.Section11-NameAndCostFlex-homePage h2{
+    white-space: pre-line;
+    font-size: 70px;
+    color: white;
+    font-family: 'Bebas Neue', cursive;
+
+}
+.Section11-homePage{
+    width: 100%;
+    height: 794.97px;
+    margin-top: 80px;
+}
+.Section11-NameAndCostFlex-homePage h6{
+    font-size: 17px;
+    font-family: 'Montserrat', sans-serif;
+    color: #D6D6D6;
+    margin-left: 70px;
+}
+.Section11-NameAndCostFlex-homePage{
+    display: flex;
+    align-items: center;
+    
+}
+.Section11-Line-homePage{
+    width: 70px;
+    height: 1px;
+    color: white;
+    margin-top: 50px;
+}
+.Section11-Description-homePage{
+    font-size: 19px;
+    font-family: 'Lora', serif;
+    color: #D6D6D6;
+    white-space: pre-line;
+    
+
+}
+.Section11-Border-homePage{
+    border: 1px solid white;
+    display: inline;
+    padding: 13px 29px;
+    transition: 0.5s ease-out;
+}
+.Section11-Border-homePage span{
+    font-size: 15px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    transition: 0.5s ease-out;
+
+
+
+
+}
+.Section11-Border-homePage:hover {
+    background-color: white;
+    border-color: black;
+
+}
+.Section11-Border-homePage:hover span{
+    color: black;
+}
+
+/* Section 11 End */
+
+
+/* Footer Start */
+
+.Footer-ImageSide img{
+    width: 100%;
+    height: 505.28px;
+    object-fit: cover;
+    position: absolute;
+}
+.Footer-LogoDesciriptionAndSocial{
+    position: absolute;
+    text-align: center;
+    margin-left: 30%;
+    margin-top: 10%;
+}
+.Footer-LogoDesciriptionAndSocial img{
+    width: 307px;
+    height: 59px;
+    margin-bottom: 20px;
+    
+}
+.Footer-LogoDesciriptionAndSocial span{
+white-space: pre-line;
+font-size: 19px;
+font-family: 'Lora', serif;
+color: #D6D6D6;
+
+}
+.Footer-SocialBorder{
+    border-radius: 50%;
+    background-color: white;
+    display: inline-block;
+    text-align: center;
+    margin-left: 15px;
+    transition: 0.5s ease-out;
+    margin-top: 50px;
+
+
+
+}
+.Footer-SocialBorder i{
+   font-size: 15px;
+   padding: 15px 15px;
+   color: black;
+   transition: 0.5s ease-out;
+
+
+
+}
+.Footer-SocialBorder:hover{
+    background-color: white;
+}
+.Footer-SocialBorder:hover i{
+    color: white;
+}
+
+.tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 23%;
+    left: 28%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  .Footer-SocialBorder:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+
+
+
+  .tooltiptext1 {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 23%;
+    left: 39.1%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .tooltiptext1::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  .Footer-SocialBorder:hover .tooltiptext1 {
+    visibility: visible;
+    opacity: 1;
+  }
+  .tooltiptext2 {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 23%;
+    left: 50.6%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .tooltiptext2::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  .Footer-SocialBorder:hover .tooltiptext2 {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .tooltiptext3 {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 23%;
+    left: 62.5%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .tooltiptext3::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  .Footer-SocialBorder:hover .tooltiptext3 {
+    visibility: visible;
+    opacity: 1;
+  }
+  .tooltiptext4 {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 23%;
+    left: 74.2%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .tooltiptext4::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  .Footer-SocialBorder:hover .tooltiptext4 {
+    visibility: visible;
+    opacity: 1;
+  }
+  .Footer-Under{
+      background-color: black;
+      width: 100%;
+      height: 84px;
+      position: absolute;
+      margin-top: 32%;
+      text-align: center;
+      padding-top: 25px;
+
+  }
+  .Footer-Under span{
+      font-size: 12px;
+      font-family: 'Lora', serif;
+      color: white;
+
+
+  }
+/* Footer End */
