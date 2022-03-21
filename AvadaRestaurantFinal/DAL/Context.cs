@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AvadaRestaurantFinal.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +13,13 @@ namespace AvadaRestaurantFinal.DAL
         {
 
         }
+        public DbSet<fineDiningExperience> FineDiningExperience { get; set; }
+        public DbSet<foodIsOurCommon> foodIsOurCommons { get; set; }
+        public DbSet<TheBestTableInTown> theBestTableInTowns { get; set; }
+        public DbSet<NewYorkTimes> newYorkTimes { get; set; }
+        public DbSet<GuardianGlobe> GuardianGlobe { get; set; }
+        public DbSet<KungPao> kungPao { get; set; }
+        public DbSet<TakeoutNowAvailable> takeoutNowAvailable { get; set; }
+        public DbSet<BraisedAbalone> braisedAbalone { get; set; }
     }
 }

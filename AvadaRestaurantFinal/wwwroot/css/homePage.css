@@ -428,6 +428,10 @@ display: flex;
     display: flex;
     margin-top: 90px;
 }
+.Section4-ForMarginText-homePage{
+    margin-left: 165px;
+    margin-top: -10%;
+}
 .Section4-LineAndText-homePage{
  display: flex;
  align-items: center;
@@ -446,32 +450,33 @@ display: flex;
     
 }
 .Section4-TableTown-homePage span{
-white-space: pre-wrap;
+white-space: pre-line;
 font-size: 70px;
 color: white;
 font-family: 'Bebas Neue', cursive;
-display: inline-block;
+/* display: inline-block; */
 /* margin-left: -35px; */
-margin-top: -90px;
+/* margin-top: -90px; */
+line-height: 1.2;
 }
 .Section4-Text1-homePage span{
-    white-space: pre-wrap;
+    white-space: pre-line;
     font-size: 19px;
     font-family: 'Lora', serif;
     color: #D6D6D6;
 
 }
-.Section4-Text1-homePage{
-    margin-left: 98px;
-    margin-top: -110px;
-}
+/* .Section4-Text1-homePage{ */
+    /* margin-left: 98px; */
+    /* margin-top: -110px; */
+/* } */
 .Section4-Button-homePage{
     padding: 13px 29px;
     border: 1px solid white;
     display: inline-block;
     transition: 0.5s ease-out;
-    margin-top: 30px;
-    margin-left: 175px;
+    margin-top: 55px;
+    /* margin-left: 175px; */
 
 }
 .Section4-Button-homePage:hover

@@ -1,4 +1,5 @@
-﻿
+﻿@using AvadaRestaurantFinal.ViewModels
+@model HomeVM
 @{
     ViewData["Title"] = "Index";
 }
@@ -11,7 +12,7 @@
             <div class="line-and-Text-homePage">
                 <div class="line-and-Text_line-homePage"></div>
                 <div class="line-and-Text_Text-homePage">
-                    THE BEST TABLE IN TOWN
+                    @Model.fineDiningExperience.Header
                 </div>
             </div>
             <div style="margin-left: 16%;">
@@ -22,14 +23,11 @@
                 </div>
                 <div class="section1-Text3-homePage">
                     <p>
-                        Pellentesque vitae viverra risus,
-                        sagittis. Venenatis ridiculus
-                        scelerisque nisi in urna nulla. Sit
-                        tempor a et nisl, ac felis.
+                       @Model.fineDiningExperience.Description
                     </p>
                 </div>
                 <div class="Buy-Avada-homePage">
-                    <span>BUY AVADA TODAY</span>
+                    <span>@Model.fineDiningExperience.ButtonText</span>
                 </div>
             </div>
         </div>
@@ -47,34 +45,25 @@
             <div class="Section2-TextSide-homePage">
                 <div class="Section2-TextSide-1-homePage">
                     <span>
-                        <b>HAC TELLUS, FELIS RISUS AT</b> mattis mattis. Eget
-                        euismod semper eget tortor, donec amet, blandit.
-                        Tristique facilisi faucibus elementum feugiat in nam
-                        in feugiat. Ipsum odio etiam duis facilisis amet
-                        vulputate.
+                        @Model.foodIsOurCommon.Desciription1
                     </span>
                 </div>
                 <div class="Section2-TextSide-2-homePage">
                     <span>
-                        food is our common
-                        ground, a universal
-                        experience.
+                        @Model.foodIsOurCommon.Desciription2
                     </span>
                 </div>
                 <div class="Section2-TextSide-3-homePage">
                     <p>
-                        Tristique tempus condimentum diam donec.
-                        Condimentum ullamcorper sit elementum hendrerit
-                        mi nulla in consequat, ut. Metus, nullam scelerisque
-                        netus viverra dui.
+                        @Model.foodIsOurCommon.Desciription3
                     </p>
                 </div>
                 <div class="Section2-TextSide-4Img-homePage">
-                    <img style="margin-top: 40px;" width="180" height="154" src="~/img/signature.jpg" alt="">
+                    <img style="margin-top: 40px;" width="180" height="154" src="~/img/@Model.foodIsOurCommon.ImageUrlSignature" alt="">
                 </div>
             </div>
             <div class="Section2-ImageSide-homePage">
-                <img width="523" height="715" src="~/img/info22x.jpg" alt="">
+                <img width="523" height="715" src="~/img/@Model.foodIsOurCommon.ImageUrl" alt="">
                 <b>CALIFORNIA ROLLS - $22</b>
             </div>
         </div>
@@ -141,34 +130,30 @@
     <div class="Section4-ForFlex-homePage">
 
         <div class="Section4-ImageSide-homePage">
-            <img style="position: absolute; object-fit: cover;" width="809" height="856" src="~/img/slider32x.jpg" alt="">
-
-
+            <img style="position: absolute; object-fit: cover;" width="809" height="856" src="~/img/@Model.TheBestTableInTown.ImageUrl" alt="">
         </div>
 
         <div class="Section4-TextSide-homePage">
             <div class="Section4-LineAndText-homePage">
                 <div class="Section4-Vl-homePage"></div>
                 <div class="Section4-Text-homePage">
-                    <span>FINE DINING EXPERIENCE</span>
+                    <span>@Model.TheBestTableInTown.Header</span>
                 </div>
             </div>
-            <div class="Section4-TableTown-homePage">
-                <span>
-                    THE BEST
-                    TABLE IN
-                    TOWN
-                </span>
-            </div>
-            <div class="Section4-Text1-homePage">
-                <span>
-                    Pellentesque vitae viverra risus,
-                    sagittis. Venenatis ridiculus
-                    scelerisque nisi in urna nulla.
-                </span>
-            </div>
-            <div class="Section4-Button-homePage">
-                <span>EXPLORE THE MENU</span>
+            <div class="Section4-ForMarginText-homePage">
+                <div class="Section4-TableTown-homePage">
+                    <span>
+                        @Model.TheBestTableInTown.Description1
+                    </span>
+                </div>
+                <div class="Section4-Text1-homePage">
+                    <span>
+                       @Model.TheBestTableInTown.Description2
+                    </span>
+                </div>
+                <div class="Section4-Button-homePage">
+                    <span>@Model.TheBestTableInTown.ButtonName</span>
+                </div>
             </div>
         </div>
     </div>
@@ -182,13 +167,13 @@
         <center><hr class="Section5-TextUnderline-homePage"></center>
     </div>
     <div style="margin-left: 10%; margin-right: 10%; background-color: black; width: 1096px; height: 775px; margin-top: 60px;" class="Section5-ImageSide-homePage">
-        <img style=" object-fit: cover;" width="570" height="775.92" src="~/img/blog72x.jpg" alt="">
+        <img style=" object-fit: cover;" width="570" height="775" src="~/img/@Model.NewYorkTimes.ImageUrl" alt="">
         <div class="Section5-TextSide-homePage">
             <div class="Section5-TextSide-Name-homePage">
-                <span>MEGGY STEWART</span>
+                <span>@Model.NewYorkTimes.Name</span>
             </div>
             <div class="Section5-TextSide-CityName-homePage">
-                <span>NEW YORK TIMES</span>
+                <span>@Model.NewYorkTimes.Header</span>
             </div>
             <div class="Section5-TextSide-Stars-homePage">
                 <i class="fa-solid fa-star"></i>
@@ -201,18 +186,12 @@
             <div class="Section5-TextSide-Desciription-homePage">
                 <span>
 
-                    Non arcu mauris tortor ultrices
-                    mollis tellus euismod fermentum.
-                    Habitant amet tincidunt id sapien
-                    accumsan sed at.
-
-                    Mmalesuada ullamcorper amet.
-                    Pretium pretium dignissim nisi.
+                    @Model.NewYorkTimes.Description
                 </span>
             </div>
             <div class="Section5-TextSide-ButtonBorder-homePage">
                 <span>
-                    READ FULL ARTICLE
+                    @Model.NewYorkTimes.ButtonName
                 </span>
             </div>
         </div>
@@ -221,83 +200,50 @@
 <!-- Section 5 End -->
 <!-- Section 6 Start -->
 <section>
-    <div class="Section6-ForFlex-homePage">
-        <div class="Section6-FirstSide-homePage">
-            <img style=" object-fit: cover;" src="~/img/info52x.jpg" alt="">
-            <div class="Section6-FirstSide-ForAbsolute-homePage">
-                <div class="Section6-FirstSide-Name-homePage">
-                    <span>
-                        MARY MAXEY
-                    </span>
-                </div>
-                <div class="Section6-FirstSide-Profeccion-homePage">
-                    <span>THE GUARDIAN</span>
-                </div>
-                <div class="Section6-FirstSide-Stars-homePage">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                </div>
-                <div class="Section6-FirstSide-Line-homePage"></div>
-                <div class="Section6-FirstSide-Desciription-homePage">
-                    <span>
-                        Non arcu mauris tortor ultrices
-                        mollis tellus euismod fermentum.
-                        Habitant amet tincidunt id sapien
-                        accumsan sed.
-                    </span>
-                </div>
-                <div class="Section6-FirstSide-ButtonBorder-homePage">
-                    <span>
-                        READ FULL ARTICLE
-                    </span>
-                </div>
-            </div>
-        </div>
-        <div class="Section6-FirstSide-homePage">
-            <img style=" object-fit: cover;" src="~/img/info12x.jpg" alt="">
-            <div class="Section6-FirstSide-ForAbsolute-homePage">
-                <div class="Section6-FirstSide-Name-homePage">
-                    <span>
-                        PATRICK MONROE
-                    </span>
-                </div>
-                <div class="Section6-FirstSide-Profeccion-homePage">
-                    <span>GLOBE AND MAIL</span>
-                </div>
-                <div class="Section6-FirstSide-Stars-homePage">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                </div>
-                <div class="Section6-FirstSide-Line-homePage"></div>
-                <div class="Section6-FirstSide-Desciription-homePage">
-                    <span>
-                        Vivamus magna justo, lacinia eget
-                        consectetur sed, convallis at
-                        tellus. Nulla porttitor accumsan
-                        tincidunt.
-                    </span>
-                </div>
-                <div class="Section6-FirstSide-ButtonBorder-homePage">
-                    <span>
-                        READ FULL ARTICLE
-                    </span>
+    <div style="flex-wrap:wrap" class="Section6-ForFlex-homePage">
+        @foreach (var item in Model.guardianGlobes)
+        {
+            <div style="margin-bottom:20px" class="Section6-FirstSide-homePage">
+                <img style=" object-fit: cover;" src="~/img/@item.ImageUrl" alt="">
+                <div class="Section6-FirstSide-ForAbsolute-homePage">
+                    <div class="Section6-FirstSide-Name-homePage">
+                        <span>
+                            @item.Name
+                        </span>
+                    </div>
+                    <div class="Section6-FirstSide-Profeccion-homePage">
+                        <span>@item.profession</span>
+                    </div>
+                    <div class="Section6-FirstSide-Stars-homePage">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="Section6-FirstSide-Line-homePage"></div>
+                    <div class="Section6-FirstSide-Desciription-homePage">
+                        <span>
+                            @item.Description
+                        </span>
+                    </div>
+                    <div class="Section6-FirstSide-ButtonBorder-homePage">
+                        <span>
+                            @item.ButtonName
+                        </span>
+                    </div>
                 </div>
             </div>
-        </div>
+        }
+
     </div>
 </section>
 <!-- Section 6 End -->
 <!-- Section 7 Start -->
 <section>
     <div style="margin-top: 80px;" class="Section7-homePage">
-        <img style="object-fit: cover;" width="1349" height="482" src="~/img/page52x.jpg" alt="">
-        <span>KUNG PAO CHICKEN - $32</span>
+        <img style="object-fit: cover;" width="1349" height="482" src="~/img/@Model.kungPao.ImageUrl" alt="">
+        <span>@Model.kungPao.Name</span>
     </div>
 </section>
 <!-- Section 7 End -->
@@ -361,31 +307,27 @@
 <!-- Section 9 Start -->
 <section>
     <div class="Section9-Backround-homePage">
-        <img width="809.39" height="805.44" src="~/img/slider72x-scaled.jpg" alt="">
+        <img width="809.39" height="805.44" src="~/img/@Model.takeoutNowAvailables.ImageUrl" alt="">
         <div class="Section9-TextSide-homePage">
             <div class="Section9-LineAndTextFlex-homePage">
                 <hr class="Section9-Line-homePage">
                 <span class="Section9-LineAndTextFlex-Text-homePage">
-                    ENJOY YOUR MEAL AT HOME
+                    @Model.takeoutNowAvailables.Header
                 </span>
             </div>
             <div class="Section9-DescriptionAndTitle-homePage">
                 <span class="Section9-Title-homePage">
-                    TAKEOUT NOW
-                    AVAILABLE
+                    @Model.takeoutNowAvailables.Description1
                 </span>
                 <span class="Section9-Description-homePage">
-                    Pellentesque vitae viverra risus,
-                    sagittis. Venenatis ridiculus
-                    scelerisque nisi in urna nulla non
-                    arcu moris tortor.
+                    @Model.takeoutNowAvailables.Description2
 
 
                 </span>
                 <div class="Section9-CarAndButton-homePage">
                     <i class="fa-solid fa-car"></i>
                     <span>
-                        VIEW TAKEOUT MENU
+                        @Model.takeoutNowAvailables.ButtonName
                     </span>
                 </div>
             </div>
@@ -547,28 +489,24 @@
 <!-- Section 11 Start -->
 <section>
     <div class="Section11-homePage">
-        <img style="position: absolute;" width="100%" height="794.97" style="object-fit: cover;" src="~/img/hero42x.jpg" alt="">
+        <img style="position: absolute;" width="100%" height="794.97" style="object-fit: cover;" src="~/img/@Model.braisedAbalone.ImageUrl" alt="">
         <div class="Section11-Backround-homePage">
             <div class="Section11-NameAndCostFlex-homePage">
                 <h2>
-                    BRAISED
-                    ABALONE
+                    @Model.braisedAbalone.Header
                 </h2>
                 <h6>
-                    $52
+                    $@Model.braisedAbalone.Cost
                 </h6>
             </div>
             <hr style="color: white;" class="Section11-Line-homePage">
             <div style="margin-bottom: 45px;">
                 <span class="Section11-Description-homePage">
-                    Pretium accumsan porttitor
-                    viverra leo gravida mollis
-                    imperdiet. Fringilla nibh pharetra
-                    sociis leo amet.
+                    @Model.braisedAbalone.Description
                 </span>
             </div>
             <div class="Section11-Border-homePage">
-                <span>BUY AVADA TODAY</span>
+                <span>@Model.braisedAbalone.ButtonName</span>
             </div>
         </div>
     </div>
