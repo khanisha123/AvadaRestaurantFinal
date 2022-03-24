@@ -1,4 +1,5 @@
-﻿
+﻿@using AvadaRestaurantFinal.ViewModels
+@model TeamVM
 @{
     ViewData["Title"] = "Index";
 }
@@ -6,116 +7,45 @@
 <!-- Section 1 Start -->
 <section style="width: 100%; height: 418.97px;">
     <div class="Section1-ImageSide-Team">
-        <img style="object-fit: cover;" height="418.97px" width="100%" src="~/img/page42x.jpg" alt="">
+        <img style="object-fit: cover;" height="418.97px" width="100%" src="~/img/@Model.TeamHeader.ImageUrl" alt="">
     </div>
     <div class="Section1-TextSide-Team">
-        <h6>BEST TABLE IN TOWN</h6>
-        <h1>Team</h1>
+        <h6>@Model.TeamHeader.Header</h6>
+        <h1>@Model.TeamHeader.Name</h1>
     </div>
 </section>
 <!-- Section 1 End -->
 <!-- Section 2 Start -->
 <section>
-    <div class="Section2-ForFlex-Team">
-        <div class="Section2-ImageAndTextSideFlex-Team">
-            <img src="~/img/info92x.jpg" alt="">
-            <div class="Section2-TextSide-Team">
-                <h6>CEO / OWNER</h6>
-                <h2>Dominic Scott</h2>
-                <div class="Section2-vl1-Team"></div>
-                <p class="Section2-TextSide-Description-Team">
-                    Tristique tempus condimentum diam donec.
-                    Condimentum ullamcorper sit elementum
-                    hendrerit mi nulla in consequat, ut. Metus, nullam
-                    scelerisque netus viverra dui pretium pulvinar.
-                    Commodo morbi amet.
+    <div class="Section2-ForFlex-Team" @*style="margin-bottom: 12%;"*@>
 
-                    Amet arcu eget nibh vitae, lectus aliquam enim
-                    ultrices. Mi hendrerit tempor eu, tempus risus
-                    laoreet et. Tellus adipiscing mi commodo, risus
-                    tempor volutpat amet cum. Enim quam sed
-                    fermentum dui ut diam eros, nisl, orci.
-                </p>
-                <i class="Section2-TextSideUnderHeader-Team">Dominic’s Accolades</i>
-                <div class="Section2-vl2-Team"></div>
-                <div class="Section2-ForFlexStartsAndText-Team">
-                    <i class="fa-solid fa-star"></i>
-                    <p>World’s 50 best chefs list 2019</p>
+        @foreach (var item in Model.MembersTeam)
+        {
+            <div style="margin-bottom: 11%;" class="Section2-ImageAndTextSideFlex-Team">
+                <img src="~/img/@item.ImageUrl" alt="">
+                <div class="Section2-TextSide-Team">
+                    <h6>@item.profession</h6>
+                    <h2>@item.Name</h2>
+                    <div class="Section2-vl1-Team"></div>
+                    <p class="Section2-TextSide-Description-Team">
+                        @item.Description
+                    </p>
+                    <i class="Section2-TextSideUnderHeader-Team">@item.UnderDescriptionText</i>
+                    <div class="Section2-vl2-Team"></div>
+                    <div class="Section2-ForFlexStartsAndText-Team">
+                        <i class="fa-solid fa-star"></i>
+                        <p>World’s 50 best chefs list 2019</p>
+                    </div>
+                    <div class="Section2-ForFlexStartsAndText-Team">
+                        <i class="fa-solid fa-star"></i>
+                        <p>2 Stars On The Michelin Guide 2017</p>
+                    </div>
                 </div>
-                <div class="Section2-ForFlexStartsAndText-Team">
-                    <i class="fa-solid fa-star"></i>
-                    <p>2 Stars On The Michelin Guide 2017</p>
-                </div>
+
+
             </div>
+        }
 
-
-        </div>
-        <div style="margin-top: 11%;" class="Section2-ImageAndTextSideFlex-Team">
-            <img src="~/img/info52x.jpg" alt="">
-            <div class="Section2-TextSide-Team">
-                <h6>SOUS-CHEF</h6>
-                <h2>Kylie Knox</h2>
-                <div class="Section2-vl1-Team"></div>
-                <p class="Section2-TextSide-Description-Team">
-                    Tristique tempus condimentum diam donec.
-                    Condimentum ullamcorper sit elementum
-                    hendrerit mi nulla in consequat, ut. Metus, nullam
-                    scelerisque netus viverra dui pretium pulvinar.
-                    Commodo morbi amet.
-
-                    Amet arcu eget nibh vitae, lectus aliquam enim
-                    ultrices. Mi hendrerit tempor eu, tempus risus
-                    laoreet et. Tellus adipiscing mi commodo, risus
-                    tempor volutpat amet cum. Enim quam sed
-                    fermentum dui ut diam eros, nisl, orci.
-                </p>
-                <i class="Section2-TextSideUnderHeader-Team">Kylie’s Accolades</i>
-                <div class="Section2-vl2-Team"></div>
-                <div class="Section2-ForFlexStartsAndText-Team">
-                    <i class="fa-solid fa-star"></i>
-                    <p>World’s 50 best chefs list 2019</p>
-                </div>
-                <div class="Section2-ForFlexStartsAndText-Team">
-                    <i class="fa-solid fa-star"></i>
-                    <p>2 Stars On The Michelin Guide 2017</p>
-                </div>
-            </div>
-
-
-        </div>
-        <div style="margin-top: 11%;margin-bottom:12%;" class="Section2-ImageAndTextSideFlex-Team">
-            <img src="~/img/info62x.jpg" alt="">
-            <div class="Section2-TextSide-Team">
-                <h6>OWNER / CHEF</h6>
-                <h2>Nathan Walsh</h2>
-                <div class="Section2-vl1-Team"></div>
-                <p class="Section2-TextSide-Description-Team">
-                    Tristique tempus condimentum diam donec.
-                    Condimentum ullamcorper sit elementum
-                    hendrerit mi nulla in consequat, ut. Metus, nullam
-                    scelerisque netus viverra dui pretium pulvinar.
-                    Commodo morbi amet.
-
-                    Amet arcu eget nibh vitae, lectus aliquam enim
-                    ultrices. Mi hendrerit tempor eu, tempus risus
-                    laoreet et. Tellus adipiscing mi commodo, risus
-                    tempor volutpat amet cum. Enim quam sed
-                    fermentum dui ut diam eros, nisl, orci.
-                </p>
-                <i class="Section2-TextSideUnderHeader-Team">Nathan’s Accolades</i>
-                <div class="Section2-vl2-Team"></div>
-                <div class="Section2-ForFlexStartsAndText-Team">
-                    <i class="fa-solid fa-star"></i>
-                    <p>World’s 50 best chefs list 2019</p>
-                </div>
-                <div class="Section2-ForFlexStartsAndText-Team">
-                    <i class="fa-solid fa-star"></i>
-                    <p>2 Stars On The Michelin Guide 2017</p>
-                </div>
-            </div>
-
-
-        </div>
     </div>
 </section>
 <!-- Section 2 End -->

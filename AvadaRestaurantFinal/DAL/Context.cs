@@ -32,5 +32,7 @@ namespace AvadaRestaurantFinal.DAL
         public DbSet<BestCocktailsInTown> bestCocktailsInTown { get; set; }
         public DbSet<PerfectPlaceForAReception> PerfectPlaceForAReception { get; set; }
         public DbSet<ReceptionBarEndSection> ReceptionBarEndSection { get; set; }
+        public DbSet<TeamHeader> TeamHeader { get; set; }
+        public DbSet<MembersTeam> MembersTeam { get; set; }
     }
 }
