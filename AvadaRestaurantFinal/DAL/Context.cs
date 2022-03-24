@@ -26,5 +26,11 @@ namespace AvadaRestaurantFinal.DAL
         public DbSet<TakeoutNowAvailableHistory> TakeoutNowAvailableHistory { get; set; }
         public DbSet<KungPaoChickenHistory> KungPaoChickenHistory { get; set; }
         public DbSet<MeetTheTeam> MeetTheTeam { get; set; }
+        public DbSet<ReceptionBarHeader> ReceptionBarHeader { get; set; }
+        public DbSet<FineDiningProfesionnal> FineDiningProfesionnal { get; set; }
+        public DbSet<PlanYourReception> PlanYourReception { get; set; }
+        public DbSet<BestCocktailsInTown> bestCocktailsInTown { get; set; }
+        public DbSet<PerfectPlaceForAReception> PerfectPlaceForAReception { get; set; }
+        public DbSet<ReceptionBarEndSection> ReceptionBarEndSection { get; set; }
     }
 }

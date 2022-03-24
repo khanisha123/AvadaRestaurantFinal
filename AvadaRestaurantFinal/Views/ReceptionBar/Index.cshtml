@@ -1,4 +1,5 @@
-﻿
+﻿@using AvadaRestaurantFinal.ViewModels
+@model ReceptionBarVM
 @{
     ViewData["Title"] = "Index";
 }
@@ -6,35 +7,27 @@
 <!-- Section 1 Start -->
 <section style="width: 100%; height: 418.97px;">
     <div class="Section1-ImageSide-ReceptionBar">
-        <img style="object-fit: cover;" height="418.97px" width="100%" src="~/img/hero192x.jpg" alt="">
+        <img style="object-fit: cover;" height="418.97px" width="100%" src="~/img/@Model.receptionBarHeader.ImageUrl" alt="">
     </div>
     <div class="Section1-TextSide-ReceptionBar">
-        <h6>BEST TABLE IN TOWN</h6>
-        <h1>Reception & Bar</h1>
+        <h6>@Model.receptionBarHeader.Header</h6>
+        <h1>@Model.receptionBarHeader.Name</h1>
     </div>
 </section>
 <!-- Section 1 End -->
 <!-- Section 2 Start -->
 <section style="background-color: black; width: 100%; height: 458.78px;">
-    <div class="Section2-ForFlex-ReceptionBar">
-        <div class="Section2-TextSide-ReceptionBar">
-            <h6>FINE DINING EXPERIENCE</h6>
-            <p>
-                Nulla quis lorem ut libero malesuada feugiat.
-                Pellentesque in ipsum id orci porta dapibus. Praesent
-                sapien massa, convallis a pellentesque nec, egestas
-                non.
-            </p>
-        </div>
-        <div class="Section2-TextSide-ReceptionBar">
-            <h6>PROFESIONNAL MIXOLOGISTS</h6>
-            <p>
-                Mauris blandit aliquet elit, eget tincidunt nibh pulvinar
-                a. Sed porttitor lectus nibh. Quisque velit nisi, pretium
-                ut lacinia in, elementum id enim.
-                non.
-            </p>
-        </div>
+    <div class="Section2-ForFlex-ReceptionBar" style="flex-wrap:wrap;">
+        @foreach (var item in Model.FineDiningProfesionnal)
+        {
+            <div class="Section2-TextSide-ReceptionBar">
+                <h6>@item.Name</h6>
+                <p>
+                    @item.Description
+                </p>
+            </div>
+        }
+
     </div>
 </section>
 <!-- Section 2 End -->
@@ -42,27 +35,22 @@
 <section>
     <div class="Section3-ForFlexAndBackround-ReceptionBar">
         <div class="Section3-ImageSide-ReceptionBar">
-            <img src="~/img/hero172x.jpg" alt="">
+            <img src="~/img/@Model.planYourReception.ImageUrl" alt="">
         </div>
         <div class="Section3-TextSide-ReceptionBar">
             <div class="Section3-LineAndText-ReceptionBar">
                 <div style="margin-right: 30px;" class="Section3-LineAndText-Line-ReceptionBar"></div>
-                <h6>THE BEST TABLE IN TOWN</h6>
+                <h6>@Model.planYourReception.Header</h6>
             </div>
             <div class="Section3-TextSide-ForMargin-ReceptionBar">
                 <h2>
-                    Plan
-                    Your
-                    Reception
+                    @Model.planYourReception.Name
                 </h2>
                 <p>
-                    Pellentesque vitae viverra risus,
-                    sagittis. Venenatis ridiculus
-                    scelerisque nisi in urna nulla. Sit
-                    tempor a et nisl, ac felis.
+                    @Model.planYourReception.Description
                 </p>
                 <div class="Section3-Border-ReceptionBar">
-                    <span>CONTACT US TODAY</span>
+                    <span>@Model.planYourReception.BorderButton</span>
                 </div>
             </div>
         </div>
@@ -125,22 +113,17 @@
     <div class="Section5-Backround-ReceptionBar">
         <div class="Section5-TextSide-ReceptionBar">
             <div class="Section5-TextAndLine-ForFlex-ReceptionBar">
-                <h6>TASTE OUR DRINKS</h6>
+                <h6>@Model.bestCocktailsInTown.Header</h6>
             </div>
             <h2>
-                BEST
-                COCKTAILS
-                IN TOWN
+                @Model.bestCocktailsInTown.Name
             </h2>
             <p>
-                Pellentesque vitae viverra risus,
-                sagittis. Venenatis ridiculus
-                scelerisque nisi in urna nulla. Sit
-                tempor a et nisl, ac felis.
+                @Model.bestCocktailsInTown.Description
             </p>
-            <span>VIEW THE DRINK LIST</span>
+            <span>@Model.bestCocktailsInTown.ButtonName</span>
         </div>
-        <img src="~/img/hero132x.jpg" alt="">
+        <img src="~/img/@Model.bestCocktailsInTown.ImageUrl" alt="">
     </div>
 </section>
 <!-- Section 5 End -->
@@ -148,16 +131,13 @@
 <section>
     <div class="Section6-Backround-ReceptionBar">
         <p style="font: size 15px;font-family: 'Lora', serif;color:white;font-weight: bolder;margin-bottom: -2px;">
-            PERFECT PLACE FOR A RECEPTION
+            @Model.perfectPlaceForAReception.Header
         </p>
         <p style="white-space: pre-line;font-size: 19px;font-family: 'Lora', serif;color: #D6D6D6; margin-bottom: 50px;">
-            Nulla quis lorem ut libero malesuada feugiat. Pellentesque in ipsum
-            id orci porta dapibus. Praesent sapien massa, convallis a
-            pellentesque nec, egestas non nisi. Vestibulum ac diam sit amet
-            quam vehicula elementum sed sit amet dui.
+            @Model.perfectPlaceForAReception.Description
         </p>
         <span>
-            PLAN YOUR RECEPTION
+            @Model.perfectPlaceForAReception.ButtonBorder
         </span>
     </div>
 </section>
@@ -165,9 +145,9 @@
 <!-- Section 7 Start -->
 <section>
     <div class="Section7-ReceptionBar">
-        <img src="~/img/hero62x.jpg" alt="">
+        <img src="~/img/@Model.ReceptionBarEndSection.ImageUrl" alt="">
         <div class="Section7-TextSide-ReceptionBar">
-            <span>Quisque velit nisi, pretium ut lacinia in, elementum id enim.</span>
+            <span>@Model.ReceptionBarEndSection.Name</span>
         </div>
     </div>
 </section>

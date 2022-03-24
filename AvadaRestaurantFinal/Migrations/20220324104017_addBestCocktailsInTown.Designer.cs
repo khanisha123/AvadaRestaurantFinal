@@ -3,14 +3,16 @@ using AvadaRestaurantFinal.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AvadaRestaurantFinal.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20220324104017_addBestCocktailsInTown")]
+    partial class addBestCocktailsInTown
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -231,27 +233,6 @@ namespace AvadaRestaurantFinal.Migrations
                     b.ToTable("newYorkTimes");
                 });
 
-            modelBuilder.Entity("AvadaRestaurantFinal.Models.PerfectPlaceForAReception", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ButtonBorder")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Header")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("PerfectPlaceForAReception");
-                });
-
             modelBuilder.Entity("AvadaRestaurantFinal.Models.PlanYourReception", b =>
                 {
                     b.Property<int>("Id")
@@ -307,24 +288,6 @@ namespace AvadaRestaurantFinal.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("PullUpAChair");
-                });
-
-            modelBuilder.Entity("AvadaRestaurantFinal.Models.ReceptionBarEndSection", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ReceptionBarEndSection");
                 });
 
             modelBuilder.Entity("AvadaRestaurantFinal.Models.ReceptionBarHeader", b =>
