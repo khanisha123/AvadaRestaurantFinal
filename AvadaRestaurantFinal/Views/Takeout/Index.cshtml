@@ -1,4 +1,5 @@
-﻿
+﻿@using AvadaRestaurantFinal.ViewModels
+@model TakeoutVM
 @{
     ViewData["Title"] = "Index";
 }
@@ -23,90 +24,24 @@
         <hr width="70px">
     </div>
     <div class="Section2-ProductForFlex-Takeout">
-        <div class="Section2-ProductCard-Takeout">
-            <div class="Section2-ImageSide-Takeout">
-                <div class="Section2-ImageSide-ImageAndText-Takeout">
-                    <img src="~/img/menu192x.jpg" alt="">
-                    <div class="Section2-BackroundText-Takeout">
-                        <a href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss_zindex">ADD TO CART</a>   <a href="">/</a>   <a href="">DETAILS</a>
+        @foreach (var item in Model.horsDoeuvresProduct)
+        {
+            <div class="Section2-ProductCard-Takeout">
+                <div class="Section2-ImageSide-Takeout">
+                    <div class="Section2-ImageSide-ImageAndText-Takeout">
+                        <img src="~/img/@item.ImageUrl" alt="">
+                        <div class="Section2-BackroundText-Takeout">
+                            <a href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss_zindex">ADD TO CART</a>   <a href="">/</a>   <a href="">DETAILS</a>
+                        </div>
+                    </div>
+                    <div class="Section2-Textside-Takeout">
+                        <a href="">@item.Name</a>
+                        <span>$@item.Price.00</span>
                     </div>
                 </div>
-                <div class="Section2-Textside-Takeout">
-                    <a href="">Ahi Salmon Nigiri</a>
-                    <span>$48.00</span>
-                </div>
             </div>
-        </div>
-        <div class="Section2-ProductCard-Takeout">
-            <div class="Section2-ImageSide-Takeout">
-                <div class="Section2-ImageSide-ImageAndText-Takeout">
-                    <img src="~/img/menu402x.jpg" alt="">
-                    <div class="Section2-BackroundText-Takeout">
-                        <a href="">ADD TO CART</a>   <a href="">/</a>   <a href="">DETAILS</a>
-                    </div>
-                </div>
-                <div class="Section2-Textside-Takeout">
-                    <a href="">Black Pudding</a>
-                    <span>$25.00</span>
-                </div>
-            </div>
-        </div>
-        <div class="Section2-ProductCard-Takeout">
-            <div class="Section2-ImageSide-Takeout">
-                <div class="Section2-ImageSide-ImageAndText-Takeout">
-                    <img src="~/img/menu222x.jpg" alt="">
-                    <div class="Section2-BackroundText-Takeout">
-                        <a href="">ADD TO CART</a>   <a href="">/</a>   <a href="">DETAILS</a>
-                    </div>
-                </div>
-                <div class="Section2-Textside-Takeout">
-                    <a href="">California Wraps</a>
-                    <span>$22.00</span>
-                </div>
-            </div>
-        </div>
-        <div class="Section2-ProductCard-Takeout">
-            <div class="Section2-ImageSide-Takeout">
-                <div class="Section2-ImageSide-ImageAndText-Takeout">
-                    <img src="~/img/menu232x.jpg" alt="">
-                    <div class="Section2-BackroundText-Takeout">
-                        <a href="">ADD TO CART</a>   <a href="">/</a>   <a href="">DETAILS</a>
-                    </div>
-                </div>
-                <div class="Section2-Textside-Takeout">
-                    <a href="">Cheeze & Fish On Bread</a>
-                    <span>$14.00</span>
-                </div>
-            </div>
-        </div>
-        <div class="Section2-ProductCard-Takeout">
-            <div class="Section2-ImageSide-Takeout">
-                <div class="Section2-ImageSide-ImageAndText-Takeout">
-                    <img src="~/img/menu242x.jpg" alt="">
-                    <div class="Section2-BackroundText-Takeout">
-                        <a href="">ADD TO CART</a>   <a href="">/</a>   <a href="">DETAILS</a>
-                    </div>
-                </div>
-                <div class="Section2-Textside-Takeout">
-                    <a href="">Peach & Carrot Salad</a>
-                    <span>$25.00</span>
-                </div>
-            </div>
-        </div>
-        <div class="Section2-ProductCard-Takeout">
-            <div class="Section2-ImageSide-Takeout">
-                <div class="Section2-ImageSide-ImageAndText-Takeout">
-                    <img src="~/img/menu212x.jpg" alt="">
-                    <div class="Section2-BackroundText-Takeout">
-                        <a href="">ADD TO CART</a>   <a href="">/</a>   <a href="">DETAILS</a>
-                    </div>
-                </div>
-                <div class="Section2-Textside-Takeout">
-                    <a href="">Temaki With Crab</a>
-                    <span>$32.00</span>
-                </div>
-            </div>
-        </div>
+        }
+
     </div>
 </section>
 <!-- Section 2 End -->
@@ -129,90 +64,24 @@
         <hr width="70px">
     </div>
     <div class="Section4-ProductForFlex-Takeout">
-        <div class="Section4-ProductCard-Takeout">
-            <div class="Section4-ImageSide-Takeout">
-                <div class="Section4-ImageSide-ImageAndText-Takeout">
-                    <img src="~/img/menu372x.jpg" alt="">
-                    <div class="Section4-BackroundText-Takeout">
-                        <a href="">ADD TO CART</a>   <a href="">/</a>   <a href="">DETAILS</a>
+        @foreach (var item in Model.MainCourseProducts)
+        {
+            <div class="Section4-ProductCard-Takeout">
+                <div class="Section4-ImageSide-Takeout">
+                    <div class="Section4-ImageSide-ImageAndText-Takeout">
+                        <img src="~/img/@item.ImageUrl" alt="">
+                        <div class="Section4-BackroundText-Takeout">
+                            <a href="">ADD TO CART</a>   <a href="">/</a>   <a href="">DETAILS</a>
+                        </div>
+                    </div>
+                    <div class="Section4-Textside-Takeout">
+                        <a href="">@item.Name</a>
+                        <span>$@item.Price.00</span>
                     </div>
                 </div>
-                <div class="Section4-Textside-Takeout">
-                    <a href="">Braised Abalone</a>
-                    <span>$52.00</span>
-                </div>
             </div>
-        </div>
-        <div class="Section4-ProductCard-Takeout">
-            <div class="Section4-ImageSide-Takeout">
-                <div class="Section4-ImageSide-ImageAndText-Takeout">
-                    <img src="~/img/menu282x.jpg" alt="">
-                    <div class="Section4-BackroundText-Takeout">
-                        <a href="">ADD TO CART</a>   <a href="">/</a>   <a href="">DETAILS</a>
-                    </div>
-                </div>
-                <div class="Section4-Textside-Takeout">
-                    <a href="">California Rolls</a>
-                    <span>$45.00</span>
-                </div>
-            </div>
-        </div>
-        <div class="Section4-ProductCard-Takeout">
-            <div class="Section4-ImageSide-Takeout">
-                <div class="Section4-ImageSide-ImageAndText-Takeout">
-                    <img src="~/img/menu302x.jpg" alt="">
-                    <div class="Section4-BackroundText-Takeout">
-                        <a href="">ADD TO CART</a>   <a href="">/</a>   <a href="">DETAILS</a>
-                    </div>
-                </div>
-                <div class="Section4-Textside-Takeout">
-                    <a href="">Char Siu & Sushis</a>
-                    <span>$48.00</span>
-                </div>
-            </div>
-        </div>
-        <div class="Section4-ProductCard-Takeout">
-            <div class="Section4-ImageSide-Takeout">
-                <div class="Section4-ImageSide-ImageAndText-Takeout">
-                    <img src="~/img/menu272x.jpg" alt="">
-                    <div class="Section4-BackroundText-Takeout">
-                        <a href="">ADD TO CART</a>   <a href="">/</a>   <a href="">DETAILS</a>
-                    </div>
-                </div>
-                <div class="Section4-Textside-Takeout">
-                    <a href="">Kung Pao Chicken</a>
-                    <span>$32.00</span>
-                </div>
-            </div>
-        </div>
-        <div class="Section4-ProductCard-Takeout">
-            <div class="Section4-ImageSide-Takeout">
-                <div class="Section4-ImageSide-ImageAndText-Takeout">
-                    <img src="~/img/menu292x.jpg" alt="">
-                    <div class="Section4-BackroundText-Takeout">
-                        <a href="">ADD TO CART</a>   <a href="">/</a>   <a href="">DETAILS</a>
-                    </div>
-                </div>
-                <div class="Section4-Textside-Takeout">
-                    <a href="">Steamed Mussles</a>
-                    <span>$58.00</span>
-                </div>
-            </div>
-        </div>
-        <div class="Section4-ProductCard-Takeout">
-            <div class="Section4-ImageSide-Takeout">
-                <div class="Section4-ImageSide-ImageAndText-Takeout">
-                    <img src="~/img/menu262x.jpg" alt="">
-                    <div class="Section4-BackroundText-Takeout">
-                        <a href="">ADD TO CART</a>   <a href="">/</a>   <a href="">DETAILS</a>
-                    </div>
-                </div>
-                <div class="Section4-Textside-Takeout">
-                    <a href="">Twice Cooked Pork</a>
-                    <span>$21.00</span>
-                </div>
-            </div>
-        </div>
+
+        }
     </div>
 </section>
 <!-- Section 4 End -->
@@ -235,48 +104,24 @@
         <hr width="70px">
     </div>
     <div class="Section6-ProductForFlex-Takeout">
-        <div class="Section6-ProductCard-Takeout">
-            <div class="Section6-ImageSide-Takeout">
-                <div class="Section6-ImageSide-ImageAndText-Takeout">
-                    <img src="~/img/menu312x.jpg" alt="">
-                    <div class="Section6-BackroundText-Takeout">
-                        <a href="">ADD TO CART</a>   <a href="">/</a>   <a href="">DETAILS</a>
+        @foreach (var item in Model.DessertCoffeeProducts)
+        {
+            <div class="Section6-ProductCard-Takeout">
+                <div class="Section6-ImageSide-Takeout">
+                    <div class="Section6-ImageSide-ImageAndText-Takeout">
+                        <img src="~/img/@item.ImageUrl" alt="">
+                        <div class="Section6-BackroundText-Takeout">
+                            <a href="">ADD TO CART</a>   <a href="">/</a>   <a href="">DETAILS</a>
+                        </div>
+                    </div>
+                    <div class="Section6-Textside-Takeout">
+                        <a href="">@item.Name</a>
+                        <span>$@item.Price.00</span>
                     </div>
                 </div>
-                <div class="Section6-Textside-Takeout">
-                    <a href="">Chocolate Ball On Cake</a>
-                    <span>$13.00</span>
-                </div>
             </div>
-        </div>
-        <div class="Section6-ProductCard-Takeout">
-            <div class="Section6-ImageSide-Takeout">
-                <div class="Section6-ImageSide-ImageAndText-Takeout">
-                    <img src="~/img/menu332x.jpg" alt="">
-                    <div class="Section6-BackroundText-Takeout">
-                        <a href="">ADD TO CART</a>   <a href="">/</a>   <a href="">DETAILS</a>
-                    </div>
-                </div>
-                <div class="Section6-Textside-Takeout">
-                    <a href="">Lime Pie With Dark Crust</a>
-                    <span>$14.00</span>
-                </div>
-            </div>
-        </div>
-        <div class="Section6-ProductCard-Takeout">
-            <div class="Section6-ImageSide-Takeout">
-                <div class="Section6-ImageSide-ImageAndText-Takeout">
-                    <img src="~/img/menu392x.jpg" alt="">
-                    <div class="Section6-BackroundText-Takeout">
-                        <a href="">ADD TO CART</a>   <a href="">/</a>   <a href="">DETAILS</a>
-                    </div>
-                </div>
-                <div class="Section6-Textside-Takeout">
-                    <a href="">Maple Mouse With Chickpeas</a>
-                    <span>$22.00</span>
-                </div>
-            </div>
-        </div>
+
+        }
 
     </div>
 </section>
