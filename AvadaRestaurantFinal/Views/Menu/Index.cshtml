@@ -33,6 +33,7 @@
 
             @foreach (var item in Model.horsDoeuvresProduct)
             {
+            <a asp-controller="Menu" asp-action="HorsDoeuvresProductDetail" asp-route-id="@item.Id">
                 <div class="Section2-ProductCard-Menu">
                     <img src="~/img/@item.ImageUrl" alt="">
                     <div class="Section2-ProductCard-PriceAndName-Flex-Menu">
@@ -45,6 +46,7 @@
                     </p>
 
                 </div>
+            </a>
             }
         </div>
     </div>
@@ -70,8 +72,9 @@
         <div class="Section4-ForFlex-Menu">
             @foreach (var item in Model.MainCourseProducts)
             {
+            <a asp-controller="Menu" asp-action="MainCourseProductsDetail" asp-route-id="@item.Id">
                 <div class="Section4-ProductCard-Menu">
-                    <img src="~/img/@item.ImageUrl" alt="">
+                    <img  src="~/img/@item.ImageUrl" alt="">
                     <div class="Section4-ProductCard-PriceAndName-Flex-Menu">
                         <h6>@item.Name</h6>
                         <span>$@item.Price</span>
@@ -82,6 +85,7 @@
                     </p>
 
                 </div>
+            </a>
             }
 
 
@@ -109,8 +113,9 @@
         <div class="Section6-ForFlex-menu">
             @foreach (var item in Model.DessertCoffeeProducts)
             {
+            <a asp-controller="Menu" asp-action="DessertCoffeeProductsDetail" asp-route-id="@item.Id">
                 <div class="Section6-ProductCard-Menu">
-                    <img src="~/img/@item.ImageUrl" alt="">
+                    <img style="object-fit: contain;" src="~/img/@item.ImageUrl" alt="">
                     <div class="Section6-ProductCard-PriceAndName-Flex-Menu">
                         <h6>@item.Name</h6>
                         <span>$@item.Price</span>
@@ -121,6 +126,7 @@
                     </p>
 
                 </div>
+            </a>
             }
 
 
@@ -148,6 +154,7 @@
         <div class="Section8-ForFlex-menu">
             @foreach (var item in Model.DrinksCocktailsProducts)
             {
+            <a asp-controller="Menu" asp-action="DrinksCocktailsProductsDetail" asp-route-id="@item.Id">
                 <div class="Section8-ProductCard-Menu">
                     <img src="~/img/@item.ImageUrl" alt="">
                     <div class="Section8-ProductCard-PriceAndName-Flex-Menu">
@@ -160,6 +167,7 @@
                     </p>
 
                 </div>
+            </a>
             }
 
 

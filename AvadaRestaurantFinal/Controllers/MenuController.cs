@@ -32,5 +32,25 @@ namespace AvadaRestaurantFinal.Controllers
 
             return View(menuVM);
         }
+        public IActionResult HorsDoeuvresProductDetail(int? id)
+        {
+            HorsDoeuvresProduct horsDoeuvresProduct = _context.HorsDoeuvresProduct.FirstOrDefault(x=>x.Id == id);
+            return View(horsDoeuvresProduct);
+        }
+        public IActionResult MainCourseProductsDetail(int? id)
+        {
+            MainCourseProducts mainCourseProducts = _context.MainCourseProducts.FirstOrDefault(x => x.Id == id);
+            return View(mainCourseProducts);
+        }
+        public IActionResult DessertCoffeeProductsDetail(int? id)
+        {
+            DessertCoffeeProducts dessertCoffeeProducts = _context.DessertCoffeeProducts.FirstOrDefault(x => x.Id == id);
+            return View(dessertCoffeeProducts);
+        }
+        public IActionResult DrinksCocktailsProductsDetail(int? id)
+        {
+            DrinksCocktailsProducts drinksCocktailsProducts = _context.DrinksCocktailsProducts.FirstOrDefault(x => x.Id == id);
+            return View(drinksCocktailsProducts);
+        }
     }
 }

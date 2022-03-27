@@ -16,6 +16,7 @@ namespace AvadaRestaurantFinal.Models
         public string GlutenFree{ get; set; }
         public string LactoseFree{ get; set; }
         public string TakeoutSideDescription{ get; set; }
+        public string CategoryName{ get; set; }
         
     }
 }

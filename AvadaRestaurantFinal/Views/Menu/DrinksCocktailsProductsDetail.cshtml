@@ -1,0 +1,91 @@
+﻿@using AvadaRestaurantFinal.Models
+@model DrinksCocktailsProducts
+@{
+    ViewData["Title"] = "DrinksCocktailsProductsDetail";
+}
+
+<!-- Main Start -->
+<main>
+    <!-- Section 1 Start -->
+    <section style="width: 100%; height: 418.97px;">
+        <div class="Section1-ImageSide-MenuDetail">
+            <img style="object-fit: cover;" height="418.97px" width="100%" src="~/img/@Model.ImageUrl" alt="">
+        </div>
+        <div class="Section1-TextSide-MenuDetail">
+            <p>RESTAURANT MENU</p>
+            <h2>
+                @Model.CategoryName
+            </h2>
+        </div>
+    </section>
+    <!-- Section 1 End -->
+    <!-- Section 2 Start -->
+    <section>
+        <div class="Section2-ForFlex-MenuDetail">
+            <div class="Section2-ImageSide-MenuDetail">
+                <img style="object-fit: none;" src="~/img/@Model.ImageUrl" alt="">
+            </div>
+            <div class="Section2-SecoundSide-MenuDetail">
+                <div class="Section2-SecoundSide-BorderForFlex-MenuDetail">
+                    <a href="">
+                        <div class="Section2-SecoundSide-Border-MenuDetail">
+                            <i style="margin-right: 10px;" class="fa-solid fa-caret-left"></i>
+                            <span>BACK TO MENU</span>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="Section2-SecoundSide-Border-MenuDetail">
+                            <span>ORDER TAKEOUT</span>
+                            <i style="margin-left: 10px;" class="fa-solid fa-car"></i>
+                        </div>
+                    </a>
+                </div>
+                <h2>@Model.Name</h2>
+                <div class="Section2-Vl-MenuDetail"></div>
+                <p>
+                    Tristique tempus condimentum diam donec.
+                    Condimentum ullamcorper sit elementum
+                    hendrerit mi nulla in consequat, ut. Metus,
+                    nullam scelerisque netus viverra dui pretium
+                    pulvinar. Commodo morbi amet.
+
+                    Amet arcu eget nibh vitae, lectus aliquam enim
+                    ultrices. Mi hendrerit tempor eu, tempus risus
+                    laoreet et. Tellus adipiscing mi commodo, risus
+                    tempor volutpat amet cum. Enim quam sed
+                    fermentum dui ut diam eros, nisl, orci.
+                </p>
+                <h3>
+                    Allergen Info
+                </h3>
+                <div class="Section2-Vl-MenuDetail"></div>
+
+                <div class="Section2-UnderMenu-MenuDetail">
+                    <div class="Section2-UnderMenuForFlex-MenuDetail">
+                        <div class="Section2-UnderMenuForFlex-MenuDetail">
+                            <img src="https://img.icons8.com/ios-filled/100/000000/eggs.png" />
+                            <p>Egg free</p>
+                        </div>
+                        <div class="Section2-UnderMenuForFlex-MenuDetail">
+                            <img src="https://img.icons8.com/ios-filled/100/000000/coconut-milk.png" />
+                            <p>Lactose free</p>
+                        </div>
+                    </div>
+                    <div class="Section2-UnderMenuForFlex-MenuDetail">
+                        <div class="Section2-UnderMenuForFlex-MenuDetail">
+                            <img src="https://img.icons8.com/ios-filled/100/000000/no-gluten.png" />
+                            <p>Gluten free</p>
+                        </div>
+                        <div class="Section2-UnderMenuForFlex-MenuDetail">
+                            <img src="https://img.icons8.com/ios-filled/100/000000/nut.png" />
+                            <p>Nut free</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section 2 End -->
+
+</main>
+<!-- Main End -->
