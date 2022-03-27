@@ -29,5 +29,27 @@ namespace AvadaRestaurantFinal.Controllers
             takeoutVM.DessertCoffeeProducts = dessertCoffeeProducts;
             return View(takeoutVM);
         }
+        public IActionResult HorsDoeuvresProductTakeoutDetail(int? id)
+        {
+            HorsDoeuvresProduct horsDoeuvresProduct = _context.HorsDoeuvresProduct.FirstOrDefault(x => x.Id == id);
+            List<HorsDoeuvresProduct> horsDoeuvresProduct1 = _context.HorsDoeuvresProduct.Take(3).ToList();
+            ViewBag.horsDoeuvresProduct1 = horsDoeuvresProduct1;
+            return View(horsDoeuvresProduct);
+        }
+        public IActionResult MainCourseProductsTakeoutDetail(int? id)
+        {
+            MainCourseProducts mainCourseProducts = _context.MainCourseProducts.FirstOrDefault(x => x.Id == id);
+            List<MainCourseProducts> mainCourseProducts1 = _context.MainCourseProducts.Take(3).ToList();
+            ViewBag.mainCourseProducts1 = mainCourseProducts1;
+            return View(mainCourseProducts);
+        }
+        public IActionResult DessertCoffeeProductsTakeoutDetail(int? id)
+        {
+            DessertCoffeeProducts dessertCoffeeProducts = _context.DessertCoffeeProducts.FirstOrDefault(x => x.Id == id);
+            List<DessertCoffeeProducts> dessertCoffeeProducts1 = _context.DessertCoffeeProducts.Take(3).ToList();
+            ViewBag.dessertCoffeeProducts1 = dessertCoffeeProducts1;
+            return View(dessertCoffeeProducts);
+        }
+        
     }
 }

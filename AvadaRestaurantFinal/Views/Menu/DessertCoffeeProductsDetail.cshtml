@@ -30,13 +30,13 @@
             </div>
             <div class="Section2-SecoundSide-MenuDetail">
                 <div class="Section2-SecoundSide-BorderForFlex-MenuDetail">
-                    <a href="">
+                    <a asp-controller="Menu" asp-action="Index">
                         <div class="Section2-SecoundSide-Border-MenuDetail">
                             <i style="margin-right: 10px;" class="fa-solid fa-caret-left"></i>
                             <span>BACK TO MENU</span>
                         </div>
                     </a>
-                    <a href="">
+                    <a asp-controller="Takeout" asp-action="DessertCoffeeProductsTakeoutDetail" asp-route-id="@Model.Id">
                         <div class="Section2-SecoundSide-Border-MenuDetail">
                             <span>ORDER TAKEOUT</span>
                             <i style="margin-left: 10px;" class="fa-solid fa-car"></i>

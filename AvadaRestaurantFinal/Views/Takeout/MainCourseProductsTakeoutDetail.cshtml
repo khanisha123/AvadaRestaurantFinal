@@ -1,0 +1,116 @@
+﻿@using AvadaRestaurantFinal.Models
+@model MainCourseProducts
+@{
+    ViewData["Title"] = "MainCourseProductsTakeoutDetail";
+}
+
+
+
+
+<!-- Main Start -->
+<!-- Section 1 Start -->
+<section style="width: 100%; height: 418.97px;">
+    <div class="Section1-ImageSide-TakeoutDetail">
+        <img style="object-fit: cover;" height="418.97px" width="100%" src="~/img/page172x-scaled.jpg" alt="">
+    </div>
+    <div class="Section1-TextSide-TakeoutDetail">
+        <p>RESTAURANT TAKEOUT</p>
+        <h2>@Model.CategoryName</h2>
+    </div>
+</section>
+<!-- Section 1 End -->
+<!-- Section 2 Start -->
+<section>
+    <div class="Section2-Bakround-TakeoutDetail">
+        <div class="Section2-ImageSide-TakeoutDetail">
+            <img src="~/img/@Model.ImageUrl" alt="">
+            <span>$@Model.Price.00</span>
+        </div>
+        <div class="Section2-TextSide-TakeoutDetail">
+            <h2>@Model.Name</h2>
+            <div class="Section2-TextSide-Vl-TakeoutDetail"></div>
+            <p>
+                @Model.TakeoutSideDescription
+            </p>
+
+            <div class="Section2-TextSide-QuantityAndAddToCardFlex-TakeoutDetail">
+                <div class="Section2-TextSide-Quantity-TakeoutDetail">
+                    <i onclick="decrease()" class="fa-solid fa-minus Section2-TextSide-Quantity-Minus-TakeoutDetail"></i>
+                    <input type="text" id="text" value="0">
+                    <i onclick="increase()" class="fa-solid fa-plus Section2-TextSide-Quantity-Plus-TakeoutDetail "></i>
+                </div>
+                <div class="Section2-TextSide-AddToCardBorder-TakeoutDetail">
+                    <span>ADD TO CART</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- Section 2 End -->
+<!-- Section 3 Start -->
+<section>
+    <div class="Section3-ForFlex-TakeoutDetail">
+        <div class="Section3-FirstSide-TakeoutDetail">
+            <h3>
+                Additional informations
+            </h3>
+            <p>
+                Quisque velit nisi, pretium ut lacinia in, elementum id
+                enim. Donec sollicitudin molestie malesuada. Proin eget
+                tortor risus. Nulla porttitor accumsan tincidunt. Curabitur
+                arcu erat, accumsan id imperdiet et, porttitor at sem.
+                Donec sollicitudin molestie malesuada.
+            </p>
+        </div>
+        <div class="Section3-SecoundSide-TakeoutDetail">
+
+            <div class="Section3-TableForFlex-TakeoutDetail">
+                <span>Calories</span>
+                <p>@Model.Calories</p>
+            </div>
+            <div class="Section3-TableForFlex-TakeoutDetail">
+                <span>Gluten free</span>
+                <p>@Model.GlutenFree</p>
+            </div>
+            <div class="Section3-TableForFlex-TakeoutDetail">
+                <span>Lactose free</span>
+                <p>@Model.LactoseFree</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Section 3 End -->
+<!-- Section 4 Start -->
+<section>
+    <div class="Section4-Header-TakeoutDetail">
+        <h3>
+            Related products
+        </h3>
+    </div>
+    <div class="Section4-ProductForFlex-TakeoutDetail">
+        @foreach (var item in ViewBag.mainCourseProducts1)
+        {
+            <div class="Section4-ProductCard-TakeoutDetail">
+                <div class="Section4-ImageSide-TakeoutDetail">
+                    <div class="Section4-ImageSide-ImageAndText-TakeoutDetail">
+                        <a asp-controller="Takeout" asp-action="MainCourseProductsTakeoutDetail" asp-route-id="@item.Id">
+                            <img src="~/img/@item.ImageUrl" alt="">
+                        </a>
+                        <div class="Section4-BackroundText-TakeoutDetail">
+                            <a href="">ADD TO CART</a>   <a href="">/</a>   <a asp-controller="Takeout" asp-action="MainCourseProductsTakeoutDetail" asp-route-id="@item.Id">DETAILS</a>
+                        </div>
+                    </div>
+                    <div class="Section4-Textside-TakeoutDetail">
+                        <a asp-controller="Takeout" asp-action="MainCourseProductsTakeoutDetail" asp-route-id="@item.Id">@item.Name</a>
+                        <span>$@item.Price.00</span>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+<!-- Section 4 End -->
+<!-- Main End -->
+<script src="~/js/TakeoutDetail.js"></script>
+
