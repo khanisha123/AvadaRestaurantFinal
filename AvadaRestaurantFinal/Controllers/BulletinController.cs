@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AvadaRestaurantFinal.DAL;
+using AvadaRestaurantFinal.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +10,15 @@ namespace AvadaRestaurantFinal.Controllers
 {
     public class BulletinController : Controller
     {
+        private readonly Context _context;
+        public BulletinController(Context context)
+        {
+            _context = context;
+        }
         public IActionResult Index()
         {
-            return View();
+            List<Bulletin> bulletins = _context.Bulletin.ToList();
+            return View(bulletins);
         }
     }
 }

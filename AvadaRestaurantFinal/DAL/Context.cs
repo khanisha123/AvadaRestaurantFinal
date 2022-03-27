@@ -38,5 +38,6 @@ namespace AvadaRestaurantFinal.DAL
         public DbSet<MainCourseProducts> MainCourseProducts { get; set; }
         public DbSet<DessertCoffeeProducts> DessertCoffeeProducts { get; set; }
         public DbSet<DrinksCocktailsProducts> DrinksCocktailsProducts { get; set; }
+        public DbSet<Bulletin> Bulletin { get; set; }
     }
 }
