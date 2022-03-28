@@ -115,7 +115,7 @@ namespace AvadaRestaurantFinal.Areas.AdminArea.Controllers
             dbHorsDoeuvresProduct.Calories = horsDoeuvresProduct.Calories;
             dbHorsDoeuvresProduct.CategoryName = horsDoeuvresProduct.CategoryName;
             dbHorsDoeuvresProduct.GlutenFree = horsDoeuvresProduct.GlutenFree;
-            dbHorsDoeuvresProduct.HomeSideDescription= horsDoeuvresProduct.HomeSideDescription;
+            dbHorsDoeuvresProduct.LactoseFree = horsDoeuvresProduct.LactoseFree;
             dbHorsDoeuvresProduct.Price = horsDoeuvresProduct.Price;
             dbHorsDoeuvresProduct.DescriptionFront = horsDoeuvresProduct.DescriptionFront;
             dbHorsDoeuvresProduct.TakeoutSideDescription = horsDoeuvresProduct.TakeoutSideDescription;

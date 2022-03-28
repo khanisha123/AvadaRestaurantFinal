@@ -116,6 +116,7 @@ namespace AvadaRestaurantFinal.Areas.AdminArea.Controllers
             dbmainCourseProducts.GlutenFree = mainCourseProducts.GlutenFree;
             dbmainCourseProducts.HomeSideDescription = mainCourseProducts.HomeSideDescription;
             dbmainCourseProducts.Price = mainCourseProducts.Price;
+            dbmainCourseProducts.LactoseFree = mainCourseProducts.LactoseFree;
             dbmainCourseProducts.DescriptionFront = mainCourseProducts.DescriptionFront;
             dbmainCourseProducts.TakeoutSideDescription = mainCourseProducts.TakeoutSideDescription;
             dbmainCourseProducts.HomeSideDescription = mainCourseProducts.HomeSideDescription;

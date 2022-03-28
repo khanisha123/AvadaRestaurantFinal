@@ -114,7 +114,7 @@ namespace AvadaRestaurantFinal.Areas.AdminArea.Controllers
             dbDessertCoffeeProducts.Calories = dessertCoffeeProducts.Calories;
             dbDessertCoffeeProducts.CategoryName = dessertCoffeeProducts.CategoryName;
             dbDessertCoffeeProducts.GlutenFree = dessertCoffeeProducts.GlutenFree;
-            dbDessertCoffeeProducts.HomeSideDescription = dessertCoffeeProducts.HomeSideDescription;
+            dbDessertCoffeeProducts.LactoseFree = dessertCoffeeProducts.LactoseFree;
             dbDessertCoffeeProducts.Price = dessertCoffeeProducts.Price;
             dbDessertCoffeeProducts.DescriptionFront = dessertCoffeeProducts.DescriptionFront;
             dbDessertCoffeeProducts.TakeoutSideDescription = dessertCoffeeProducts.TakeoutSideDescription;
