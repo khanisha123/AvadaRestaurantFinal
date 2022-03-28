@@ -1,0 +1,44 @@
+﻿@using AvadaRestaurantFinal.Models
+@model DessertCoffeeProducts
+@{
+    ViewData["Title"] = "Update";
+}
+
+
+
+<form method="post" enctype="multipart/form-data">
+    <label asp-for="Photo">Image :</label><br />
+    <input asp-for="Photo" accept="image/*" /><br />
+    <span asp-validation-for="Photo" style="color:red;"></span><br /><br />
+    <label asp-for="Name">Name :</label> <br />
+    <input type="text" asp-for="Name" /> <br />
+    <span asp-validation-for="Name" style="color:red;"></span><br /><br />
+    <label asp-for="CategoryName">CategoryName :</label> <br />
+    <input type="text" asp-for="CategoryName" /> <br />
+    <span asp-validation-for="CategoryName" style="color:red;"></span><br /><br />
+    <label asp-for="Price">Price :</label> <br />
+    <input type="text" asp-for="Price" /> <br />
+    <span asp-validation-for="Price" style="color:red;"></span><br /><br />
+    <label asp-for="Calories">Calories :</label> <br />
+    <input type="text" asp-for="Calories" /> <br />
+    <span asp-validation-for="Calories" style="color:red;"></span><br /><br />
+    <label asp-for="GlutenFree">GlutenFree :</label> <br />
+    <input type="text" asp-for="GlutenFree" /> <br />
+    <span asp-validation-for="GlutenFree" style="color:red;"></span><br /><br />
+    <label asp-for="LactoseFree">LactoseFree :</label> <br />
+    <input type="text" asp-for="LactoseFree" /> <br />
+    <span asp-validation-for="LactoseFree" style="color:red;"></span><br /><br />
+    <label asp-for="TakeoutSideDescription">TakeoutSideDescription :</label> <br />
+    <input type="text" asp-for="TakeoutSideDescription" /> <br />
+    <span asp-validation-for="TakeoutSideDescription" style="color:red;"></span><br /><br />
+    <label asp-for="DescriptionFront">DescriptionFront :</label> <br />
+    <input type="text" asp-for="DescriptionFront" /> <br />
+    <span asp-validation-for="DescriptionFront" style="color:red;"></span><br /><br />
+    <label asp-for="HomeSideDescription">HomeSideDescription :</label> <br />
+    <input type="text" asp-for="HomeSideDescription" /> <br />
+    <span asp-validation-for="HomeSideDescription" style="color:red;"></span><br /><br />
+
+    <button type="submit">Update</button>
+</form>
+
+
