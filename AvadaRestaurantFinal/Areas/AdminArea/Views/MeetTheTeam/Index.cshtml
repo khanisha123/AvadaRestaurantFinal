@@ -1,0 +1,41 @@
+﻿@using AvadaRestaurantFinal.Models
+@model List<MeetTheTeam>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<table class=" table table-bordered table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Image</th>
+            <th scope="col">Name</th>
+            <th scope="col">Profession</th>
+            <th scope="col">About</th>
+            <th scope="col">ButtonName</th>
+            <th>Delete</th>
+            <th>Update</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td><img style="border-radius:50%;" width="70" height="70" src="~/img/@item.ImageUrl" alt="Alternate Text" /></td>
+                <td>@item.Name</td>
+                <td>@item.profession</td>
+                <td>@item.About</td>
+                <td>@item.ButtonName</td>
+                <td>
+                    <a class="btn btn-info" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+                <td>
+                    <a asp-action="Update" asp-route-id="@item.Id" class="btn btn-primary">Update</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a style="margin:25px 40px 45px;width:200px; padding:10px 0px;transition:0.5s ease-out" class="btn btn-outline-primary" asp-controller="GuardianGlobes" asp-action="Create">Create</a>
+
