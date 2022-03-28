@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -17,5 +19,7 @@ namespace AvadaRestaurantFinal.Models
         public string LactoseFree { get; set; }
         public string TakeoutSideDescription { get; set; }
         public string CategoryName { get; set; }
+        [NotMapped]
+        public IFormFile Photo { get; set; }
     }
 }
