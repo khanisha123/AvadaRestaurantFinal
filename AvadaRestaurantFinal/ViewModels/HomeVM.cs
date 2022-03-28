@@ -9,6 +9,10 @@ namespace AvadaRestaurantFinal.ViewModels
     public class HomeVM
     {
         public fineDiningExperience fineDiningExperience { get; set; }
+        public List<Bulletin> bulletins { get; set; }
+        public List<HorsDoeuvresProduct> HorsDoeuvresProduct { get; set; }
+        public List<MainCourseProducts> MainCourseProducts { get; set; }
+        public List<DessertCoffeeProducts> DessertCoffeeProducts { get; set; }
         public foodIsOurCommon foodIsOurCommon { get; set; }
         public TheBestTableInTown TheBestTableInTown { get; set; }
         public NewYorkTimes NewYorkTimes { get; set; }

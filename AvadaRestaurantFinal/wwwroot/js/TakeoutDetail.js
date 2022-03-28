@@ -7,7 +7,7 @@ function increase(){
 function decrease(){
   var textBox = document.getElementById("text");
     
-    if (textBox.value>0) {
+    if (textBox.value>1) {
       textBox.value--;
     }
    

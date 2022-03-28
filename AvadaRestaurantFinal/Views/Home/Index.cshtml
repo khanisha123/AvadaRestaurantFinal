@@ -253,55 +253,27 @@
         <i>Latest news & promotions</i>
         <hr class="Section8-Line-homePage">
     </div>
-    <div class="Section8-ForFlex-homePage">
-        <div class="Section8-PorductCard-homePage">
-            <img src="~/img/blog92x.jpg" alt="">
-            <div class="Section8-ProductCard-BackSide-homePage">
-                <i class="fa-solid fa-link"></i>
-                <span>The best coffee in town</span>
-                <i class="Section8-ProductCard-BackSide-News-homePage">News</i>
-            </div>
-            <div class="Section8-PorductCard-UnderSide-homePage">
-                <span>The best coffee in town</span>
-                <p>
-                    By admin|January 7th, 2020|Categories: News
+    <div class="Section2-ForFlex-Bulletin" style="margin-top:-15px;">
+        @foreach (var item in Model.bulletins)
+        {
+            <div class="Section2-PorductCard-Bulletin">
+                <a href=""><img src="~/img/@item.ImageUrl" alt=""></a>
+                <div class="Section2-ProductCard-BackSide-Bulletin">
+                    <a href=""><i class="fa-solid fa-link"></i></a>
+                    <a href=""><span>@item.Name</span></a>
+                    <a href=""><i class="Section2-ProductCard-BackSide-News-Bulletin">News</i></a>
+                </div>
+                <div class="Section2-PorductCard-UnderSide-Bulletin">
+                    <span>@item.Name</span>
+                    <p>
+                        By admin|January 7th, 2020|Categories: News
 
-                </p>
+                    </p>
+                </div>
             </div>
-        </div>
-        <div class="Section8-PorductCard-homePage">
-            <img src="~/img/blog72x.jpg" alt="">
-            <div class="Section8-ProductCard-BackSide-homePage">
-                <i class="fa-solid fa-link"></i>
-                <span>Discover our new menu</span>
-                <i class="Section8-ProductCard-BackSide-News-homePage">News</i>
-            </div>
-            <div class="Section8-PorductCard-UnderSide-homePage">
-                <span>Discover our new menu</span>
-                <p>
-                    By admin|January 7th, 2020|Categories: News
-
-                </p>
-            </div>
-        </div>
-        <div class="Section8-PorductCard-homePage">
-
-            <img src="~/img/blog82x.jpg" alt="">
-
-            <div class="Section8-ProductCard-BackSide-homePage">
-                <i class="fa-solid fa-link"></i>
-                <span>We now accept Square!</span>
-                <i class="Section8-ProductCard-BackSide-News-homePage">News</i>
-            </div>
-            <div class="Section8-PorductCard-UnderSide-homePage">
-                <span>We now accept Square!</span>
-                <p>
-                    By admin|January 7th, 2020|Categories: News
-
-                </p>
-            </div>
-        </div>
+        }
     </div>
+
 </section>
 <!-- Section 8 End -->
 <!-- Section 9 Start -->
@@ -341,147 +313,54 @@
     <div class="Section10-ForFlex-homePage">
         <div class="Section10-FirstSide-homePage">
             <h3>HORS D’OEUVRES</h3>
-            <div class="Section10-TitleCostAndDecription-homePage">
-                <div class="Section10-CostAndTitle-homePage">
-                    <span>AHI SALMON NIGIRI</span>
-                    <h6>$48</h6>
+            @foreach (var item in Model.HorsDoeuvresProduct)
+            {
+                <div class="Section10-TitleCostAndDecription-homePage">
+                    <div class="Section10-CostAndTitle-homePage">
+                        <a asp-controller="Menu" asp-action="HorsDoeuvresProductDetail" asp-route-id="@item.Id"><span>@item.Name</span></a>
+                        <h6>$@item.Price</h6>
+                    </div>
+                    <span class="Section10-Description-homePage">
+                        @item.HomeSideDescription
+                    </span>
                 </div>
-                <span class="Section10-Description-homePage">
-                    Eget vulputate vitae quis
-                    rutrum blandit sed. Quam
-                    nulla sit lacinia.
-                </span>
-            </div>
-            <div class="Section10-TitleCostAndDecription-homePage">
-                <div class="Section10-CostAndTitle-homePage">
-                    <span>UMI MASU SALAD</span>
-                    <h6>$21</h6>
-                </div>
-                <span class="Section10-Description-homePage">
-                    Mollis ornare sit sapien,
-                    sodales. Cursus duis proin
-                    semper quisque.
-                </span>
-            </div>
-            <div class="Section10-TitleCostAndDecription-homePage">
-                <div class="Section10-CostAndTitle-homePage">
-                    <span>TEMAKI WITH CRAB</span>
-                    <h6>$32</h6>
-                </div>
-                <span class="Section10-Description-homePage">
-                    Ac vel, risus ornare senectus
-                    placerat duis amet dictumst
-                    tellus.
-                </span>
-            </div>
-            <div class="Section10-TitleCostAndDecription-homePage">
-                <div class="Section10-CostAndTitle-homePage">
-                    <span>California Rolls</span>
-                    <h6>$22</h6>
-                </div>
-                <span class="Section10-Description-homePage">
-                    Ac vel, risus ornare senectus
-                    placerat duis amet dictumst
-                    tellus.
-                </span>
-            </div>
+            }
+
         </div>
         <div class="Section10-SecoundSide-homePage">
             <img width="398" height="905.55" style="position: absolute; opacity: 0.3;object-fit: cover;" src="~/img/misc22x.jpg" alt="">
             <div class="Section10-SecoundSide-Add-homePage" style="position: absolute;">
                 <h3>Main Course</h3>
-                <div class="Section10-SecoundSide-TitleCostAndDecription-homePage">
-                    <div class="Section10-SecoundSide-CostAndTitle-homePage">
-                        <span>Braised Abalone</span>
-                        <h6>$52</h6>
+                @foreach (var item in Model.MainCourseProducts)
+                {
+                    <div class="Section10-SecoundSide-TitleCostAndDecription-homePage">
+                        <div class="Section10-SecoundSide-CostAndTitle-homePage">
+                            <a asp-controller="Menu" asp-action="MainCourseProductsDetail" asp-route-id="@item.Id"><span>@item.Name</span></a>
+                            <h6>$@item.Price</h6>
+                        </div>
+                        <span class="Section10-SecoundSide-Description-homePage">
+                            @item.HomeSideDescription
+                        </span>
                     </div>
-                    <span class="Section10-SecoundSide-Description-homePage">
-                        Mollis ornare sit sapien,
-                        sodales. Cursus duis proin
-                        semper quisque.
-                    </span>
-                </div>
-                <div class="Section10-SecoundSide-TitleCostAndDecription-homePage">
-                    <div class="Section10-SecoundSide-CostAndTitle-homePage">
-                        <span>Twice Cooked Pork</span>
-                        <h6>$21</h6>
-                    </div>
-                    <span class="Section10-SecoundSide-Description-homePage">
-                        Ac vel, risus ornare senectus
-                        placerat duis amet dictumst
-                        tellus.
-                    </span>
-                </div>
-                <div class="Section10-SecoundSide-TitleCostAndDecription-homePage">
-                    <div class="Section10-SecoundSide-CostAndTitle-homePage">
-                        <span>Kung Pao Chicken</span>
-                        <h6>$32</h6>
-                    </div>
-                    <span class="Section10-SecoundSide-Description-homePage">
-                        Quis duis sit dictum aliquam a
-                        velit enim. Tellus in sit augue
-                        aliquam.
-                    </span>
-                </div>
-                <div class="Section10-SecoundSide-TitleCostAndDecription-homePage">
-                    <div class="Section10-SecoundSide-CostAndTitle-homePage">
-                        <span>CHAR SIU & SUSHIS</span>
-                        <h6>$48</h6>
-                    </div>
-                    <span class="Section10-SecoundSide-Description-homePage">
-                        Feugiat rhoncus ipsum
-                        tristique purus diam, et dolor
-                        molestie.
-                    </span>
-                </div>
+                }
             </div>
         </div>
         <div class="Section10-3Side-homePage">
             <h3>DESSERTS</h3>
-            <div class="Section10-TitleCostAndDecription-homePage">
-                <div class="Section10-CostAndTitle-3-homePage">
-                    <span>Chocolate ball cake</span>
-                    <h6>$13</h6>
-                </div>
-                <span class="Section10-Description-homePage">
-                    In pellentesque in felis massa
-                    vehicula. In sed euismod ut.
+            @foreach (var item in Model.DessertCoffeeProducts)
+            {
+                <div class="Section10-TitleCostAndDecription-homePage">
+                    <div class="Section10-CostAndTitle-3-homePage">
+                        <a asp-controller="Menu" asp-action="DessertCoffeeProductsDetail" asp-route-id="@item.Id"><span style="font-size:29px;">@item.Name</span></a>
+                        <h6>$@item.Price</h6>
+                    </div>
+                    <span class="Section10-Description-homePage" style="font-size:17px;">
+                        @item.HomeSideDescription
 
-                </span>
-            </div>
-            <div class="Section10-TitleCostAndDecription-homePage">
-                <div class="Section10-CostAndTitle-3-homePage">
-                    <span>LIME PIE WITH CRUST</span>
-                    <h6>$14</h6>
+                    </span>
                 </div>
-                <span class="Section10-Description-homePage">
-                    Mollis ornare sit sapien,
-                    sodales. Cursus duis proin
-                    semper quisque.
-                </span>
-            </div>
-            <div class="Section10-TitleCostAndDecription-homePage">
-                <div class="Section10-CostAndTitle-3-homePage">
-                    <span>RASBERRY PEAR CAKE</span>
-                    <h6>$18</h6>
-                </div>
-                <span class="Section10-Description-homePage">
-                    Eget vulputate vitae quis
-                    rutrum blandit sed. Quam
-                    nulla sit.
-                </span>
-            </div>
-            <div class="Section10-TitleCostAndDecription-homePage">
-                <div class="Section10-CostAndTitle-3-homePage">
-                    <span>Café Au Lait</span>
-                    <h6>$6</h6>
-                </div>
-                <span class="Section10-Description-homePage">
-                    Eget vulputate vitae quis
-                    rutrum blandit sed. Quam
-                    nulla sit.
-                </span>
-            </div>
+            }
+
         </div>
     </div>
 </section>

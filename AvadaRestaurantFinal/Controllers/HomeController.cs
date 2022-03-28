@@ -19,6 +19,10 @@ namespace AvadaRestaurantFinal.Controllers
         public IActionResult Index()
         {
             HomeVM homeVM = new HomeVM();
+            List<Bulletin> bulletins = _context.Bulletin.Take(3).ToList();
+            List<HorsDoeuvresProduct> HorsDoeuvresProduct = _context.HorsDoeuvresProduct.Take(4).ToList();
+            List<MainCourseProducts> MainCourseProducts = _context.MainCourseProducts.Take(4).ToList();
+            List<DessertCoffeeProducts> DessertCoffeeProducts = _context.DessertCoffeeProducts.Take(4).ToList();
             fineDiningExperience fineDiningExperience = _context.FineDiningExperience.FirstOrDefault();
             foodIsOurCommon foodIsOurCommon = _context.foodIsOurCommons.FirstOrDefault();
             TheBestTableInTown theBestTableInTown = _context.theBestTableInTowns.FirstOrDefault();
@@ -28,6 +32,10 @@ namespace AvadaRestaurantFinal.Controllers
             TakeoutNowAvailable takeoutNowAvailable = _context.takeoutNowAvailable.FirstOrDefault();
             List<GuardianGlobe> GuardianGlobe = _context.GuardianGlobe.ToList();
             homeVM.foodIsOurCommon = foodIsOurCommon;
+            homeVM.MainCourseProducts = MainCourseProducts;
+            homeVM.DessertCoffeeProducts = DessertCoffeeProducts;
+            homeVM.HorsDoeuvresProduct = HorsDoeuvresProduct;
+            homeVM.bulletins = bulletins;
             homeVM.braisedAbalone = braisedAbalone;
             homeVM.takeoutNowAvailables = takeoutNowAvailable;
             homeVM.guardianGlobes = GuardianGlobe;

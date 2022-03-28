@@ -17,5 +17,6 @@ namespace AvadaRestaurantFinal.Models
         public string LactoseFree { get; set; }
         public string TakeoutSideDescription { get; set; }
         public string CategoryName { get; set; }
+        public string HomeSideDescription { get; set; }
     }
 }

@@ -39,7 +39,7 @@
             <div class="Section2-TextSide-QuantityAndAddToCardFlex-TakeoutDetail">
                 <div class="Section2-TextSide-Quantity-TakeoutDetail">
                     <i onclick="decrease()" class="fa-solid fa-minus Section2-TextSide-Quantity-Minus-TakeoutDetail"></i>
-                    <input type="text" id="text" value="0">
+                    <input type="text" id="text" value="1">
                     <i onclick="increase()" class="fa-solid fa-plus Section2-TextSide-Quantity-Plus-TakeoutDetail "></i>
                 </div>
                 <div class="Section2-TextSide-AddToCardBorder-TakeoutDetail">
@@ -115,6 +115,22 @@
 </section>
 <!-- Section 4 End -->
 <!-- Main End -->
-<script src="~/js/TakeoutDetail.js"></script>
+@*<script src="~/js/TakeoutDetail.js"></script>*@
 
+<script>
+    function increase() {
+        var a = 1;
+        var textBox = document.getElementById("text");
+        textBox.value++;
+
+    }
+    function decrease() {
+        var textBox = document.getElementById("text");
+
+        if (textBox.value > 1) {
+            textBox.value--;
+        }
+
+    }
+</script>
 
