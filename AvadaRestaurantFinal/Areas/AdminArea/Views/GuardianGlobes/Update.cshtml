@@ -1,0 +1,25 @@
+﻿@using AvadaRestaurantFinal.Models
+@model GuardianGlobe
+@{
+    ViewData["Title"] = "Update";
+}
+
+<form method="post" enctype="multipart/form-data">
+    <label asp-for="Photo">Image :</label><br />
+    <input asp-for="Photo" accept="image/*" /><br />
+    <span asp-validation-for="Photo" style="color:red;"></span><br /><br />
+    <label asp-for="profession">Profession :</label> <br />
+    <input type="text" asp-for="profession" /> <br />
+    <span asp-validation-for="profession" style="color:red;"></span><br /><br />
+    <label asp-for="Name">Name :</label> <br />
+    <input type="text" asp-for="Name" /> <br />
+    <span asp-validation-for="Name" style="color:red;"></span><br /><br />
+    <label asp-for="Description">Description :</label> <br />
+    <input type="text" asp-for="Description" /> <br />
+    <span asp-validation-for="Description" style="color:red;"></span><br /><br />
+    <label asp-for="ButtonName">ButtonName :</label> <br />
+    <input type="text" asp-for="ButtonName" /> <br />
+    <span asp-validation-for="ButtonName" style="color:red;"></span><br /><br />
+
+    <button type="submit">Create</button>
+</form>
