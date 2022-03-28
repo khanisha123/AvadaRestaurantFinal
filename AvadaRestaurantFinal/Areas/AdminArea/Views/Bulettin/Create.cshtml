@@ -1,0 +1,17 @@
+﻿@using AvadaRestaurantFinal.Models
+@model Bulletin
+@{
+    ViewData["Title"] = "Create";
+}
+
+<form method="post" enctype="multipart/form-data">
+    <label asp-for="Photo">Image :</label><br />
+    <input asp-for="Photo" accept="image/*" /><br />
+    <span asp-validation-for="Photo" style="color:red;"></span><br /><br />
+    <label asp-for="Name">Name :</label> <br />
+    <input type="text" asp-for="Name" /> <br />
+    <span asp-validation-for="Name" style="color:red;"></span><br /><br />
+   
+    <button type="submit">Create</button>
+</form>
+
