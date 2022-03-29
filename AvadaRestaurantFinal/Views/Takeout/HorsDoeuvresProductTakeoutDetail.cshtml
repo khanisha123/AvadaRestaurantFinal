@@ -95,7 +95,7 @@
                             <img src="~/img/@item.ImageUrl" alt="">
                         </a>
                         <div class="Section4-BackroundText-TakeoutDetail">
-                            <a href="">ADD TO CART</a>   <a href="">/</a>   <a asp-controller="Takeout" asp-action="HorsDoeuvresProductTakeoutDetail" asp-route-id="@item.Id">DETAILS</a>
+                            <a asp-controller="Basket" asp-action="AddBasket" asp-route-id="@item.Id">ADD TO CART</a>   <a href="">/</a>   <a asp-controller="Takeout" asp-action="HorsDoeuvresProductTakeoutDetail" asp-route-id="@item.Id">DETAILS</a>
                         </div>
                     </div>
                     <div class="Section4-Textside-TakeoutDetail">

@@ -1,0 +1,140 @@
+﻿@using AvadaRestaurantFinal.ViewModels
+@model List<BasketProduct>
+@{
+    ViewData["Title"] = "ShowBasket";
+    double Total = 0;
+
+}
+<style>
+    /* Section 1 Start */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .Section1-ImageSide-TakeoutDetail {
+        background-color: black;
+        width: 100%;
+        height: 418.97px;
+        position: absolute;
+    }
+
+        .Section1-ImageSide-TakeoutDetail img {
+            opacity: 0.3;
+        }
+
+    .Section1-TextSide-TakeoutDetail p {
+        color: white;
+        font-size: 18px;
+        font-family: 'Lora', serif;
+        word-spacing: 3px;
+    }
+
+    .Section1-TextSide-TakeoutDetail h2 {
+        color: white;
+        font-size: 70px;
+        font-family: 'Bebas Neue', cursive;
+        line-height: 1.2;
+    }
+
+    .Section1-TextSide-TakeoutDetail {
+        position: absolute;
+        margin-top: 15%;
+        text-align: center;
+        width: 100%;
+        height: 418.97px;
+    }
+
+    .table1 {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    /* Section 1 End */
+    .EmptyCartDiv {
+        margin-top: 90px;
+        margin-bottom: 90px;
+        margin-left: 9%;
+        margin-right: 9%;
+        display: flex;
+        justify-content: space-between;
+   }
+        .EmptyCartDiv span {
+            font-size: 18px;
+            color: #BDA16B;
+            font-family: 'Bebas Neue', cursive;
+        }
+    .ReturnShopSide{
+        display:flex;
+        margin-bottom:15px;
+    }
+        .ReturnShopSide p {
+            font-size: 19px;
+            font-family: 'Lora', serif;
+            color:black;
+        }
+    .ReturnShopSide i{
+        color:black;
+        margin-right:10px;
+        margin-top:6px;
+    }
+</style>
+<!-- Section 1 Start -->
+<section style="width: 100%; height: 418.97px;">
+    <div class="Section1-ImageSide-TakeoutDetail">
+        <img style="object-fit: cover;" height="418.97px" width="100%" src="~/img/page172x-scaled.jpg" alt="">
+    </div>
+    <div class="Section1-TextSide-TakeoutDetail" style="height:0;">
+        <h2>Cart</h2>
+    </div>
+</section>
+<!-- Section 1 End -->
+@if (Model.Count == 0)
+{
+    <div class="EmptyCartDiv">
+        <span>Your cart is currently empty.</span>
+        <a class="ReturnShopSide" asp-controller="takeout" asp-action="index">
+            <i class="fa-solid fa-basket-shopping"></i>
+            <p>Return to shop</p>
+        </a>
+    </div>
+}
+else
+{
+    <table class="table table1">
+        <thead>
+            <tr>
+
+                <th scope="col">Image</th>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Count</th>
+                <th scope="col">TotalPrice</th>
+                <th scope="col">Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                double total = item.Price * item.Count;
+                Total += total;
+        <tr>
+            <th scope="row">
+                <img style="object-fit:cover" src="~/img/@item.ImageUrl" width="90" height="104" />
+            </th>
+            <td>@item.Name</td>
+            <td>$@item.Price</td>
+            <td>@item.Count</td>
+            <td>$@total</td>
+            <td><a asp-controller="basket" asp-action="Remove" asp-route-id="@item.Id"><i style="color:black;font-size:18px;" class="fa-solid fa-xmark"></i></a></td>
+        </tr>
+    }
+        </tbody>
+    </table>
+    <p>
+        SubTotal: <b>$@Total</b>
+    </p>
+    
+}
+
