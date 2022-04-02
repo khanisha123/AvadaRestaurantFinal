@@ -43,14 +43,14 @@ namespace AvadaRestaurantFinal.Controllers
             {
                 basketProductsList = JsonConvert.DeserializeObject<List<BasketProduct>>(basket);
             }
-            BasketProduct isExistProduct = basketProductsList.Find(p=>p.Id == horsDoeuvresProduct.Id);
-            
+            BasketProduct isExistProduct = basketProductsList.Find(p => p.Id == horsDoeuvresProduct.Id);
+
             if (isExistProduct == null)
             {
                 BasketProduct basketProduct = new BasketProduct
                 {
-                    Id=horsDoeuvresProduct.Id,
-                   
+                    Id = horsDoeuvresProduct.Id,
+
                     Count = 1
                 };
                 basketProductsList.Add(basketProduct);
@@ -59,12 +59,12 @@ namespace AvadaRestaurantFinal.Controllers
             {
                 isExistProduct.Count++;
             }
-            
-            
+
+
             Response.Cookies.Append("basket", JsonConvert.SerializeObject(basketProductsList), new CookieOptions { MaxAge = TimeSpan.FromMinutes(14) });
-            return RedirectToAction("Index","Takeout");
+            return RedirectToAction("Index", "Takeout");
         }
-        public  IActionResult ShowBasket()
+        public IActionResult ShowBasket()
         {
             string basket = Request.Cookies["basket"];
             List<BasketProduct> products = new List<BasketProduct>();
@@ -74,7 +74,7 @@ namespace AvadaRestaurantFinal.Controllers
 
                 foreach (var item in products)
                 {
-                  HorsDoeuvresProduct horsDoeuvresProduct= _context.HorsDoeuvresProduct.FirstOrDefault(p=>p.Id==item.Id);
+                    HorsDoeuvresProduct horsDoeuvresProduct = _context.HorsDoeuvresProduct.FirstOrDefault(p => p.Id == item.Id);
                     item.Price = horsDoeuvresProduct.Price;
                     item.ImageUrl = horsDoeuvresProduct.ImageUrl;
                     item.Name = horsDoeuvresProduct.Name;

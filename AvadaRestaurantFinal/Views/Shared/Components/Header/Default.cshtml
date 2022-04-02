@@ -1,9 +1,20 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
 <header class="header">
+    <span>@ViewBag.UserName</span>
+    @if (User.Identity.IsAuthenticated)
+    {
+      <a style="color:white;" asp-controller="Account" asp-action="Logout">Logout</a> 
+
+    }
+    else
+    {
+     <a style="color:white;" asp-controller="Account" asp-action="Login">Login</a>
+
+    }
+    @*<a style="color:white;" asp-controller="Account" asp-action="Register">Register</a>*@
     <div class="container">
         <div class="header_left">
             <a href=""><img src="https://avada.theme-fusion.com/restaurant/wp-content/uploads/sites/112/2021/04/logo-svg.svg" alt=""></a>

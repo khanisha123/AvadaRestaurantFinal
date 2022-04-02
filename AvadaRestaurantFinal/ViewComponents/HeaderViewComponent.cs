@@ -1,5 +1,7 @@
 ﻿using AvadaRestaurantFinal.DAL;
+using AvadaRestaurantFinal.Models;
 using AvadaRestaurantFinal.ViewModels;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
@@ -13,13 +15,20 @@ namespace AvadaRestaurantFinal.ViewComponents
     public class HeaderViewComponent : ViewComponent
     {
         private readonly Context _context;
+        private readonly UserManager<AppUser> _userManager;
 
-        public HeaderViewComponent(Context context)
+        public HeaderViewComponent(Context context,UserManager<AppUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                AppUser appUser = await _userManager.FindByNameAsync(User.Identity.Name);
+                ViewBag.UserName = appUser.FullName;
+            };
 
             ViewBag.ProductCount = 0;
             if (Request.Cookies["basket"] != null)
