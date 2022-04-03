@@ -1,0 +1,16 @@
+﻿@using AvadaRestaurantFinal.ViewModels
+@model UserRoleVM
+@{
+    ViewData["Title"] = "Detail";
+}
+
+
+<h4 class="card-title">@Model.AppUser.FullName</h4>
+<p class="card-description">
+    @foreach (var item in Model.Roles)
+    {
+    <p> @item</p>
+
+}
+    </p>
+

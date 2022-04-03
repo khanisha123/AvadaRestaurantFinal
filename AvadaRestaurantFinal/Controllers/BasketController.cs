@@ -86,5 +86,16 @@ namespace AvadaRestaurantFinal.Controllers
 
             return View(products);
         }
+        public IActionResult Remove(int? id)
+        {
+            if (id == null) RedirectToAction("Index", "Error");
+            HorsDoeuvresProduct product = _context.HorsDoeuvresProduct.Find(id);
+            string basketCookie = Request.Cookies["basket"];
+            List<BasketProduct> basketProductList = JsonConvert.DeserializeObject<List<BasketProduct>>(basketCookie);
+            BasketProduct isExistProduct = basketProductList.FirstOrDefault(p => p.Id == product.Id);
+            basketProductList.Remove(isExistProduct);
+            Response.Cookies.Append("basket", JsonConvert.SerializeObject(basketProductList), new CookieOptions { MaxAge = TimeSpan.FromMinutes(14) });
+            return RedirectToAction("ShowBasket","Basket");
+        }
     }
 }

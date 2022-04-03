@@ -1,5 +1,6 @@
 ﻿using AvadaRestaurantFinal.Models;
 using AvadaRestaurantFinal.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -55,7 +56,7 @@ namespace AvadaRestaurantFinal.Controllers
                 }
                 return View();
             }
-            //await _userManager.AddToRoleAsync(user, "Member");
+            await _userManager.AddToRoleAsync(user, "Member");
             await _signInManager.SignInAsync(user, true);
 
             return RedirectToAction("Index", "Home");
@@ -110,25 +111,28 @@ namespace AvadaRestaurantFinal.Controllers
                 return View();
             }
 
-            //var roles = await _userManager.GetRolesAsync(dbUser);
-            //if (roles[0] == "Admin")
-            //{
-            //    return RedirectToAction("Index", "Dashboard", new { area = "AdminArea" });
-            //};
+            var roles = await _userManager.GetRolesAsync(dbUser);
+            if (roles[0] == "Admin")
+            {
+                return RedirectToAction("Index", "Dashboard", new { area = "AdminArea" });
+            };
             return RedirectToAction("Index", "Home");
         }
 
 
 
+        public async Task CreateRole()
+        {
+            if (!await _roleManager.RoleExistsAsync("Admin"))
+            {
+                await _roleManager.CreateAsync(new IdentityRole { Name = "Admin" });
+            }
+            if (!await _roleManager.RoleExistsAsync("Member"))
+            {
+                await _roleManager.CreateAsync(new IdentityRole { Name = "Member" });
+            }
 
-
-
-
-
-
-
-
-
+        }
 
 
 

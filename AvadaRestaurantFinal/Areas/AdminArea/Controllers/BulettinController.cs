@@ -1,6 +1,7 @@
 ﻿using AvadaRestaurantFinal.DAL;
 using AvadaRestaurantFinal.Extension;
 using AvadaRestaurantFinal.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -12,6 +13,8 @@ using System.Threading.Tasks;
 namespace AvadaRestaurantFinal.Areas.AdminArea.Controllers
 {
     [Area("AdminArea")]
+    [Authorize]
+
     public class BulettinController : Controller
     {
         private readonly Context _context;
