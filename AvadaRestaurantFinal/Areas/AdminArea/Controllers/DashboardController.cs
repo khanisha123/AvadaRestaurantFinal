@@ -9,7 +9,6 @@ namespace AvadaRestaurantFinal.Areas.AdminArea.Controllers
 {
     [Area("AdminArea")]
     [Authorize]
-
     public class DashboardController : Controller
     {
         public IActionResult Index()
