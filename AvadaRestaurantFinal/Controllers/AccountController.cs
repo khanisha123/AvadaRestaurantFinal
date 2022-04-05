@@ -44,7 +44,7 @@ namespace AvadaRestaurantFinal.Controllers
                 Email = register.Email
 
             };
-            //user.IsActive = true;
+            user.isActive = true;
             IdentityResult identityResult = await _userManager.CreateAsync(user, register.Password);
 
             if (!identityResult.Succeeded)
@@ -91,11 +91,11 @@ namespace AvadaRestaurantFinal.Controllers
                 ModelState.AddModelError("", "UserName or Password invalid");
                 return View();
             }
-            //if (!dbUser.IsActive)
-            //{
-            //    ModelState.AddModelError("", "user is deactive");
-            //    return View();
-            //}
+            if (!dbUser.isActive)
+            {
+                ModelState.AddModelError("", "user is deactive");
+                return View();
+            }
             var singInResult = await _signInManager.PasswordSignInAsync(dbUser, login.Password, true, true);
 
 

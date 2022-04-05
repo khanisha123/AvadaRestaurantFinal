@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace AvadaRestaurantFinal.Controllers
@@ -44,13 +45,13 @@ namespace AvadaRestaurantFinal.Controllers
                 basketProductsList = JsonConvert.DeserializeObject<List<BasketProduct>>(basket);
             }
             BasketProduct isExistProduct = basketProductsList.Find(p => p.Id == horsDoeuvresProduct.Id);
-
+            var userId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             if (isExistProduct == null)
             {
                 BasketProduct basketProduct = new BasketProduct
                 {
                     Id = horsDoeuvresProduct.Id,
-
+                    UserId = userId,
                     Count = 1
                 };
                 basketProductsList.Add(basketProduct);
@@ -83,7 +84,8 @@ namespace AvadaRestaurantFinal.Controllers
 
 
             }
-
+            var userId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            ViewBag.UserID = userId;
             return View(products);
         }
         public IActionResult Remove(int? id)

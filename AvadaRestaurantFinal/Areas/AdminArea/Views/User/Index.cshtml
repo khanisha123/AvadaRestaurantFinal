@@ -25,7 +25,7 @@
                             <th>FullName</th>
                             <th>Email</th>
                             <th>UserName</th>
-                            @*<th>Active</th>*@
+                            <th>Active</th>
                             <th>Settings</th>
                         </tr>
                     </thead>
@@ -36,13 +36,13 @@
                                 <td>@item.FullName</td>
                                 <td>@item.Email</td>
                                 <td>@item.UserName</td>
-                                @*@if (User.Identity.Name == item.UserName)
+                                @if (User.Identity.Name == item.UserName)
                                 {
                                     <td>el saxla</td>
                                 }
                                 else
                                 {
-                                    @if (item.IsActive)
+                                    @if (item.isActive)
                                     {
                                         <td><a asp-controller="User" asp-action="IsActive" asp-route-id="@item.Id" class="btn btn-success">Active</a></td>
                                     }
@@ -51,7 +51,7 @@
                                         <td><a asp-controller="User" asp-action="IsActive" asp-route-id="@item.Id" class="btn btn-danger">Deactive</a></td>
 
                                     }
-                                }*@
+                                }
                                 <td>
 
                                     <a asp-controller="User" asp-action="Update" asp-route-id="@item.Id" class="btn btn-success">Update</a>

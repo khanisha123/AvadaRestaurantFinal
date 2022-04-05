@@ -13,6 +13,6 @@ namespace AvadaRestaurantFinal.ViewModels
         public string Name { get; set; }
         public string DescriptionFront { get; set; }
         public int Count { get; set; }
-
+        public string UserId { get; set; }
     }
 }
