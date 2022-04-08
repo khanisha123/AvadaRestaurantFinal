@@ -3,6 +3,7 @@ using AvadaRestaurantFinal.Models;
 using AvadaRestaurantFinal.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -29,7 +30,7 @@ namespace AvadaRestaurantFinal.Controllers
             {
                 return RedirectToAction("Index", "Eror");
             }
-            HorsDoeuvresProduct horsDoeuvresProduct = await _context.HorsDoeuvresProduct.FindAsync(id);
+            Product horsDoeuvresProduct = await _context.products.FindAsync(id);
             if (horsDoeuvresProduct == null)
             {
                 return RedirectToAction("Index", "Eror");
@@ -45,13 +46,13 @@ namespace AvadaRestaurantFinal.Controllers
                 basketProductsList = JsonConvert.DeserializeObject<List<BasketProduct>>(basket);
             }
             BasketProduct isExistProduct = basketProductsList.Find(p => p.Id == horsDoeuvresProduct.Id);
-            var userId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+
             if (isExistProduct == null)
             {
                 BasketProduct basketProduct = new BasketProduct
                 {
                     Id = horsDoeuvresProduct.Id,
-                    UserId = userId,
+                    UserId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value,
                     Count = 1
                 };
                 basketProductsList.Add(basketProduct);
@@ -67,6 +68,9 @@ namespace AvadaRestaurantFinal.Controllers
         }
         public IActionResult ShowBasket()
         {
+            if (!User.Identity.IsAuthenticated) return RedirectToAction("Login", "Account");
+            var UserId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            ViewBag.userid = UserId;
             string basket = Request.Cookies["basket"];
             List<BasketProduct> products = new List<BasketProduct>();
             if (basket != null)
@@ -75,7 +79,7 @@ namespace AvadaRestaurantFinal.Controllers
 
                 foreach (var item in products)
                 {
-                    HorsDoeuvresProduct horsDoeuvresProduct = _context.HorsDoeuvresProduct.FirstOrDefault(p => p.Id == item.Id);
+                    Product horsDoeuvresProduct = _context.products.FirstOrDefault(p => p.Id == item.Id);
                     item.Price = horsDoeuvresProduct.Price;
                     item.ImageUrl = horsDoeuvresProduct.ImageUrl;
                     item.Name = horsDoeuvresProduct.Name;
@@ -84,20 +88,68 @@ namespace AvadaRestaurantFinal.Controllers
 
 
             }
-            var userId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            ViewBag.UserID = userId;
+
+
             return View(products);
         }
         public IActionResult Remove(int? id)
         {
             if (id == null) RedirectToAction("Index", "Error");
-            HorsDoeuvresProduct product = _context.HorsDoeuvresProduct.Find(id);
+            Product product = _context.products.Find(id);
             string basketCookie = Request.Cookies["basket"];
             List<BasketProduct> basketProductList = JsonConvert.DeserializeObject<List<BasketProduct>>(basketCookie);
             BasketProduct isExistProduct = basketProductList.FirstOrDefault(p => p.Id == product.Id);
             basketProductList.Remove(isExistProduct);
             Response.Cookies.Append("basket", JsonConvert.SerializeObject(basketProductList), new CookieOptions { MaxAge = TimeSpan.FromMinutes(14) });
-            return RedirectToAction("ShowBasket","Basket");
+            return RedirectToAction("ShowBasket", "Basket");
         }
+
+
+
+
+
+        public IActionResult BasketCount([FromForm] int id, string change)
+        {
+            if (!User.Identity.IsAuthenticated) return RedirectToAction("Login", "Account");
+            var UserId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+            string basket = Request.Cookies["basketcookie"];
+            List<BasketProduct> basketProducts = new List<BasketProduct>();
+            basketProducts = JsonConvert.DeserializeObject<List<BasketProduct>>(basket);
+            Product product = _context.products.Find(id);
+            var totalcount = 0;
+            foreach (var item in basketProducts)
+            {
+                if (item.Id == id && item.UserId == UserId)
+                {
+                    if (change == "sub" && (item.Count) > 1)
+                    {
+                        item.Count--;
+                        totalcount += item.Count;
+
+                    }
+                    
+                    if (totalcount != 0) item.Count = totalcount;
+                }
+
+            }
+
+            Response.Cookies.Append("basketcookie", JsonConvert.SerializeObject(basketProducts), new CookieOptions { MaxAge = TimeSpan.FromDays(14) });
+            if (totalcount != 0)
+            {
+                return Ok(totalcount);
+            }
+            return Ok("error");
+        }
+        
+        
+
+
+
+
+
+
+
+
     }
 }

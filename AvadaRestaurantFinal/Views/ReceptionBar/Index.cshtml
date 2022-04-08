@@ -35,7 +35,9 @@
 <section>
     <div class="Section3-ForFlexAndBackround-ReceptionBar">
         <div class="Section3-ImageSide-ReceptionBar">
-            <img src="~/img/@Model.planYourReception.ImageUrl" alt="">
+            <a asp-controller="Reservations" asp-action="index">
+                <img src="~/img/@Model.planYourReception.ImageUrl" alt="">
+            </a>
         </div>
         <div class="Section3-TextSide-ReceptionBar">
             <div class="Section3-LineAndText-ReceptionBar">
@@ -49,9 +51,11 @@
                 <p>
                     @Model.planYourReception.Description
                 </p>
-                <div class="Section3-Border-ReceptionBar">
-                    <span>@Model.planYourReception.BorderButton</span>
-                </div>
+                <a asp-controller="Reservations" asp-action="index">
+                    <div class="Section3-Border-ReceptionBar">
+                        <span>@Model.planYourReception.BorderButton</span>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
@@ -71,9 +75,11 @@
                 turpis turpis. Morbi tortor id gravida
                 aliquet.
             </p>
-            <span>
-                EXPLORE THE MENU
-            </span>
+            <a style="color:black;" asp-controller="Menu" asp-action="index">
+                <span>
+                    EXPLORE THE MENU
+                </span>
+            </a>
         </div>
         <div class="Section4-ProductCard-ReceptionBar">
             <img width="96" height="96" src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/100/000000/external-sushi-fast-food-vitaliy-gorbachev-lineal-vitaly-gorbachev.png" />
@@ -86,9 +92,11 @@
                 aliquet a gravida vivamus aliquam
                 turpis vitae.
             </p>
-            <span>
-                BUY AVADA TODAY
-            </span>
+            <a style="color:black;" asp-controller="Takeout" asp-action="index">
+                <span>
+                    VIEW TAKEOUT MENU
+                </span>
+            </a>
         </div>
         <div class="Section4-ProductCard-ReceptionBar">
             <img width="96" height="96" src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/100/000000/external-sushi-fast-food-vitaliy-gorbachev-lineal-vitaly-gorbachev-1.png" />
@@ -101,9 +109,11 @@
                 purus quisque sit sagittis orci
                 elementum gravida.
             </p>
-            <span>
-                LEARN MORE ABOUT US
-            </span>
+            <a style="color:black;" asp-controller="History" asp-action="index">
+                <span>
+                    LEARN MORE ABOUT US
+                </span>
+            </a>
         </div>
     </div>
 </section>
@@ -121,9 +131,13 @@
             <p>
                 @Model.bestCocktailsInTown.Description
             </p>
-            <span>@Model.bestCocktailsInTown.ButtonName</span>
+            <a asp-controller="Menu" asp-action="index">
+                <span>@Model.bestCocktailsInTown.ButtonName</span>
+            </a>
         </div>
-        <img src="~/img/@Model.bestCocktailsInTown.ImageUrl" alt="">
+        <a href="https://localhost:44306/Menu/ProductDetail/27">
+            <img src="~/img/@Model.bestCocktailsInTown.ImageUrl" alt="">
+        </a>
     </div>
 </section>
 <!-- Section 5 End -->
@@ -136,19 +150,23 @@
         <p style="white-space: pre-line;font-size: 19px;font-family: 'Lora', serif;color: #D6D6D6; margin-bottom: 50px;">
             @Model.perfectPlaceForAReception.Description
         </p>
-        <span>
-            @Model.perfectPlaceForAReception.ButtonBorder
-        </span>
+        <a asp-controller="Reservations" asp-action="index">
+            <span>
+                @Model.perfectPlaceForAReception.ButtonBorder
+            </span>
+        </a>
     </div>
 </section>
 <!-- Section 6 End -->
 <!-- Section 7 Start -->
 <section>
-    <div class="Section7-ReceptionBar">
-        <img src="~/img/@Model.ReceptionBarEndSection.ImageUrl" alt="">
-        <div class="Section7-TextSide-ReceptionBar">
-            <span>@Model.ReceptionBarEndSection.Name</span>
+    <a href="https://localhost:44306/Menu/ProductDetail/24">
+        <div class="Section7-ReceptionBar">
+            <img src="~/img/@Model.ReceptionBarEndSection.ImageUrl" alt="">
+            <div class="Section7-TextSide-ReceptionBar">
+                <span>@Model.ReceptionBarEndSection.Name</span>
+            </div>
         </div>
-    </div>
+    </a>
 </section>
 <!-- Section 7 End -->

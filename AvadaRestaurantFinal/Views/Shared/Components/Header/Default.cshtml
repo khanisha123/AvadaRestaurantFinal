@@ -1,4 +1,5 @@
-﻿@{
+﻿
+@{
     Layout = null;
 }
 
@@ -25,36 +26,36 @@
             <nav class="main_nav">
                 <ul>
                     <li>
-                        <a href="">HOME</a>
+                        <a asp-controller="Home" asp-action="index">HOME</a>
                     </li>
                     <li>
-                        <a href="">HISTORY</a>
+                        <a asp-controller="History" asp-action="index">HISTORY</a>
                         <i class="fa fa-angle-down"></i>
                         <ul>
-                            <li><a class="first-a" href="">HISTORY</a></li>
-                            <li><a class="last-a" href="">Reception & Bar</a></li>
+                            <li><a class="first-a" asp-controller="History" asp-action="index">HISTORY</a></li>
+                            <li><a class="last-a" asp-controller="ReceptionBar" asp-action="index">Reception & Bar</a></li>
                         </ul>
                     </li>
-                    <li><a href="">TEAM</a></li>
-                    <li><a href="">MENU</a></li>
+                    <li><a asp-controller="Team" asp-action="index">TEAM</a></li>
+                    <li><a asp-controller="Menu" asp-action="index">MENU</a></li>
                     <li>
-                        <a href="">TAKEOUT</a>
+                        <a asp-controller="Takeout" asp-action="index">TAKEOUT</a>
                         <!-- <div class="Takeout-New">
                             <span>New</span>
                         </div> -->
-                        <i class="fa fa-angle-down "></i>
+                        @*<i class="fa fa-angle-down "></i>
                         <ul>
                             <li><a class="first-a" href="">Simple Product</a></li>
                             <li><a class="last-a" href="">Variable Product</a></li>
-                        </ul>
+                        </ul>*@
                     </li>
-                    <li><a href="">BULLETIN</a></li>
-                    <li><a href="">RESERVATIONS</a></li>
+                    <li><a asp-controller="Bulletin" asp-action="index">BULLETIN</a></li>
+                    <li><a asp-controller="Reservations" asp-action="index">RESERVATIONS</a></li>
                 </ul>
             </nav>
         </div>
         <div style="color:white;margin-top:22px;">
-            <a asp-controller="Basket" asp-action="ShowBasket"><i style="color:white;" class="fa-solid fa-basket-shopping"></i> <sup style="color:white;">@ViewBag.ProductCount</sup></a>
+            <a asp-controller="Basket" asp-action="ShowBasket"><i style="color:white;" class="fa-solid fa-basket-shopping"></i> <sup style="color:white;">@ViewBag.ProductCount</sup></a> 
         </div>
     </div>
 </header>

@@ -20,6 +20,7 @@ namespace AvadaRestaurantFinal.ViewModels
         public List<GuardianGlobe> guardianGlobes { get; set; }
         public TakeoutNowAvailable takeoutNowAvailables { get; set; }
         public BraisedAbalone braisedAbalone { get; set; }
+        public List<Product> products { get; set; }
 
     }
 }

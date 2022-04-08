@@ -31,10 +31,12 @@ namespace AvadaRestaurantFinal.Controllers
             BraisedAbalone braisedAbalone = _context.braisedAbalone.FirstOrDefault();
             TakeoutNowAvailable takeoutNowAvailable = _context.takeoutNowAvailable.FirstOrDefault();
             List<GuardianGlobe> GuardianGlobe = _context.GuardianGlobe.ToList();
+            List<Product> products = _context.products.ToList();
             homeVM.foodIsOurCommon = foodIsOurCommon;
-            homeVM.MainCourseProducts = MainCourseProducts;
-            homeVM.DessertCoffeeProducts = DessertCoffeeProducts;
-            homeVM.HorsDoeuvresProduct = HorsDoeuvresProduct;
+            homeVM.products = products;
+            //homeVM.MainCourseProducts = MainCourseProducts;
+            //homeVM.DessertCoffeeProducts = DessertCoffeeProducts;
+            //homeVM.HorsDoeuvresProduct = HorsDoeuvresProduct;
             homeVM.bulletins = bulletins;
             homeVM.braisedAbalone = braisedAbalone;
             homeVM.takeoutNowAvailables = takeoutNowAvailable;

@@ -1,5 +1,5 @@
-﻿@using AvadaRestaurantFinal.ViewModels
-@model MenuVM
+﻿@using AvadaRestaurantFinal.Models
+@model List<Product>
 @{
     ViewData["Title"] = "Index";
 }
@@ -33,22 +33,25 @@
         </div>
         <div class="Section2-ForFlex-menu">
 
-            @foreach (var item in Model.horsDoeuvresProduct)
+            @foreach (var item in Model)
             {
-            <a asp-controller="Menu" asp-action="HorsDoeuvresProductDetail" asp-route-id="@item.Id">
-                <div class="Section2-ProductCard-Menu">
-                    <img src="~/img/@item.ImageUrl" alt="">
-                    <div class="Section2-ProductCard-PriceAndName-Flex-Menu">
-                        <h6>@item.Name</h6>
-                        <span>$@item.Price</span>
+                if (item.CategoryId ==1)
+                {
+                    <a asp-controller="Menu" asp-action="ProductDetail" asp-route-id="@item.Id">
+                        <div class="Section2-ProductCard-Menu">
+                            <img src="~/img/@item.ImageUrl" alt="">
+                            <div class="Section2-ProductCard-PriceAndName-Flex-Menu">
+                                <h6>@item.Name</h6>
+                                <span>$@item.Price</span>
 
-                    </div>
-                    <p>
-                        @item.DescriptionFront
-                    </p>
+                            </div>
+                            <p>
+                                @item.DescriptionFront
+                            </p>
 
-                </div>
-            </a>
+                        </div>
+                    </a>
+                }
             }
         </div>
     </div>
@@ -56,12 +59,32 @@
 <!-- Section 2 End -->
 <!-- Section 3 Start -->
 <section>
-    <div class="Section3-Menu">
-        <img src="~/img/page72x.jpg" alt="">
-        <div class="Section3-TextSide-Menu">
-            <span>BLACK PUDDING - $25</span>
+    @*<img src="~/img/page72x.jpg" alt="">*@
+        
+
+    
+    
+    <div class="owl-carousel">
+        @foreach (var item in Model)
+        {
+            if (item.CategoryId == 1)
+            {
+        <a asp-controller="Menu" asp-action="ProductDetail" asp-route-id="@item.Id">
+
+            <div class="Section3-Menu">
+                <img style="object-fit:cover;" height="450px"  src="~/img/@item.ImageUrl" alt="Alternate Text" />
+
+                <div class="Section3-TextSide-Menu">
+                    <span>@item.Name</span>
+                </div>
+
+            </div>
+        </a>
+
+
+                }
+            }
         </div>
-    </div>
 </section>
 <!-- Section 3 End -->
 <!-- Section 4 Start -->
@@ -72,22 +95,25 @@
             <div class="Section4-Line-Menu"></div>
         </div>
         <div class="Section4-ForFlex-Menu">
-            @foreach (var item in Model.MainCourseProducts)
+            @foreach (var item in Model)
             {
-            <a asp-controller="Menu" asp-action="MainCourseProductsDetail" asp-route-id="@item.Id">
-                <div class="Section4-ProductCard-Menu">
-                    <img  src="~/img/@item.ImageUrl" alt="">
-                    <div class="Section4-ProductCard-PriceAndName-Flex-Menu">
-                        <h6>@item.Name</h6>
-                        <span>$@item.Price</span>
+                if (item.CategoryId == 2)
+                {
+                    <a asp-controller="Menu" asp-action="ProductDetail" asp-route-id="@item.Id">
+                        <div class="Section4-ProductCard-Menu">
+                            <img src="~/img/@item.ImageUrl" alt="">
+                            <div class="Section4-ProductCard-PriceAndName-Flex-Menu">
+                                <h6>@item.Name</h6>
+                                <span>$@item.Price</span>
 
-                    </div>
-                    <p>
-                        @item.DescriptionFront
-                    </p>
+                            </div>
+                            <p>
+                                @item.DescriptionFront
+                            </p>
 
-                </div>
-            </a>
+                        </div>
+                    </a>
+                }
             }
 
 
@@ -113,22 +139,25 @@
             <div class="Section6-Line-Menu"></div>
         </div>
         <div class="Section6-ForFlex-menu">
-            @foreach (var item in Model.DessertCoffeeProducts)
+            @foreach (var item in Model)
             {
-            <a asp-controller="Menu" asp-action="DessertCoffeeProductsDetail" asp-route-id="@item.Id">
-                <div class="Section6-ProductCard-Menu">
-                    <img style="object-fit: contain;" src="~/img/@item.ImageUrl" alt="">
-                    <div class="Section6-ProductCard-PriceAndName-Flex-Menu">
-                        <h6>@item.Name</h6>
-                        <span>$@item.Price</span>
+                if (item.CategoryId ==3)
+                {
+                    <a asp-controller="Menu" asp-action="ProductDetail" asp-route-id="@item.Id">
+                        <div class="Section6-ProductCard-Menu">
+                            <img style="object-fit: contain;" src="~/img/@item.ImageUrl" alt="">
+                            <div class="Section6-ProductCard-PriceAndName-Flex-Menu">
+                                <h6>@item.Name</h6>
+                                <span>$@item.Price</span>
 
-                    </div>
-                    <p>
-                        @item.DescriptionFront
-                    </p>
+                            </div>
+                            <p>
+                                @item.DescriptionFront
+                            </p>
 
-                </div>
-            </a>
+                        </div>
+                    </a>
+                }
             }
 
 
@@ -154,22 +183,25 @@
             <div class="Section8-Line-Menu"></div>
         </div>
         <div class="Section8-ForFlex-menu">
-            @foreach (var item in Model.DrinksCocktailsProducts)
+            @foreach (var item in Model)
             {
-            <a asp-controller="Menu" asp-action="DrinksCocktailsProductsDetail" asp-route-id="@item.Id">
-                <div class="Section8-ProductCard-Menu">
-                    <img src="~/img/@item.ImageUrl" alt="">
-                    <div class="Section8-ProductCard-PriceAndName-Flex-Menu">
-                        <h6>@item.Name</h6>
-                        <span>$@item.Price</span>
+                if (item.CategoryId == 4)
+                {
+                    <a asp-controller="Menu" asp-action="ProductDetail" asp-route-id="@item.Id">
+                        <div class="Section8-ProductCard-Menu">
+                            <img src="~/img/@item.ImageUrl" alt="">
+                            <div class="Section8-ProductCard-PriceAndName-Flex-Menu">
+                                <h6>@item.Name</h6>
+                                <span>$@item.Price</span>
 
-                    </div>
-                    <p>
-                        @item.DescriptionFront
-                    </p>
+                            </div>
+                            <p>
+                                @item.DescriptionFront
+                            </p>
 
-                </div>
-            </a>
+                        </div>
+                    </a>
+                }
             }
 
 

@@ -27,7 +27,9 @@
                     </p>
                 </div>
                 <div class="Buy-Avada-homePage">
-                    <span>@Model.fineDiningExperience.ButtonText</span>
+                    <a asp-controller="Menu" asp-action="index">
+                        <span>@Model.fineDiningExperience.ButtonText</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -63,8 +65,10 @@
                 </div>
             </div>
             <div class="Section2-ImageSide-homePage">
-                <img width="523" height="715" src="~/img/@Model.foodIsOurCommon.ImageUrl" alt="">
-                <b>CALIFORNIA ROLLS - $22</b>
+                <a href="https://localhost:44306/Menu/ProductDetail/13">
+                    <img width="523" height="715" src="~/img/@Model.foodIsOurCommon.ImageUrl" alt="">
+                    <b>CALIFORNIA ROLLS - $22</b>
+                </a>
             </div>
         </div>
     </div>
@@ -87,9 +91,11 @@
                 turpis turpis. Morbi tortor id gravida
                 aliquet.
             </p>
-            <span>
-                EXPLORE THE MENU
-            </span>
+            <a asp-controller="Menu" asp-action="index">
+                <span style="color:black;">
+                    EXPLORE THE MENU
+                </span>
+            </a>
         </div>
         <div class="Section3-ProductCard-homePage">
             <img width="96" height="96" src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/100/000000/external-sushi-fast-food-vitaliy-gorbachev-lineal-vitaly-gorbachev.png" />
@@ -102,9 +108,11 @@
                 aliquet a gravida vivamus aliquam
                 turpis vitae.
             </p>
-            <span>
-                BUY AVADA TODAY
-            </span>
+            <a asp-controller="Takeout" asp-action="index">
+                <span style ="color:black;">
+                    VIEW TAKEOUT MENU
+                    </span>
+</a>
         </div>
         <div class="Section3-ProductCard-homePage">
             <img width="96" height="96" src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/100/000000/external-sushi-fast-food-vitaliy-gorbachev-lineal-vitaly-gorbachev-1.png" />
@@ -117,9 +125,11 @@
                 purus quisque sit sagittis orci
                 elementum gravida.
             </p>
-            <span>
-                LEARN MORE ABOUT US
-            </span>
+            <a asp-controller="History" asp-action="index">
+                <span style="color:black;">
+                    LEARN MORE ABOUT US
+                </span>
+            </a>
         </div>
     </div>
 </section>
@@ -129,9 +139,11 @@
 <section>
     <div class="Section4-ForFlex-homePage">
 
-        <div class="Section4-ImageSide-homePage">
-            <img style="position: absolute; object-fit: cover;" width="809" height="856" src="~/img/@Model.TheBestTableInTown.ImageUrl" alt="">
-        </div>
+        <a asp-controller="Menu" asp-action="index">
+            <div class="Section4-ImageSide-homePage">
+                <img style="position: absolute; object-fit: cover;" width="809" height="856" src="~/img/@Model.TheBestTableInTown.ImageUrl" alt="">
+            </div>
+        </a>
 
         <div class="Section4-TextSide-homePage">
             <div class="Section4-LineAndText-homePage">
@@ -151,9 +163,11 @@
                        @Model.TheBestTableInTown.Description2
                     </span>
                 </div>
-                <div class="Section4-Button-homePage">
-                    <span>@Model.TheBestTableInTown.ButtonName</span>
-                </div>
+                <a asp-controller="Menu" asp-action="index">
+                    <div class="Section4-Button-homePage">
+                        <span>@Model.TheBestTableInTown.ButtonName</span>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
@@ -167,7 +181,9 @@
         <center><hr class="Section5-TextUnderline-homePage"></center>
     </div>
     <div style="margin-left: 10%; margin-right: 10%; background-color: black; width: 1096px; height: 775px; margin-top: 60px;" class="Section5-ImageSide-homePage">
-        <img style=" object-fit: cover;" width="570" height="775" src="~/img/@Model.NewYorkTimes.ImageUrl" alt="">
+        <a asp-controller="History" asp-action="index">
+            <img style=" object-fit: cover;" width="570" height="775" src="~/img/@Model.NewYorkTimes.ImageUrl" alt="">
+        </a>
         <div class="Section5-TextSide-homePage">
             <div class="Section5-TextSide-Name-homePage">
                 <span>@Model.NewYorkTimes.Name</span>
@@ -190,9 +206,11 @@
                 </span>
             </div>
             <div class="Section5-TextSide-ButtonBorder-homePage">
-                <span>
-                    @Model.NewYorkTimes.ButtonName
-                </span>
+                <a asp-controller="History" asp-action="index">
+                    <span>
+                        @Model.NewYorkTimes.ButtonName
+                    </span>
+                </a>
             </div>
         </div>
     </div>
@@ -204,7 +222,9 @@
         @foreach (var item in Model.guardianGlobes)
         {
             <div style="margin-bottom:20px" class="Section6-FirstSide-homePage">
-                <img style=" object-fit: cover;" src="~/img/@item.ImageUrl" alt="">
+                <a asp-controller="History" asp-action="index">
+                    <img style=" object-fit: cover;" src="~/img/@item.ImageUrl" alt="">
+                </a>
                 <div class="Section6-FirstSide-ForAbsolute-homePage">
                     <div class="Section6-FirstSide-Name-homePage">
                         <span>
@@ -228,9 +248,11 @@
                         </span>
                     </div>
                     <div class="Section6-FirstSide-ButtonBorder-homePage">
-                        <span>
-                            @item.ButtonName
-                        </span>
+                        <a asp-controller="History" asp-action="index">
+                            <span>
+                                @item.ButtonName
+                            </span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -242,9 +264,12 @@
 <!-- Section 7 Start -->
 <section>
     <div style="margin-top: 80px;" class="Section7-homePage">
-        <img style="object-fit: cover;" width="1349" height="482" src="~/img/@Model.kungPao.ImageUrl" alt="">
-        <span>@Model.kungPao.Name</span>
+        <a href="https://localhost:44306/Menu/ProductDetail/12">
+            <img style="object-fit: cover;" width="1349" height="482" src="~/img/@Model.kungPao.ImageUrl" alt="">
+            <span>@Model.kungPao.Name</span>
+        </a>
     </div>
+    
 </section>
 <!-- Section 7 End -->
 <!-- Section 8 Start -->
@@ -279,7 +304,9 @@
 <!-- Section 9 Start -->
 <section>
     <div class="Section9-Backround-homePage">
-        <img width="809.39" height="805.44" src="~/img/@Model.takeoutNowAvailables.ImageUrl" alt="">
+        <a asp-controller="Takeout" asp-action="index">
+            <img width="809.39" height="805.44" src="~/img/@Model.takeoutNowAvailables.ImageUrl" alt="">
+        </a>
         <div class="Section9-TextSide-homePage">
             <div class="Section9-LineAndTextFlex-homePage">
                 <hr class="Section9-Line-homePage">
@@ -296,12 +323,14 @@
 
 
                 </span>
-                <div class="Section9-CarAndButton-homePage">
-                    <i class="fa-solid fa-car"></i>
-                    <span>
-                        @Model.takeoutNowAvailables.ButtonName
-                    </span>
-                </div>
+                <a asp-controller="Takeout" asp-action="index">
+                    <div class="Section9-CarAndButton-homePage">
+                        <i class="fa-solid fa-car"></i>
+                        <span>
+                            @Model.takeoutNowAvailables.ButtonName
+                        </span>
+                    </div>
+                </a>
             </div>
 
         </div>
@@ -313,17 +342,25 @@
     <div class="Section10-ForFlex-homePage">
         <div class="Section10-FirstSide-homePage">
             <h3>HORS D’OEUVRES</h3>
-            @foreach (var item in Model.HorsDoeuvresProduct)
+            @foreach (var item in Model.products)
             {
-                <div class="Section10-TitleCostAndDecription-homePage">
-                    <div class="Section10-CostAndTitle-homePage">
-                        <a asp-controller="Menu" asp-action="HorsDoeuvresProductDetail" asp-route-id="@item.Id"><span>@item.Name</span></a>
-                        <h6>$@item.Price</h6>
-                    </div>
-                    <span class="Section10-Description-homePage">
-                        @item.HomeSideDescription
-                    </span>
-                </div>
+                if (item.CategoryId == 1)
+                {
+                    if (item.ForTake ==1)
+                    {
+                        <div class="Section10-TitleCostAndDecription-homePage">
+                            <div class="Section10-CostAndTitle-homePage">
+                                <a asp-controller="Menu" asp-action="ProductDetail" asp-route-id="@item.Id"><span>@item.Name</span></a>
+                                <h6>$@item.Price</h6>
+                            </div>
+                            <a asp-controller="Menu" asp-action="ProductDetail" asp-route-id="@item.Id">
+                                <span class="Section10-Description-homePage">
+                                    @item.HomeSideDescription
+                                </span>
+                            </a>
+                        </div>
+                    }
+                }
             }
 
         </div>
@@ -331,34 +368,50 @@
             <img width="398" height="905.55" style="position: absolute; opacity: 0.3;object-fit: cover;" src="~/img/misc22x.jpg" alt="">
             <div class="Section10-SecoundSide-Add-homePage" style="position: absolute;">
                 <h3>Main Course</h3>
-                @foreach (var item in Model.MainCourseProducts)
+                @foreach (var item in Model.products)
                 {
-                    <div class="Section10-SecoundSide-TitleCostAndDecription-homePage">
-                        <div class="Section10-SecoundSide-CostAndTitle-homePage">
-                            <a asp-controller="Menu" asp-action="MainCourseProductsDetail" asp-route-id="@item.Id"><span>@item.Name</span></a>
-                            <h6>$@item.Price</h6>
-                        </div>
-                        <span class="Section10-SecoundSide-Description-homePage">
-                            @item.HomeSideDescription
-                        </span>
-                    </div>
+                    if (item.CategoryId == 2)
+                    {
+                        if (item.ForTake ==1)
+                        {
+                            <div class="Section10-SecoundSide-TitleCostAndDecription-homePage">
+                                <div class="Section10-SecoundSide-CostAndTitle-homePage">
+                                    <a asp-controller="Menu" asp-action="ProductDetail" asp-route-id="@item.Id"><span>@item.Name</span></a>
+                                    <h6>$@item.Price</h6>
+                                </div>
+                                <a asp-controller="Menu" asp-action="ProductDetail" asp-route-id="@item.Id">
+                                    <span class="Section10-SecoundSide-Description-homePage">
+                                        @item.HomeSideDescription
+                                    </span>
+                                </a>
+                            </div>
+                        }
+                    }
                 }
             </div>
         </div>
         <div class="Section10-3Side-homePage">
             <h3>DESSERTS</h3>
-            @foreach (var item in Model.DessertCoffeeProducts)
+            @foreach (var item in Model.products)
             {
-                <div class="Section10-TitleCostAndDecription-homePage">
-                    <div class="Section10-CostAndTitle-3-homePage">
-                        <a asp-controller="Menu" asp-action="DessertCoffeeProductsDetail" asp-route-id="@item.Id"><span style="font-size:29px;">@item.Name</span></a>
-                        <h6>$@item.Price</h6>
-                    </div>
-                    <span class="Section10-Description-homePage" style="font-size:17px;">
-                        @item.HomeSideDescription
+                if (item.CategoryId ==3)
+                {
+                    if (item.ForTake ==1)
+                    {
+                        <div class="Section10-TitleCostAndDecription-homePage">
+                            <div class="Section10-CostAndTitle-3-homePage">
+                                <a asp-controller="Menu" asp-action="ProductDetail" asp-route-id="@item.Id"><span style="font-size:29px;">@item.Name</span></a>
+                                <h6>$@item.Price</h6>
+                            </div>
+                            <a asp-controller="Menu" asp-action="ProductDetail" asp-route-id="@item.Id">
+                                <span class="Section10-Description-homePage" style="font-size:17px;">
+                                    @item.HomeSideDescription
 
-                    </span>
-                </div>
+                                </span>
+                            </a>
+                        </div>
+                    }
+                }
             }
 
         </div>
@@ -368,7 +421,9 @@
 <!-- Section 11 Start -->
 <section>
     <div class="Section11-homePage">
-        <img style="position: absolute;" width="100%" height="794.97" style="object-fit: cover;" src="~/img/@Model.braisedAbalone.ImageUrl" alt="">
+        <a href="https://localhost:44306/Menu/ProductDetail/10">
+            <img style="position: absolute;" width="100%" height="794.97" style="object-fit: cover;" src="~/img/@Model.braisedAbalone.ImageUrl" alt="">
+        </a>
         <div class="Section11-Backround-homePage">
             <div class="Section11-NameAndCostFlex-homePage">
                 <h2>
@@ -385,7 +440,10 @@
                 </span>
             </div>
             <div class="Section11-Border-homePage">
-                <span>@Model.braisedAbalone.ButtonName</span>
+                
+                <a asp-controller="Takeout" asp-action="index">
+                    <span>@Model.braisedAbalone.ButtonName</span>
+                </a>
             </div>
         </div>
     </div>

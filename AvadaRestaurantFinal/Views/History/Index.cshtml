@@ -7,7 +7,7 @@
 <!-- Section 1 Start    -->
 <section style="width: 100%; height: 418.97px;">
     <div class="Section1-ImageSide-HistoryPage">
-        <img src="~/img/@Model.historyHeader.ImageUrl" alt="">
+            <img src="~/img/@Model.historyHeader.ImageUrl" alt="">
     </div>
     <div class="Section1-TextSide-HistoryPage">
         <h6>@Model.historyHeader.Header</h6>
@@ -19,7 +19,9 @@
 <section>
     <div class="Section2-ForFlex-HistoryPage">
         <div class="Section2-ImageSide-HistoryPage">
-            <img src="~/img/@Model.PullUpAChair.ImageUrl" alt="">
+            <a href="https://localhost:44306/Takeout/ProductTakeoutDetail/5">
+                <img src="~/img/@Model.PullUpAChair.ImageUrl" alt="">
+            </a>
             <span>@Model.PullUpAChair.ImageUrlText</span>
         </div>
         <div class="Section2-TextSide-HistoryPage">
@@ -59,9 +61,11 @@
                 <p>
                     @Model.fineDiningExperience.Description
                 </p>
-                <div class="Section3-Border-HistoryPage">
-                    <span>EXPLORE THE MENU</span>
-                </div>
+                <a asp-controller="Menu" asp-action="index">
+                    <div class="Section3-Border-HistoryPage">
+                        <span>EXPLORE THE MENU</span>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
@@ -81,9 +85,11 @@
                 turpis turpis. Morbi tortor id gravida
                 aliquet.
             </p>
-            <span>
-                EXPLORE THE MENU
-            </span>
+            <a asp-controller="Menu" asp-action="index">
+                <span style="color:black;">
+                    EXPLORE THE MENU
+                </span>
+            </a>
         </div>
         <div class="Section4-ProductCard-HistoryPage">
             <img width="96" height="96" src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/100/000000/external-sushi-fast-food-vitaliy-gorbachev-lineal-vitaly-gorbachev.png" />
@@ -96,9 +102,11 @@
                 aliquet a gravida vivamus aliquam
                 turpis vitae.
             </p>
-            <span>
-                BUY AVADA TODAY
-            </span>
+            <a asp-controller="Menu" asp-action="index">
+                <span style="color:black;">
+                    VIEW IN THE MENU
+                </span>
+            </a>
         </div>
         <div class="Section4-ProductCard-HistoryPage">
             <img width="96" height="96" src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/100/000000/external-sushi-fast-food-vitaliy-gorbachev-lineal-vitaly-gorbachev-1.png" />
@@ -111,9 +119,11 @@
                 purus quisque sit sagittis orci
                 elementum gravida.
             </p>
-            <span>
-                LEARN MORE ABOUT US
-            </span>
+            <a asp-controller="History" asp-action="index">
+                <span style="color:black;">
+                    LEARN MORE ABOUT US
+                </span>
+            </a>
         </div>
     </div>
 </section>
@@ -122,17 +132,21 @@
 <section>
     <div class="Section5-BackroundColor-HistoryPage">
         <div class="Section5-ForFlex-HistoryPage">
-            <img src="~/img/@Model.takeoutNowAvailableHistory.ImageUrl" alt="">
+            <a asp-controller="Takeout" asp-action="index">
+                <img src="~/img/@Model.takeoutNowAvailableHistory.ImageUrl" alt="">
+            </a>
             <div class="Section5-TextSide-HistoryPage">
                 <h6>@Model.takeoutNowAvailableHistory.Header</h6>
                 <h3>@Model.takeoutNowAvailableHistory.Name</h3>
                 <p>
                     @Model.takeoutNowAvailableHistory.Description
                 </p>
-                <div class="Section5-Border-HistoryPage">
-                    <i class="fa-solid fa-car"></i>
-                    <span>@Model.takeoutNowAvailableHistory.ButtonName</span>
-                </div>
+                <a asp-controller="Takeout" asp-action="index">
+                    <div class="Section5-Border-HistoryPage">
+                        <i class="fa-solid fa-car"></i>
+                        <span>@Model.takeoutNowAvailableHistory.ButtonName</span>
+                    </div>
+                </a>
 
             </div>
         </div>
@@ -157,7 +171,9 @@
                 <span>
                     @Model.KungPaoChickenHistory.Description
                 </span>
-                <p>@Model.KungPaoChickenHistory.ButtonName</p>
+                <a asp-controller="Menu" asp-action="index">
+                    <p>@Model.KungPaoChickenHistory.ButtonName</p>
+                </a>
             </div>
         </div>
     </div>
@@ -173,17 +189,23 @@
     <div class="Section7-ForFlex-HistoryPage">
         @foreach (var item in Model.MeetTheTeam)
         {
+        
             <div class="Section7-ProductCard-HistoryPage">
-                <a href=""><img src="~/img/@item.ImageUrl" alt=""></a>
-                <div class="Section7-TextSide-HistoryPage">
-                    <h6>@item.profession</h6>
-                    <h2>@item.Name</h2>
-                    <p>
-                        @item.About
-                    </p>
-                    <span>@item.ButtonName</span>
-                </div>
+                <a asp-controller="Team" asp-action="index">
+                    <img src="~/img/@item.ImageUrl" alt="">
+                    <div class="Section7-TextSide-HistoryPage">
+                        <h6>@item.profession</h6>
+                        <h2>@item.Name</h2>
+                        <p>
+                            @item.About
+                        </p>
+
+                        <span>@item.ButtonName</span>
+
+                    </div>
+                </a>
             </div>
+        
         }
         
     </div>

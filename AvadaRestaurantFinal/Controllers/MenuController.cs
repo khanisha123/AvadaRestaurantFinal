@@ -19,38 +19,44 @@ namespace AvadaRestaurantFinal.Controllers
         }
         public IActionResult Index()
         {
-            MenuVM menuVM = new MenuVM();
+            //MenuVM menuVM = new MenuVM();
 
-            List<HorsDoeuvresProduct> horsDoeuvresProduct = _context.HorsDoeuvresProduct.ToList();
-            List<MainCourseProducts> mainCourseProducts = _context.MainCourseProducts.ToList();
-            List<DessertCoffeeProducts> dessertCoffeeProducts = _context.DessertCoffeeProducts.ToList();
-            List<DrinksCocktailsProducts> drinksCocktailsProducts = _context.DrinksCocktailsProducts.ToList();
-            menuVM.horsDoeuvresProduct = horsDoeuvresProduct;
-            menuVM.DrinksCocktailsProducts = drinksCocktailsProducts;
-            menuVM.MainCourseProducts = mainCourseProducts;
-            menuVM.DessertCoffeeProducts = dessertCoffeeProducts;
+            //List<HorsDoeuvresProduct> horsDoeuvresProduct = _context.HorsDoeuvresProduct.ToList();
+            //List<MainCourseProducts> mainCourseProducts = _context.MainCourseProducts.ToList();
+            //List<DessertCoffeeProducts> dessertCoffeeProducts = _context.DessertCoffeeProducts.ToList();
+            //List<DrinksCocktailsProducts> drinksCocktailsProducts = _context.DrinksCocktailsProducts.ToList();
+            //menuVM.horsDoeuvresProduct = horsDoeuvresProduct;
+            //menuVM.DrinksCocktailsProducts = drinksCocktailsProducts;
+            //menuVM.MainCourseProducts = mainCourseProducts;
+            //menuVM.DessertCoffeeProducts = dessertCoffeeProducts;
+            List<Product> products = _context.products.ToList();
 
-            return View(menuVM);
+            return View(products);
         }
-        public IActionResult HorsDoeuvresProductDetail(int? id)
+        public IActionResult ProductDetail(int? id)
         {
-            HorsDoeuvresProduct horsDoeuvresProduct = _context.HorsDoeuvresProduct.FirstOrDefault(x=>x.Id == id);
-            return View(horsDoeuvresProduct);
+            Product product = _context.products.FirstOrDefault(x => x.Id == id);
+            return View(product);
         }
-        public IActionResult MainCourseProductsDetail(int? id)
-        {
-            MainCourseProducts mainCourseProducts = _context.MainCourseProducts.FirstOrDefault(x => x.Id == id);
-            return View(mainCourseProducts);
-        }
-        public IActionResult DessertCoffeeProductsDetail(int? id)
-        {
-            DessertCoffeeProducts dessertCoffeeProducts = _context.DessertCoffeeProducts.FirstOrDefault(x => x.Id == id);
-            return View(dessertCoffeeProducts);
-        }
-        public IActionResult DrinksCocktailsProductsDetail(int? id)
-        {
-            DrinksCocktailsProducts drinksCocktailsProducts = _context.DrinksCocktailsProducts.FirstOrDefault(x => x.Id == id);
-            return View(drinksCocktailsProducts);
-        }
+        //public IActionResult HorsDoeuvresProductDetail(int? id)
+        //{
+        //    HorsDoeuvresProduct horsDoeuvresProduct = _context.HorsDoeuvresProduct.FirstOrDefault(x => x.Id == id);
+        //    return View(horsDoeuvresProduct);
+        //}
+        //public IActionResult MainCourseProductsDetail(int? id)
+        //{
+        //    MainCourseProducts mainCourseProducts = _context.MainCourseProducts.FirstOrDefault(x => x.Id == id);
+        //    return View(mainCourseProducts);
+        //}
+        //public IActionResult DessertCoffeeProductsDetail(int? id)
+        //{
+        //    DessertCoffeeProducts dessertCoffeeProducts = _context.DessertCoffeeProducts.FirstOrDefault(x => x.Id == id);
+        //    return View(dessertCoffeeProducts);
+        //}
+        //public IActionResult DrinksCocktailsProductsDetail(int? id)
+        //{
+        //    DrinksCocktailsProducts drinksCocktailsProducts = _context.DrinksCocktailsProducts.FirstOrDefault(x => x.Id == id);
+        //    return View(drinksCocktailsProducts);
+        //}
     }
 }
