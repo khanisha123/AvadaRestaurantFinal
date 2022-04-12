@@ -1,0 +1,49 @@
+﻿@using AvadaRestaurantFinal.Models
+@model List<Product>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+
+<table class="table table-bordered">
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Image</th>
+        <th scope="col">Price</th>
+        <th scope="col">Name</th>
+        @*<th scope="col">DescriptionFront</th>*@
+        <th scope="col">Calories</th>
+        <th scope="col">GlutenFree</th>
+        <th scope="col">LactoseFree</th>
+        @*<th scope="col">TakeoutSideDescription</th>*@
+        <th scope="col">CategoryName</th>
+        @*<th scope="col">HomeSideDescription</th>*@
+        <th>Delete</th>
+        <th>Update</th>
+        @*<th>AdminAreaDetail</th>*@
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>
+                <img style="width:90px;height:90px;border-radius:50%;object-fit:cover;" src="~/img/@item.ImageUrl" />
+            </td>
+            <td>@item.Price</td>
+            <td>@item.Name</td>
+            <td>@item.Calories</td>
+            <td>@item.GlutenFree</td>
+            <td>@item.LactoseFree</td>
+            <td>@item.category.Name</td>
+            <td>
+                <a class="btn btn-info" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+            <td>
+                <a asp-action="Update" asp-route-id="@item.Id" class="btn btn-primary">Update</a>
+            </td>
+        </tr>
+    }
+</table>
+<a style="margin:30px 0;" class="btn btn-outline-primary" asp-controller="Product" asp-action="Create">Create</a>

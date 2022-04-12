@@ -16,11 +16,15 @@ namespace AvadaRestaurantFinal.ViewComponents
     {
         private readonly Context _context;
         private readonly UserManager<AppUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
-        public HeaderViewComponent(Context context,UserManager<AppUser> userManager)
+
+        public HeaderViewComponent(Context context,UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             _context = context;
             _userManager = userManager;
+            _roleManager = roleManager;
+
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
@@ -29,6 +33,13 @@ namespace AvadaRestaurantFinal.ViewComponents
                 AppUser appUser = await _userManager.FindByNameAsync(User.Identity.Name);
                 ViewBag.UserName = appUser.FullName;
             };
+            if (User.Identity.IsAuthenticated)
+            {
+                AppUser appUser2 = await _userManager.FindByNameAsync(User.Identity.Name);
+                ViewBag.Email = appUser2.Email;
+            };
+            
+
 
             ViewBag.ProductCount = 0;
             if (Request.Cookies["basket"] != null)

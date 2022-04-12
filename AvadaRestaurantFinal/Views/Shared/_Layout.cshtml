@@ -88,10 +88,10 @@
     <script src="~/owl/owl.carousel.min.js"></script>
     <script>
         $(document).ready(function () {
-            $(".owl-carousel").owlCarousel({
+            $(".owl-carousel-1").owlCarousel({
                 loop: true,
-                
-                
+
+
                 //animateOut: 'slideOutDown',
                 animateOut: 'fadeOut',
                 animateIn: 'flipInX',
@@ -112,13 +112,65 @@
                     }
                 }
             });
-           
+
+
+        });
+        $(document).ready(function () {
+            $(".owl-carousel-2").owlCarousel({
+                loop: true,
+                animateOut: 'slideOutDown',
+                animateIn: 'flipInX',
+                margin: 30,
+                autoplay: true,
+                autoplayTimeout: 1500,
+                stagePadding: 30,
+                smartSpeed: 450,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 1
+                    },
+                    1000: {
+                        items: 3
+                    }
+                }
+            });
+
+
+        });
+        $(document).ready(function () {
+            $(".owl-carousel-3").owlCarousel({
+                loop: true,
+                animateOut: 'slideOutDown',
+                animateIn: 'flipInX',
+                margin: 30,
+                autoplay: true,
+                autoplayTimeout: 1500,
+                stagePadding: 30,
+                smartSpeed: 450,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 1
+                    },
+                    1000: {
+                        items: 3
+                    }
+                }
+            });
+
+
         });
     </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
     </script>
+    @RenderSection("Scripts",false)
 </body>
 
 </html>

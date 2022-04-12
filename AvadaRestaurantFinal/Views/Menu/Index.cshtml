@@ -64,7 +64,7 @@
 
     
     
-    <div class="owl-carousel">
+    <div class="owl-carousel owl-carousel-1">
         @foreach (var item in Model)
         {
             if (item.CategoryId == 1)
@@ -123,11 +123,33 @@
 <!-- Section 4 End -->
 <!-- Section 5 Start -->
 <section>
-    <div class="Section5-Menu">
-        <img src="~/img/page82x.jpg" alt="">
-        <div class="Section5-TextSide-Menu">
-            <span>MAPLE MOUSE WITH CHICKPEAS - $22</span>
-        </div>
+    @*<div class="Section5-Menu">
+            <img src="~/img/page82x.jpg" alt="">
+            <div class="Section5-TextSide-Menu">
+                <span>MAPLE MOUSE WITH CHICKPEAS - $22</span>
+            </div>
+        </div>*@
+
+    <div class="owl-carousel owl-carousel-2">
+        @foreach (var item in Model)
+        {
+            if (item.CategoryId == 2)
+            {
+                <a asp-controller="Menu" asp-action="ProductDetail" asp-route-id="@item.Id">
+
+                    <div class="Section5-Menu">
+                        <img style="object-fit:cover;" height="450px" src="~/img/@item.ImageUrl" alt="Alternate Text" />
+
+                        <div class="Section5-TextSide-Menu">
+                            <span>@item.Name</span>
+                        </div>
+
+                    </div>
+                </a>
+
+
+            }
+        }
     </div>
 </section>
 <!-- Section 5 End -->
@@ -167,11 +189,33 @@
 <!-- Section 6 End -->
 <!-- Section 7 Start -->
 <section>
-    <div class="Section7-Menu">
+    @*<div class="Section7-Menu">
         <img src="~/img/hero62x.jpg" alt="">
         <div class="Section7-TextSide-Menu">
             <span>BLACK PUDDING - $25</span>
         </div>
+    </div>*@
+
+    <div class="owl-carousel owl-carousel-3">
+        @foreach (var item in Model)
+        {
+            if (item.CategoryId == 3)
+            {
+                <a asp-controller="Menu" asp-action="ProductDetail" asp-route-id="@item.Id">
+
+                    <div class="Section7-Menu">
+                        <img style="object-fit:cover;" height="450px" src="~/img/@item.ImageUrl" alt="Alternate Text" />
+
+                        <div class="Section7-TextSide-Menu">
+                            <span>@item.Name</span>
+                        </div>
+
+                    </div>
+                </a>
+
+
+            }
+        }
     </div>
 </section>
 <!-- Section 7 End -->

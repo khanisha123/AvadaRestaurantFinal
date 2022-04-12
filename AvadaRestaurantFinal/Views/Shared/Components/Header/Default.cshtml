@@ -4,17 +4,42 @@
 }
 
 <header class="header">
-    <span>@ViewBag.UserName</span>
-    @if (User.Identity.IsAuthenticated)
-    {
-      <a style="color:white;" asp-controller="Account" asp-action="Logout">Logout</a> 
+    <div class="Settings-UpSide">
+        <div class="NumberSide-UpSide">
+            <div class="NumberSide-ForFlexForAll">
+                <div class="NumberSide-UpSide-forFlex">
+                    <i class="fa-solid fa-house"></i> <span>Restaurant : (123) 456-7891</span>
+                </div>
+                <div class="NumberSide-UpSide-forFlex">
+                    <i class="fa-solid fa-mobile-screen-button"></i> <span>Cellphone : (123) 456-7891</span>
+                </div>
+            </div>
+        </div>
+        <div class="dropdown">
+            <div style="color: white; font-family: 'Lora', serif;font-size:20px;" onclick="myFunction()" class="dropbtn">
+                @if (User.Identity.IsAuthenticated)
+                {<i class="fa-solid fa-circle-user"></i>} @ViewBag.UserName
+            </div>
 
-    }
-    else
-    {
-     <a style="color:white;" asp-controller="Account" asp-action="Login">Login</a>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div id="myDropdown" class="dropdown-content">
+                    <a style="color:black;">User Name : @ViewBag.UserName</a>
+                    <a style="color:black;">Email : @ViewBag.Email</a>
+                    <a style="color:black;" asp-controller="Account" asp-action="Logout">Logout</a>
+                </div>
+            }
+            else
+            {
+                <a style="color:white;font-size:19px;" asp-controller="Account" asp-action="Login">Login</a>
 
-    }
+            }
+
+        </div>
+    </div>
+    @*<hr style="color:white"/>*@
+
+
     @*<a style="color:white;" asp-controller="Account" asp-action="Register">Register</a>*@
     <div class="container">
         <div class="header_left">
@@ -44,10 +69,10 @@
                             <span>New</span>
                         </div> -->
                         @*<i class="fa fa-angle-down "></i>
-                        <ul>
-                            <li><a class="first-a" href="">Simple Product</a></li>
-                            <li><a class="last-a" href="">Variable Product</a></li>
-                        </ul>*@
+                            <ul>
+                                <li><a class="first-a" href="">Simple Product</a></li>
+                                <li><a class="last-a" href="">Variable Product</a></li>
+                            </ul>*@
                     </li>
                     <li><a asp-controller="Bulletin" asp-action="index">BULLETIN</a></li>
                     <li><a asp-controller="Reservations" asp-action="index">RESERVATIONS</a></li>
@@ -55,19 +80,97 @@
             </nav>
         </div>
         <div style="color:white;margin-top:22px;">
-            <a asp-controller="Basket" asp-action="ShowBasket"><i style="color:white;" class="fa-solid fa-basket-shopping"></i> <sup style="color:white;">@ViewBag.ProductCount</sup></a> 
+            <a asp-controller="Basket" asp-action="ShowBasket"><i style="color:white;" class="fa-solid fa-basket-shopping"></i> <sup style="color:white;">@ViewBag.ProductCount</sup></a>
         </div>
     </div>
 </header>
 <style>
-    .main_nav ul li {
-        float: left;
-        margin: 0 0 0 15px;
-        position: relative;
-        font-size: 13px;
-        letter-spacing: 1px;
-        font-weight: 300;
-        position: relative;
-        margin-top: 15px;
+        .main_nav ul li {
+            float: left;
+            margin: 0 0 0 15px;
+            position: relative;
+            font-size: 13px;
+            letter-spacing: 1px;
+            font-weight: 300;
+            position: relative;
+            margin-top: 15px;
+        }
+
+        .dropbtn {
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+    .Settings-UpSide{
+        margin-left:5.5%;
+        margin-right:11.5%;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
     }
+    .NumberSide-UpSide-forFlex {
+        display: flex;
+        align-items: center;
+        padding-right: 30px;
+    }
+    .NumberSide-UpSide span,
+    .NumberSide-UpSide i {
+        color: white;
+        margin-right:7px;
+    }
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+    .NumberSide-ForFlexForAll{
+        display:flex;
+        
+    }
+    .dropdown-content {
+        display: none;
+        border-radius: 10px;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 240px;
+        overflow: auto;
+        z-index: 1;
+    }
+            .dropdown-content a:hover {
+                background-color: #ddd;
+            }
+            .dropdown-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                transition:0.5s ease-out;
+            }
+
+
+
+        .show {
+            display: block;
+        }
 </style>
+
+<script>
+    /* When the user clicks on the button,
+    toggle between hiding and showing the dropdown content */
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function (event) {
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+</script>

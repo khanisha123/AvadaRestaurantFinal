@@ -54,11 +54,33 @@
 <!-- Section 2 End -->
 <!-- Section 3 Start -->
 <section>
-    <div class="Section3-Takeout">
+    @*<div class="Section3-Takeout">
         <img src="~/img/page72x.jpg" alt="">
         <div class="Section3-TextSide-Takeout">
             <span>BLACK PUDDING - $25</span>
         </div>
+    </div>*@
+
+    <div class="owl-carousel owl-carousel-1">
+        @foreach (var item in Model)
+        {
+            if (item.CategoryId == 1)
+            {
+                <a asp-controller="Takeout" asp-action="ProductTakeoutDetail" asp-route-id="@item.Id">
+
+                    <div class="Section3-Takeout">
+                        <img style="object-fit:cover;" height="450px" src="~/img/@item.ImageUrl" alt="Alternate Text" />
+
+                        <div class="Section3-TextSide-Takeout">
+                            <span>@item.Name</span>
+                        </div>
+
+                    </div>
+                </a>
+
+
+            }
+        }
     </div>
 </section>
 <!-- Section 3 End -->
@@ -99,11 +121,33 @@
 <!-- Section 4 End -->
 <!-- Section 5 Start -->
 <section>
-    <div class="Section3-Takeout">
-        <img src="~/img/page82x.jpg" alt="">
-        <div class="Section3-TextSide-Takeout">
-            <span>MAPLE MOUSE WITH CHICKPEAS - $22</span>
-        </div>
+    @*<div class="Section3-Takeout">
+            <img src="~/img/page82x.jpg" alt="">
+            <div class="Section3-TextSide-Takeout">
+                <span>MAPLE MOUSE WITH CHICKPEAS - $22</span>
+            </div>
+        </div>*@
+
+    <div class="owl-carousel owl-carousel-2">
+        @foreach (var item in Model)
+        {
+            if (item.CategoryId == 2)
+            {
+                <a asp-controller="Takeout" asp-action="ProductTakeoutDetail" asp-route-id="@item.Id">
+
+                    <div class="Section3-Takeout">
+                        <img style="object-fit:cover;" height="450px" src="~/img/@item.ImageUrl" alt="Alternate Text" />
+
+                        <div class="Section3-TextSide-Takeout">
+                            <span>@item.Name</span>
+                        </div>
+
+                    </div>
+                </a>
+
+
+            }
+        }
     </div>
 </section>
 <!-- Section 5 End -->

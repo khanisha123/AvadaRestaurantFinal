@@ -5,6 +5,16 @@
 }
 
 
+        @if (TempData["Success"]!=null)
+        {
+            <div class="container">
+                <div class="row">
+                    <div id="seccessAlert" style="z-index:999;position:absolute;width:70px" class="alert alert-success">@TempData["Success"]</div>
+
+                </div>
+            </div>
+        }
+    
 <!-- Section 1 Start -->
 <section class="section1-homePage">
     <div class="section1-TextSide-homePage">
@@ -205,13 +215,13 @@
                     @Model.NewYorkTimes.Description
                 </span>
             </div>
-            <div class="Section5-TextSide-ButtonBorder-homePage">
-                <a asp-controller="History" asp-action="index">
+            <a asp-controller="History" asp-action="index">
+                <div class="Section5-TextSide-ButtonBorder-homePage">
                     <span>
                         @Model.NewYorkTimes.ButtonName
                     </span>
-                </a>
-            </div>
+                </div>
+            </a>
         </div>
     </div>
 </section>
@@ -247,13 +257,14 @@
                             @item.Description
                         </span>
                     </div>
-                    <div class="Section6-FirstSide-ButtonBorder-homePage">
-                        <a asp-controller="History" asp-action="index">
+                    <a asp-controller="History" asp-action="index">
+
+                        <div class="Section6-FirstSide-ButtonBorder-homePage">
                             <span>
                                 @item.ButtonName
                             </span>
-                        </a>
-                    </div>
+                        </div>
+                    </a>
                 </div>
             </div>
         }
@@ -449,3 +460,15 @@
     </div>
 </section>
 <!-- Section 11 End -->
+
+@section Scripts{
+
+    <script>
+        let seccessAlert = document.getElementById("seccessAlert");
+        setTimeout(() => {
+            seccessAlert.remove();
+        },3000)
+    </script>
+ }
+
+

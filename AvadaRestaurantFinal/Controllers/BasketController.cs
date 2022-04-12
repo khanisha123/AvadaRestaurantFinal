@@ -2,6 +2,7 @@
 using AvadaRestaurantFinal.Models;
 using AvadaRestaurantFinal.ViewModels;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
@@ -16,9 +17,12 @@ namespace AvadaRestaurantFinal.Controllers
     public class BasketController : Controller
     {
         private readonly Context _context;
-        public BasketController(Context context)
+        private readonly UserManager<AppUser> _userManager;
+        public BasketController(Context context, UserManager<AppUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
+
         }
         public IActionResult Index()
         {
@@ -66,7 +70,7 @@ namespace AvadaRestaurantFinal.Controllers
             Response.Cookies.Append("basket", JsonConvert.SerializeObject(basketProductsList), new CookieOptions { MaxAge = TimeSpan.FromMinutes(14) });
             return RedirectToAction("Index", "Takeout");
         }
-        public IActionResult ShowBasket()
+        public IActionResult ShowBasket(int Id)
         {
             if (!User.Identity.IsAuthenticated) return RedirectToAction("Login", "Account");
             var UserId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
@@ -81,6 +85,7 @@ namespace AvadaRestaurantFinal.Controllers
                 {
                     Product horsDoeuvresProduct = _context.products.FirstOrDefault(p => p.Id == item.Id);
                     item.Price = horsDoeuvresProduct.Price;
+                    item.ProductCount = horsDoeuvresProduct.Count;
                     item.ImageUrl = horsDoeuvresProduct.ImageUrl;
                     item.Name = horsDoeuvresProduct.Name;
                 }
@@ -89,6 +94,7 @@ namespace AvadaRestaurantFinal.Controllers
 
             }
 
+            
 
             return View(products);
         }
@@ -104,45 +110,64 @@ namespace AvadaRestaurantFinal.Controllers
             return RedirectToAction("ShowBasket", "Basket");
         }
 
-
-
-
-
-        public IActionResult BasketCount([FromForm] int id, string change)
+        public async Task<IActionResult> Sale()
         {
-            if (!User.Identity.IsAuthenticated) return RedirectToAction("Login", "Account");
-            var UserId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-
-            string basket = Request.Cookies["basketcookie"];
-            List<BasketProduct> basketProducts = new List<BasketProduct>();
-            basketProducts = JsonConvert.DeserializeObject<List<BasketProduct>>(basket);
-            Product product = _context.products.Find(id);
-            var totalcount = 0;
+            if (!User.Identity.IsAuthenticated) return RedirectToAction("Login","Account");
+            AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+            Sales sales = new Sales();
+            sales.AppUserId = user.Id;
+            sales.SaleDate = DateTime.Now;
+            List<BasketProduct> basketProducts = JsonConvert.DeserializeObject<List<BasketProduct>>(Request.Cookies["basket"]);
+            List<SalesProduct> salesProducts = new List<SalesProduct>();
+            List<Product> dbProducts = new List<Product>();
             foreach (var item in basketProducts)
             {
-                if (item.Id == id && item.UserId == UserId)
+                Product dbProduct = await _context.products.FindAsync(item.Id);
+                if (dbProduct.Count < item.Count)
                 {
-                    if (change == "sub" && (item.Count) > 1)
-                    {
-                        item.Count--;
-                        totalcount += item.Count;
+                    TempData["Fail"] = $"{item.Name} bazada yoxdur";
+                    return RedirectToAction("ShowBasket", "Basket");
 
-                    }
-                    
-                    if (totalcount != 0) item.Count = totalcount;
                 }
+                
+                dbProducts.Add(dbProduct);
 
             }
-
-            Response.Cookies.Append("basketcookie", JsonConvert.SerializeObject(basketProducts), new CookieOptions { MaxAge = TimeSpan.FromDays(14) });
-            if (totalcount != 0)
+            double total=0;
+            foreach (var item in basketProducts)
             {
-                return Ok(totalcount);
+                Product dbProduct = dbProducts.Find(p=>p.Id ==item.Id);
+                await UpdateProductCount(dbProduct,item);
+                SalesProduct salesProduct = new SalesProduct();
+                salesProduct.SalesId = sales.Id;
+                salesProduct.ProductId = dbProduct.Id;
+                TempData["Success"] = "Okay";
+                
+                salesProducts.Add(salesProduct);
+                total += item.Count * item.Price;
+
+
             }
-            return Ok("error");
+            
+           
+
+            sales.salesProducts = salesProducts;
+            sales.Total = total;
+            await _context.Sales.AddAsync(sales);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index","Home");
         }
-        
-        
+        private async Task UpdateProductCount(Product product, BasketProduct basketProduct)
+        {
+            product.Count = product.Count - basketProduct.Count;
+            await _context.SaveChangesAsync();
+        }
+
+
+
+
+
+
 
 
 
