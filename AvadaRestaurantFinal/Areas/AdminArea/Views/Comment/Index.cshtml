@@ -1,0 +1,32 @@
+﻿@using AvadaRestaurantFinal.Models
+@model List<Comment>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<table class=" table table-bordered table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">UserName</th>
+            <th scope="col">Comments</th>
+            <th scope="col">BulletinId</th>
+            <th scope="col">CommentDate</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.appUser.UserName</td>
+                <td>@item.addComment</td>
+                <td>@item.BulletinId</td>
+                <td>@item.CommentDate</td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+

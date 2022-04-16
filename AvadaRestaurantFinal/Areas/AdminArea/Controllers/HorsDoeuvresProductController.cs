@@ -13,8 +13,7 @@ using System.Threading.Tasks;
 namespace AvadaRestaurantFinal.Areas.AdminArea.Controllers
 {
     [Area("AdminArea")]
-    [Authorize]
-
+    [Authorize(Roles = "Admin")]
     public class HorsDoeuvresProductController : Controller
     {
         private readonly IWebHostEnvironment _env;

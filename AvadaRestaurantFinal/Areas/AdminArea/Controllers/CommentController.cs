@@ -1,7 +1,6 @@
 ﻿using AvadaRestaurantFinal.DAL;
 using AvadaRestaurantFinal.Models;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -13,23 +12,18 @@ namespace AvadaRestaurantFinal.Areas.AdminArea.Controllers
 {
     [Area("AdminArea")]
     [Authorize(Roles = "Admin")]
-    public class SalesController : Controller
+    public class CommentController : Controller
     {
         private readonly Context _context;
-        private readonly UserManager<AppUser> _userManager;
-        public SalesController(Context context, UserManager<AppUser> userManager)
+        public CommentController(Context context)
         {
             _context = context;
-            _userManager = userManager;
-
+            
         }
         public IActionResult Index()
         {
-            List<Sales> sales = _context.Sales
-                .Include(x => x.AppUser)
-                .Include(x=>x.salesProducts)
-                .ThenInclude(x=>x.product).ToList();
-            return View(sales);
+            List<Comment> comments = _context.comments.Include(x=>x.appUser).Include(x=>x.bulletin).ToList();
+            return View(comments);
         }
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace AvadaRestaurantFinal.Areas.AdminArea.Controllers
 {
     [Area("AdminArea")]
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class DashboardController : Controller
     {
         public IActionResult Index()

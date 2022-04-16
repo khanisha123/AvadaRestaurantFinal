@@ -14,6 +14,7 @@ namespace AvadaRestaurantFinal.Models
         public bool isActive { get; set; }
         public List<Sales> sales { get; set; }
         public List<Comment> comments { get; set; }
+        public List<Reservation> reservations { get; set; }
         
     }
 }

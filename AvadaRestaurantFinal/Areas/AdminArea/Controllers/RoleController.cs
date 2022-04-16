@@ -1,6 +1,7 @@
 ﻿using AvadaRestaurantFinal.DAL;
 using AvadaRestaurantFinal.Models;
 using AvadaRestaurantFinal.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 namespace AvadaRestaurantFinal.Areas.AdminArea.Controllers
 {
     [Area("AdminArea")]
+    [Authorize(Roles = "Admin")]
     public class RoleController : Controller
     {
         private readonly UserManager<AppUser> _userManager;

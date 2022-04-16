@@ -308,13 +308,16 @@
     <div class="Section2-ForFlex-Bulletin" style="margin-top:-15px;">
         @foreach (var item in Model.bulletins)
         {
-            <div class="Section2-PorductCard-Bulletin">
-                <a href=""><img src="~/img/@item.ImageUrl" alt=""></a>
-                <div class="Section2-ProductCard-BackSide-Bulletin">
-                    <a href=""><i class="fa-solid fa-link"></i></a>
-                    <a href=""><span>@item.Name</span></a>
-                    <a href=""><i class="Section2-ProductCard-BackSide-News-Bulletin">News</i></a>
-                </div>
+        
+        <div class="Section2-PorductCard-Bulletin">
+            <img src="~/img/@item.ImageUrl" alt="">
+           
+            <div class="Section2-ProductCard-BackSide-Bulletin">
+                <a asp-controller="Bulletin" asp-action="BulletinDetail" asp-route-id="@item.Id"><i class="fa-solid fa-link"></i></a>
+                <a asp-controller="Bulletin" asp-action="BulletinDetail" asp-route-id="@item.Id"><span>@item.Name</span></a>
+                <a asp-controller="Bulletin" asp-action="BulletinDetail" asp-route-id="@item.Id"><i class="Section2-ProductCard-BackSide-News-Bulletin">News</i></a>
+            </div>
+           
                 <div class="Section2-PorductCard-UnderSide-Bulletin">
                     <span>@item.Name</span>
                     <p>
@@ -322,7 +325,8 @@
 
                     </p>
                 </div>
-            </div>
+        </div>
+        
         }
     </div>
 

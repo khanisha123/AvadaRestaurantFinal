@@ -20,32 +20,34 @@
 <!-- Section 1 End -->
 <!-- Section 2 Start -->
 <section>
-     @*<div class="Section2-Header-Bulletin">
-        <i>Latest news & promotions</i>
-        <hr class="Section2-Line-Bulletin">
-    </div>*@ 
+    @*<div class="Section2-Header-Bulletin">
+            <i>Latest news & promotions</i>
+            <hr class="Section2-Line-Bulletin">
+        </div>*@
     <div class="Section2-ForFlex-Bulletin">
         @foreach (var item in Model)
-        { 
+        {
             <a asp-controller="Bulletin" asp-action="BulletinDetail" asp-route-id="@item.Id">
                 <div class="Section2-PorductCard-Bulletin">
-                <img src="~/img/@item.ImageUrl" alt="">
-                <div class="Section2-ProductCard-BackSide-Bulletin">
-                    <i class="fa-solid fa-link"></i>
-                    <span>@item.Name</span>
-                    <i class="Section2-ProductCard-BackSide-News-Bulletin">News</i>
-                </div>
-                <div class="Section2-PorductCard-UnderSide-Bulletin">
-                    <span>@item.Name</span>
-                    <p>
-                        By admin|January 7th, 2020|Categories: News
+                    <img src="~/img/@item.ImageUrl" alt="">
+                    <div class="Section2-ProductCard-BackSide-Bulletin">
+                        <i class="fa-solid fa-link"></i>
+                        <span>@item.Name</span>
+                        <i class="Section2-ProductCard-BackSide-News-Bulletin">News</i>
+                    </div>
+                    <div class="Section2-PorductCard-UnderSide-Bulletin">
+                        <span>@item.Name</span>
+                        <p>
+                            By admin|January 7th, 2020|Categories: News
 
-                    </p>
+                        </p>
+                    </div>
                 </div>
-            </div>
             </a>
-            
+
         }
     </div>
 </section>
 <!-- Section 2 End -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>

@@ -1,0 +1,100 @@
+﻿@using AvadaRestaurantFinal.Models
+@model List<Reservation>
+@{
+    ViewData["Title"] = "ShowReservation";
+}
+<style>
+    /* Section 1 Start */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .Section1-ImageSide-TakeoutDetail {
+        background-color: black;
+        width: 100%;
+        height: 418.97px;
+        position: absolute;
+    }
+
+        .Section1-ImageSide-TakeoutDetail img {
+            opacity: 0.3;
+        }
+
+    .Section1-TextSide-TakeoutDetail p {
+        color: white;
+        font-size: 18px;
+        font-family: 'Lora', serif;
+        word-spacing: 3px;
+    }
+
+    .Section1-TextSide-TakeoutDetail h2 {
+        color: white;
+        font-size: 70px;
+        font-family: 'Bebas Neue', cursive;
+        line-height: 1.2;
+    }
+
+    .Section1-TextSide-TakeoutDetail {
+        position: absolute;
+        margin-top: 15%;
+        text-align: center;
+        width: 100%;
+        height: 418.97px;
+    }
+
+    .table1 {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    /* Section 1 End */
+
+</style>
+<!-- Section 1 Start -->
+<section style="width: 100%; height: 418.97px;">
+    <div class="Section1-ImageSide-TakeoutDetail">
+        <img style="object-fit: cover;" height="418.97px" width="100%" src="~/img/WordPress-Table-Reservation-plugin-1000x562-1.jpg" alt="">
+    </div>
+    <div class="Section1-TextSide-TakeoutDetail" style="height:0;">
+        <h2>Show Reservation</h2>
+    </div>
+</section>
+<!-- Section 1 End -->
+<table class=" table table-bordered table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">User Name</th>
+            <th scope="col">User Email</th>
+            <th scope="col">Number</th>
+            <th scope="col">Number Of Guest</th>
+            <th scope="col">Date Of ReserVation</th>
+            <th scope="col">Time Of Reservation</th>
+            <th scope="col">AdditionalNote</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            @if (ViewBag.userId == item.AppUserId)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.appUser.FullName</td>
+                    <td>@item.appUser.Email</td>
+                    <td>@item.Number</td>
+                    <td>@item.NumberOfGuest</td>
+                    <td>@item.DateOfReserVation.ToString("yyyy-MM-dd")</td>
+                    <td>@item.TimeOfReservation.ToShortTimeString()</td>
+                    <td>@item.AdditionalNote</td>
+
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+
+

@@ -13,8 +13,7 @@ using System.Threading.Tasks;
 namespace AvadaRestaurantFinal.Areas.AdminArea.Controllers
 {
     [Area("AdminArea")]
-    [Authorize]
-
+    [Authorize(Roles = "Admin")]
     public class MembersTeamController : Controller
     {
         private readonly Context _context;

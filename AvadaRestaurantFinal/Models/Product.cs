@@ -28,5 +28,6 @@ namespace AvadaRestaurantFinal.Models
         public int ForTakeoutDetail { get; set; }
         public int Count { get; set; }
         public List<SalesProduct> salesProducts { get; set; }
+        public string ImageUrlTakeOutSide { get; set; }
     }
 }

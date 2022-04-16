@@ -59,14 +59,17 @@ namespace AvadaRestaurantFinal.Controllers
             }
             else
             {
+                      
                 AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
                 Bulletin bulletin = _context.Bulletin.Find(id);
                 comment.AppUserId = user.Id;
                 comment.BulletinId = bulletin.Id;
                 comment.CommentDate = DateTime.Now;
+                
                 _context.comments.Add(comment);
                 _context.SaveChanges();
                 return RedirectToAction("BulletinDetail", "Bulletin");
+                
             }
 
         }

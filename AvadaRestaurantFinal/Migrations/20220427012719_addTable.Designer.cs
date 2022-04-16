@@ -4,14 +4,16 @@ using AvadaRestaurantFinal.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AvadaRestaurantFinal.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20220427012719_addTable")]
+    partial class addTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -757,6 +759,9 @@ namespace AvadaRestaurantFinal.Migrations
                     b.Property<DateTime>("DateOfReserVation")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Number")
                         .HasColumnType("nvarchar(max)");
 
@@ -825,6 +830,9 @@ namespace AvadaRestaurantFinal.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("ReservationId")
+                        .HasColumnType("int");
+
                     b.Property<int>("TableGuestCount")
                         .HasColumnType("int");
 
@@ -835,6 +843,8 @@ namespace AvadaRestaurantFinal.Migrations
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ReservationId");
 
                     b.ToTable("Table");
                 });
@@ -1167,6 +1177,15 @@ namespace AvadaRestaurantFinal.Migrations
                     b.HasOne("AvadaRestaurantFinal.Models.Sales", "Sales")
                         .WithMany("salesProducts")
                         .HasForeignKey("SalesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("AvadaRestaurantFinal.Models.Table", b =>
+                {
+                    b.HasOne("AvadaRestaurantFinal.Models.Reservation", "reservation")
+                        .WithMany()
+                        .HasForeignKey("ReservationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

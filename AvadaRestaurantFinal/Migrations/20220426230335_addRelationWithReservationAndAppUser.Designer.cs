@@ -4,14 +4,16 @@ using AvadaRestaurantFinal.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AvadaRestaurantFinal.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20220426230335_addRelationWithReservationAndAppUser")]
+    partial class addRelationWithReservationAndAppUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -757,6 +759,9 @@ namespace AvadaRestaurantFinal.Migrations
                     b.Property<DateTime>("DateOfReserVation")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Number")
                         .HasColumnType("nvarchar(max)");
 
@@ -816,27 +821,6 @@ namespace AvadaRestaurantFinal.Migrations
                     b.HasIndex("SalesId");
 
                     b.ToTable("salesProducts");
-                });
-
-            modelBuilder.Entity("AvadaRestaurantFinal.Models.Table", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("TableGuestCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("TableName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("isReserved")
-                        .HasColumnType("bit");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Table");
                 });
 
             modelBuilder.Entity("AvadaRestaurantFinal.Models.TakeoutNowAvailable", b =>

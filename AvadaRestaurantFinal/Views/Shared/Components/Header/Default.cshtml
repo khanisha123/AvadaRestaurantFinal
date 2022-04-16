@@ -80,7 +80,7 @@
             </nav>
         </div>
         <div style="color:white;margin-top:22px;">
-            <a asp-controller="Basket" asp-action="ShowBasket"><i style="color:white;" class="fa-solid fa-basket-shopping"></i> <sup style="color:white;">@ViewBag.ProductCount</sup></a>
+            @if (User.Identity.IsAuthenticated) {<a asp-controller="Basket" asp-action="ShowBasket"><i style="color:white;" class="fa-solid fa-basket-shopping"></i> <sup style="color:white;">@ViewBag.ProductCount</sup></a>}else{<a asp-controller="Account" asp-action="Login"><i style="color:white;" class="fa-solid fa-basket-shopping"></i></a>}
         </div>
     </div>
 </header>
