@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace AvadaRestaurantFinal.ViewComponents
@@ -38,9 +39,11 @@ namespace AvadaRestaurantFinal.ViewComponents
                 AppUser appUser2 = await _userManager.FindByNameAsync(User.Identity.Name);
                 ViewBag.Email = appUser2.Email;
             };
+
+            BasketProduct basketProduct = new BasketProduct();
             
-
-
+            
+          
             ViewBag.ProductCount = 0;
             if (Request.Cookies["basket"] != null)
             {
@@ -51,7 +54,10 @@ namespace AvadaRestaurantFinal.ViewComponents
                 {
                     total += item.Count;
                 }
-                ViewBag.ProductCount = total;
+                
+                    ViewBag.ProductCount = total;
+                
+                
             }
 
             return View();

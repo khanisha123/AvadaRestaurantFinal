@@ -11,8 +11,11 @@ namespace AvadaRestaurantFinal.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string ForDetailName { get; set; }
+        public string ForDetailImageUrl { get; set; }
         public string ImageUrl { get; set; }
         [NotMapped]
         public IFormFile Photo { get; set; }
+        public List<Comment> comments { get; set; }
     }
 }

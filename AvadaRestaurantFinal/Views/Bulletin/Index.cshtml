@@ -3,7 +3,10 @@
 @{
     ViewData["Title"] = "Index";
 }
+<div class="loader-wrapper">
+    <span class="loader"><span class="loader-inner"></span></span>
 
+</div>
 <!-- Section 1 Start -->
 <section style="width: 100%; height: 418.97px;">
     <div class="Section1-ImageSide-Bulletin">
@@ -23,13 +26,14 @@
     </div>*@ 
     <div class="Section2-ForFlex-Bulletin">
         @foreach (var item in Model)
-        {
-            <div class="Section2-PorductCard-Bulletin">
-                <a href=""><img src="~/img/@item.ImageUrl" alt=""></a>
+        { 
+            <a asp-controller="Bulletin" asp-action="BulletinDetail" asp-route-id="@item.Id">
+                <div class="Section2-PorductCard-Bulletin">
+                <img src="~/img/@item.ImageUrl" alt="">
                 <div class="Section2-ProductCard-BackSide-Bulletin">
-                    <a href=""><i class="fa-solid fa-link"></i></a>
-                    <a href=""><span>@item.Name</span></a>
-                    <a href=""><i class="Section2-ProductCard-BackSide-News-Bulletin">News</i></a>
+                    <i class="fa-solid fa-link"></i>
+                    <span>@item.Name</span>
+                    <i class="Section2-ProductCard-BackSide-News-Bulletin">News</i>
                 </div>
                 <div class="Section2-PorductCard-UnderSide-Bulletin">
                     <span>@item.Name</span>
@@ -39,6 +43,8 @@
                     </p>
                 </div>
             </div>
+            </a>
+            
         }
     </div>
 </section>

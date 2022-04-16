@@ -153,6 +153,12 @@ namespace AvadaRestaurantFinal.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("ForDetailImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ForDetailName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
 
@@ -177,6 +183,35 @@ namespace AvadaRestaurantFinal.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("categories");
+                });
+
+            modelBuilder.Entity("AvadaRestaurantFinal.Models.Comment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("BulletinId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CommentDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("addComment")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("BulletinId");
+
+                    b.ToTable("comments");
                 });
 
             modelBuilder.Entity("AvadaRestaurantFinal.Models.DessertCoffeeProducts", b =>
@@ -603,6 +638,9 @@ namespace AvadaRestaurantFinal.Migrations
                     b.Property<int>("ForTake")
                         .HasColumnType("int");
 
+                    b.Property<int>("ForTakeoutDetail")
+                        .HasColumnType("int");
+
                     b.Property<string>("GlutenFree")
                         .HasColumnType("nvarchar(max)");
 
@@ -1024,6 +1062,19 @@ namespace AvadaRestaurantFinal.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("AvadaRestaurantFinal.Models.Comment", b =>
+                {
+                    b.HasOne("AvadaRestaurantFinal.Models.AppUser", "appUser")
+                        .WithMany("comments")
+                        .HasForeignKey("AppUserId");
+
+                    b.HasOne("AvadaRestaurantFinal.Models.Bulletin", "bulletin")
+                        .WithMany("comments")
+                        .HasForeignKey("BulletinId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("AvadaRestaurantFinal.Models.Product", b =>

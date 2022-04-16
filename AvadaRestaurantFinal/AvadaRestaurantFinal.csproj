@@ -9,6 +9,10 @@
     <Compile Remove="Migrations\20220320163509_InitialCreate.Designer.cs" />
     <Compile Remove="Migrations\20220406083941_addProductAndCategoryAgain.cs" />
     <Compile Remove="Migrations\20220406083941_addProductAndCategoryAgain.Designer.cs" />
+    <Compile Remove="Migrations\20220419123318_addComment.cs" />
+    <Compile Remove="Migrations\20220419123318_addComment.Designer.cs" />
+    <Compile Remove="Migrations\20220419181303_addRelationCommentAndAppUser.cs" />
+    <Compile Remove="Migrations\20220419181303_addRelationCommentAndAppUser.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,6 +29,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+    <PackageReference Include="SendGrid" Version="9.27.0" />
   </ItemGroup>
 
   <ItemGroup>

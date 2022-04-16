@@ -1,4 +1,6 @@
 ﻿using AvadaRestaurantFinal.Models;
+using AvadaRestaurantFinal.Services;
+using AvadaRestaurantFinal.Services.Interfaces;
 using AvadaRestaurantFinal.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -17,14 +19,16 @@ namespace AvadaRestaurantFinal.Controllers
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly IEmailServices _emailServices;
 
         public AccountController(
             UserManager<AppUser> userManager, SignInManager<AppUser> signInManager,
-            RoleManager<IdentityRole> roleManager)
+            RoleManager<IdentityRole> roleManager, IEmailServices emailServices)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
+            _emailServices = emailServices;
         }
 
 
@@ -150,67 +154,78 @@ namespace AvadaRestaurantFinal.Controllers
             return View();
         }
         [HttpPost]
-        [AutoValidateAntiforgeryToken]
-        public async Task<IActionResult> ForgetPassword(ForgetPassword model)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ForgetPassword(ForgetPasswordVM model)
         {
-            AppUser user = await _userManager.FindByEmailAsync(model.User.Email);
-            if (user == null) return NotFound();
-
-            var token = _userManager.GeneratePasswordResetTokenAsync(user);
-            var link = Url.Action(nameof(ResetPassword), "Account", new { email = user.Email, token = token }, Request.Scheme);
-
-            using (MailMessage mail = new MailMessage())
+            
+            if (!ModelState.IsValid) return View(model);
+            var user = await _userManager.FindByEmailAsync(model.Email);
+            if (user is null)
             {
-                mail.From = new MailAddress("aleskeroov@gmail.com", "Reset");
-                mail.To.Add(user.Email);
-                mail.Subject = "Reset Password";
-                mail.Body = $"<a href={link}>Go to Reset password View</a>";
-                mail.IsBodyHtml = true;
-
-                using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
-                {
-                    smtp.Credentials = new NetworkCredential("aleskeroov@gmail.com", "Aa15101995*");
-                    smtp.EnableSsl = true;
-                    smtp.Send(mail);
-                }
+                ModelState.AddModelError("","This email hasn't been registrated");
+                return View(model);
             }
-            return RedirectToAction("Index", "Home");
+            var code = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var link = Url.Action(nameof(ResetPassword),"Account",new { email =user.Email,token =code},Request.Scheme,Request.Host.ToString());
+
+            string html = $"<a href={link}>Click here for forgot password</a>";
+            string content = "Email for Forgot Password";
+            await _emailServices.SendEmailAsync(user.Email,user.UserName,html,content); 
+            return RedirectToAction(nameof(ForgetPasswordConrifim));
         }
-        public async Task<IActionResult> ResetPassword(string email, string token)
+
+        public IActionResult ForgetPasswordConrifim()
         {
-            AppUser user = await _userManager.FindByEmailAsync(email);
-            if (user == null) return NotFound();
-            ForgetPassword forgetPassword = new ForgetPassword
-            {
-                Token = token,
-                User = user
-
-            };
-            return View(forgetPassword);
+            return View();
+            
         }
-        [HttpPost]
-        [AutoValidateAntiforgeryToken]
-        [ActionName("ResetPassword")]
-        public async Task<IActionResult> Reset(ForgetPassword model)
+        public IActionResult ResetPassword(string email,string token)
         {
-
-            AppUser user = await _userManager.FindByEmailAsync(model.User.Email);
-            if (user == null) return NotFound();
-            ForgetPassword forgetPassword = new ForgetPassword
-            {
-                Token = model.Token,
-                User = user
-
-            };
-            if (!ModelState.IsValid) return View(forgetPassword);
-
-            IdentityResult result = await _userManager.ResetPasswordAsync(user, model.Token, model.Password);
-
-            foreach (var item in result.Errors)
-            {
-                ModelState.AddModelError("", item.Description);
-            }
-            return RedirectToAction("Index", "Home");
+            return Ok();
         }
+
+
+
+
+
+
+
+
+        //public async Task<IActionResult> ResetPassword(string email, string token)
+        //{
+        //    AppUser user = await _userManager.FindByEmailAsync(email);
+        //    if (user == null) return NotFound();
+        //    ForgetPassword forgetPassword = new ForgetPassword
+        //    {
+        //        Token = token,
+        //        User = user
+
+        //    };
+        //    return View(forgetPassword);
+        //}
+        //[HttpPost]
+        //[AutoValidateAntiforgeryToken]
+        //[ActionName("ResetPassword")]
+        //public async Task<IActionResult> Reset(ForgetPassword model)
+        //{
+
+        //    AppUser user = await _userManager.FindByEmailAsync(model.User.Email);
+        //    if (user == null) return NotFound();
+        //    ForgetPassword forgetPassword = new ForgetPassword
+        //    {
+        //        Token = model.Token,
+        //        User = user
+
+        //    };
+        //    if (!ModelState.IsValid) return View(forgetPassword);
+
+        //    IdentityResult result = await _userManager.ResetPasswordAsync(user, model.Token, model.Password);
+
+        //    foreach (var item in result.Errors)
+        //    {
+        //        ModelState.AddModelError("", item.Description);
+        //    }
+        //    return RedirectToAction("Index", "Home");
+        //}
     }
 }

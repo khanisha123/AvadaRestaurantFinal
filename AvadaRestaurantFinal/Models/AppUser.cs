@@ -13,5 +13,7 @@ namespace AvadaRestaurantFinal.Models
         public string FullName { get; set; }
         public bool isActive { get; set; }
         public List<Sales> sales { get; set; }
+        public List<Comment> comments { get; set; }
+        
     }
 }

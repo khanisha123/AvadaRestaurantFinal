@@ -1,0 +1,46 @@
+﻿@using AvadaRestaurantFinal.Models
+@model IEnumerable<Product> 
+@{
+    Layout = null;
+}
+@foreach (var item in Model)
+{
+    
+    <li id="Searchpartial-li">
+        <a asp-controller="Takeout" asp-action="ProductTakeoutDetail" asp-route-id="@item.Id">
+            <div>
+               
+                    <img src="~/img/@item.ImageUrl" alt="Alternate Text" />
+                    <span>@item.Name</span> 
+            </div>
+        </a>
+    </li>
+}
+
+<style>
+    #Searchpartial-li{
+        background-color:white;
+    }
+    #Searchpartial-li a div {
+        color: black;
+        background-color: white;
+        width: 292px;
+        height: 65px;
+        padding: 8px;
+        transition: all 300ms ease-in-out;
+    }
+    
+    #Searchpartial-li a div img {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+    }
+        #Searchpartial-li a div:hover {
+            background-color: #ddd;
+        }
+
+        #Searchpartial-li a div span {
+            text-transform: capitalize;
+            font-family: 'Lora', serif;
+        }
+</style>

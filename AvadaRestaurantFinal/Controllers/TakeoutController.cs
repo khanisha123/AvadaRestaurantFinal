@@ -36,11 +36,31 @@ namespace AvadaRestaurantFinal.Controllers
             
             ProductTakeoutDetailVM productTakeoutDetailVM = new ProductTakeoutDetailVM();
             Product product = _context.products.FirstOrDefault(x => x.Id == id);
-            List<Product> products1 = _context.products.Take(3).ToList();
+            List<Product> products1 = _context.products.ToList();
             productTakeoutDetailVM.product = product;
             productTakeoutDetailVM.products = products1;
             return View(productTakeoutDetailVM);
         }
+
+        public IActionResult Search(string search)
+        {
+
+            IEnumerable<Product> products = _context.products
+                .Include(c => c.category)
+                .Where(p => p.Name.ToLower().Contains(search.ToLower()))
+                .OrderByDescending(p => p.Id)
+                .Take(7)
+                .ToList();
+            return PartialView("_SearchPartial", products);
+
+        }
+
+
+
+
+
+
+
         //public IActionResult HorsDoeuvresProductTakeoutDetail(int? id)
         //{
         //    HorsDoeuvresProduct horsDoeuvresProduct = _context.HorsDoeuvresProduct.FirstOrDefault(x => x.Id == id);

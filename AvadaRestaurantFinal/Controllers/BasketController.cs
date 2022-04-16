@@ -18,10 +18,12 @@ namespace AvadaRestaurantFinal.Controllers
     {
         private readonly Context _context;
         private readonly UserManager<AppUser> _userManager;
+
         public BasketController(Context context, UserManager<AppUser> userManager)
         {
             _context = context;
             _userManager = userManager;
+
 
         }
         public IActionResult Index()
@@ -65,11 +67,12 @@ namespace AvadaRestaurantFinal.Controllers
             {
                 isExistProduct.Count++;
             }
-
+            
 
             Response.Cookies.Append("basket", JsonConvert.SerializeObject(basketProductsList), new CookieOptions { MaxAge = TimeSpan.FromMinutes(14) });
             return RedirectToAction("Index", "Takeout");
         }
+        
         public IActionResult ShowBasket(int Id)
         {
             if (!User.Identity.IsAuthenticated) return RedirectToAction("Login", "Account");
@@ -93,8 +96,9 @@ namespace AvadaRestaurantFinal.Controllers
 
 
             }
-
             
+
+
 
             return View(products);
         }
@@ -125,7 +129,7 @@ namespace AvadaRestaurantFinal.Controllers
                 Product dbProduct = await _context.products.FindAsync(item.Id);
                 if (dbProduct.Count < item.Count)
                 {
-                    TempData["Fail"] = $"{item.Name} bazada yoxdur";
+                    TempData["Fail"] = $"{item.Name} There are not enough products in stock";
                     return RedirectToAction("ShowBasket", "Basket");
 
                 }
@@ -133,6 +137,7 @@ namespace AvadaRestaurantFinal.Controllers
                 dbProducts.Add(dbProduct);
 
             }
+            
             double total=0;
             foreach (var item in basketProducts)
             {
@@ -141,14 +146,24 @@ namespace AvadaRestaurantFinal.Controllers
                 SalesProduct salesProduct = new SalesProduct();
                 salesProduct.SalesId = sales.Id;
                 salesProduct.ProductId = dbProduct.Id;
-                TempData["Success"] = "Okay";
+                TempData["Success"] = "Your purchase was successful";
                 
                 salesProducts.Add(salesProduct);
                 total += item.Count * item.Price;
 
 
             }
-            
+            if (salesProducts != null)
+            {
+                string basketCookie = Request.Cookies["basket"];
+                List<BasketProduct> basketProductList = JsonConvert.DeserializeObject<List<BasketProduct>>(basketCookie);
+               
+                basketProductList.Clear();
+                Response.Cookies.Append("basket", JsonConvert.SerializeObject(basketProductList), new CookieOptions { MaxAge = TimeSpan.FromMinutes(14) });
+                
+
+
+            }
            
 
             sales.salesProducts = salesProducts;
@@ -162,6 +177,7 @@ namespace AvadaRestaurantFinal.Controllers
             product.Count = product.Count - basketProduct.Count;
             await _context.SaveChangesAsync();
         }
+
 
 
 

@@ -1,5 +1,7 @@
 using AvadaRestaurantFinal.DAL;
 using AvadaRestaurantFinal.Models;
+using AvadaRestaurantFinal.Services;
+using AvadaRestaurantFinal.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -47,6 +49,7 @@ namespace AvadaRestaurantFinal
                 opt.UseSqlServer(_config.GetConnectionString("DefaultConnection"));
 
             });
+            services.AddScoped<IEmailServices, EmailService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

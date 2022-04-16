@@ -25,6 +25,7 @@ namespace AvadaRestaurantFinal.Models
         public int CategoryId { get; set; }
         public Category category { get; set; }
         public int ForTake { get; set; }
+        public int ForTakeoutDetail { get; set; }
         public int Count { get; set; }
         public List<SalesProduct> salesProducts { get; set; }
     }
